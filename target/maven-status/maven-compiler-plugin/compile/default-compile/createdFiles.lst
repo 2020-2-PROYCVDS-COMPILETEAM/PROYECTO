@@ -1,0 +1,12 @@
+edu\eci\cvds\guice\GuiceContextListener.class
+edu\eci\cvds\samples\services\excepcionServiciosHistorialEquipos.class
+edu\eci\cvds\view\BasePageBean.class
+edu\eci\cvds\samples\services\serviciosHistorialEquiposFactory.class
+edu\eci\cvds\guice\GuiceContextListener$1.class
+edu\eci\cvds\samples\services\serviciosHistorialEquiposFactory$1.class
+edu\eci\cvds\samples\services\client\MyBatisEquipos.class
+edu\eci\cvds\samples\services\impl\serviciosHistorialEquiposImpl.class
+edu\eci\cvds\test\serviciosHistorialEquiposTest.class
+edu\eci\cvds\view\HistorialEquiposBean.class
+edu\eci\cvds\samples\services\serviciosHistorialEquipos.class
+edu\eci\cvds\samples\services\serviciosHistorialEquiposFactory$2.class
