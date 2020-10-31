@@ -2,7 +2,7 @@ package edu.eci.cvds.view;
 
 
 import com.google.inject.Inject;
-import edu.eci.cvds.samples.services.servicioHistorialEquipos;
+import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -12,6 +12,6 @@ import javax.faces.bean.ManagedBean;
 public class HistorialEquiposBean extends BasePageBean {
 
     @Inject
-    private servicioHistorialEquipos servicioHistorialEquipos;
+    private serviciosHistorialEquipos servicioHistorialEquipos;
 
 }
