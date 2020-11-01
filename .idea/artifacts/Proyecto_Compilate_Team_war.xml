@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Proyecto_Compilate_Team:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Proyecto_Compilate_Team</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Proyecto_Compilate_Team-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Proyecto_Compilate_Team:war exploded" />
+    </root>
+  </artifact>
+</component>
