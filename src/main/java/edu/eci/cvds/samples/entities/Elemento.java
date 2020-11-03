@@ -1,4 +1,4 @@
-package edu.eci.cvds.entities;
+package edu.eci.cvds.samples.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package edu.eci.cvds.view;
+package edu.eci.cvds.managedBeans;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;

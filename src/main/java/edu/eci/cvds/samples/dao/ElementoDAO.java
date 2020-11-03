@@ -1,4 +1,4 @@
-package edu.eci.cvds.sampleprj.dao;
+package edu.eci.cvds.samples.dao;
 
 public interface ElementoDAO {
 

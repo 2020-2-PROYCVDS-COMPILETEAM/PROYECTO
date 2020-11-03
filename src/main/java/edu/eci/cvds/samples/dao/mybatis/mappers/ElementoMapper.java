@@ -1,4 +1,4 @@
-package edu.eci.cvds.sampleprj.dao.mybatis.mappers;
+package edu.eci.cvds.samples.dao.mybatis.mappers;
 
 import org.apache.ibatis.annotations.Param;
 

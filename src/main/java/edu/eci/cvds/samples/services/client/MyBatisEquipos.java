@@ -3,13 +3,9 @@ package edu.eci.cvds.samples.services.client;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Date;
-import java.sql.SQLException;
 
-import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
-import edu.eci.cvds.view.HistorialEquiposBean;
+import edu.eci.cvds.managedBeans.HistorialEquiposBean;
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 

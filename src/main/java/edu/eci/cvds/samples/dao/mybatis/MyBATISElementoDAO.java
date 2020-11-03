@@ -1,7 +1,6 @@
-package edu.eci.cvds.sampleprj.dao.mybatis;
-import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ElementoMapper;
+package edu.eci.cvds.samples.dao.mybatis;
+import edu.eci.cvds.samples.dao.mybatis.mappers.ElementoMapper;
 import com.google.inject.Inject;
-import org.apache.ibatis.annotations.Param;
 
 public class MyBATISElementoDAO implements ElementoMapper{
 

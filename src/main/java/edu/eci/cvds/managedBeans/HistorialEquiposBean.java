@@ -1,4 +1,4 @@
-package edu.eci.cvds.view;
+package edu.eci.cvds.managedBeans;
 
 
 import com.google.inject.Inject;
