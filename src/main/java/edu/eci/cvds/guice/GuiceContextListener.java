@@ -4,6 +4,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import edu.eci.cvds.samples.dao.EquipoDAO;
+import edu.eci.cvds.samples.dao.mybatis.MyBatisEquipoDAO;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Guice;
@@ -25,6 +27,7 @@ public class GuiceContextListener implements ServletContextListener {
                 setClassPathResource("mybatis-config.xml");
 
                 // TODO Add service class associated to Stub implementation
+                bind(EquipoDAO.class).to(MyBatisEquipoDAO.class);
 
             }
         });

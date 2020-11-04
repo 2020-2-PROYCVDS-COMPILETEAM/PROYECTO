@@ -1,2 +1,92 @@
-package mappers
 
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.cvds.samples.dao.mybatis.mappers.EquipoMapper">
+
+<resultMap type='Equipo' id='EquipoResult'>
+<id property='id' column='id' />
+<result property='laboratorioId' column='Laboratorioid'/>
+<result property='activo' column='activo'/>
+<result property='nombre' column='nombre' />
+<collection property='elementos' ofType='Elemento'></collection>
+
+
+
+</resultMap>
+
+<select id="buscarEquipos" resultMap="EquipoResult"
+parameterType="int">
+SELECT
+e.id,
+e.nombre,
+e.laboratorioID
+FROM
+EQUIPO as e
+ORDER BY e.id ASC
+</select>
+
+<select id="mayor" resultMap="EquipoResult"
+parameterType="int">
+select e.id
+from EQUIPO as e
+where e.id=(select max(e.id) from EQUIPO as e)
+
+</select>
+
+
+<insert id="registrarEquipo" parameterType="edu.cvds.entities.Equipo">
+insert into equipo(activo,nombre,laboratorioId) values (True,#{nombre},Null)
+</insert>
+
+<select id="equiposActivos" resultMap="EquipoResult"
+parameterType="int">
+SELECT
+*
+FROM
+EQUIPO as e
+</select>
+
+
+<select id="equiposLibres" resultMap="EquipoResult"
+parameterType="int">
+SELECT
+e.id,
+e.nombre
+FROM
+EQUIPO as e
+WHERE e.laboratorioid is null AND e.activo=True
+ORDER BY e.id ASC
+</select>
+
+
+<update id="asociar" parameterType="map">
+UPDATE equipo set Laboratorioid=#{laboratorioid} where id=#{equipoid}
+</update>
+
+<update id="desasociar" parameterType="map">
+UPDATE equipo set Laboratorioid=null where id=#{id}
+</update>
+
+
+
+<update id="darDeBajaEquipo" parameterType="map">
+UPDATE equipo set activo=False where id=#{equipo}
+</update>
+
+<select id="equipo" resultMap="EquipoResult"
+parameterType="int">
+SELECT
+e.id,
+e.nombre,
+e.laboratorioID,
+e.activo
+FROM
+EQUIPO as e
+WHERE e.id=#{id}
+</select>
+
+
+</mapper>
