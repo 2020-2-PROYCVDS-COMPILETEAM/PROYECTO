@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.cvds.samples.dao.mybatis.mappers.UsuarioMapper">
+    <resultMap type='Usuario' id='UsuarioResult'>
+        <id property='correo' column='correo'/>
+        <result property='contraseña' column='contraseña'/>
+        <result property='username' column='username'/>
+        <result property='nombre' column='nombre'/>
+        <result property='rol' column='rol'/>
+    </resultMap>
+
+    <resultMap type='Boolean' id='iniciarResult'>
+        <result column='respuesta'/>
+    </resultMap>
+
+    <select parameterType="map" id="consultarUsuarios" resultMap="UsuarioResult">
+        select
+        u.correo,
+        u.username,
+        u.nombre,
+        u.rol
+        FROM usuario is u;
+    </select>
+
+    <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
+        select  u.correo,
+        u.username,
+        u.nombre,
+        u.rol
+        FROM usuario as u
+        WHERE #{correoUsuario} = u.correo ;
+    </select>
+
+    <insert parameterType="map" id="agregarItemRentadoACliente">
+        INSERT INTO usuario (correo,contraseña,username,nombre,rol)
+        VALUES (correoUsuario,contraseñaUsuario,usernameUsuario,nombreUsuario,rolUsuario);
+    </insert>
+
+    <select parameterType="map" id="iniciarUsuario" resultMap="iniciarResult">
+        SELECT EXISTS(SELECT * FROM usuario as u WHERE u.contraseña = #{contraseñaUsuario} and u.correo = #{contraseñaUsuario}) as respuesta;
+    </select>
+
+</mapper>
