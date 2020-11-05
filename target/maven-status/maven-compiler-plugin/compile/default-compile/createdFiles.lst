@@ -16,7 +16,6 @@ edu\eci\cvds\guice\GuiceContextListener.class
 edu\eci\cvds\samples\dao\ElementoDAO.class
 edu\eci\cvds\samples\dao\mybatis\MyBATISElementoDAO.class
 edu\eci\cvds\samples\services\serviciosHistorialEquiposFactory.class
-edu\eci\cvds\managedBeans\EquipoBean.class
 edu\eci\cvds\samples\dao\mybatis\mappers\EquipoMapper.class
 edu\eci\cvds\samples\dao\EquipoDAO.class
 edu\eci\cvds\managedBeans\HistorialEquiposBean.class

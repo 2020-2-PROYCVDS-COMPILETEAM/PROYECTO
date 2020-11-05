@@ -9,9 +9,37 @@
         <id property='id' column='id'/>
         <result property='nombre' column='nombre'/>
         <result property='descripcion' column='descripcion'/>
-        <result property='laboratorioID' column='laboratorioID'/>
+        <result property='laboratorioID' column='laboratorioId'/>
         <result property='activo' column='activo'/>
     </resultMap>
+
+    <select id="buscarEquipos" resultMap="EquipoResult" parameterType="int">
+        SELECT
+            e.id,
+            e.nombre,
+            e.laboratorioID,
+            e.descripcion
+        FROM
+            equipo as e
+        ORDER BY e.id ASC
+
+    </select>
+
+    <insert id="registrarEquipo" parameterType="edu.eci.cvds.samples.entities.Equipo">
+        insert into equipo(activo,nombre,laboratorioID) values (True,#{nombre},Null)
+    </insert>
+
+    <select id="equipo" resultMap="EquipoResult" parameterType="int">
+        SELECT
+            e.id,
+            e.nombre,
+            e.laboratorioID,
+            e.activo,
+            e.descripcion
+        FROM
+            equipo as e
+        WHERE e.id=#{id}
+    </select>
 
 
 </mapper>
