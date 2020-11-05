@@ -5,8 +5,17 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>index</title>
+        <link rel="stylesheet" href="iniciosesion.css"/>
     </h:head>
     <h:body>
-        <h1>pagina inicial</h1>
+        <div class="login">
+            <h1>Login</h1>
+            <form method="post">
+                <p:inputText class="input" type="text" name="u" placeholder="Correo" required="required" binding="#{correoUsuario}"/>
+                <p:inputText class="input" type="password" name="p" placeholder="Password" required="required" binding="#{contraseñaUsuario}"/>
+                <p:commandButton type="submit" class="btn btn-primary btn-block btn-large" value="Log In"></p:commandButton>
+            </form>
+        </div>
     </h:body>
 </html>
+
