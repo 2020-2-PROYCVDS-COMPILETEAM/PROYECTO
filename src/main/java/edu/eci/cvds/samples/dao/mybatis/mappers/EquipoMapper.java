@@ -1,17 +1,16 @@
 package edu.eci.cvds.samples.dao.mybatis.mappers;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface EquipoMapper {
 
     public List<Equipo> buscarEquipos();
 
-    public void registrarEquipo(@Param("nombre") String nombre,@Param("laboratorioId") String laboratorioId);
+    public  void registrarEquipo(@Param("nombre") String nombre, @Param("laboratorioId") String laboratorioId);
 
     public List<Equipo> equiposActivos();
 

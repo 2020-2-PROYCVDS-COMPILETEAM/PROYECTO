@@ -1,15 +1,15 @@
 package edu.eci.cvds.samples.dao;
 
-import java.util.List;
-
 import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
+
+import java.util.List;
 
 public interface EquipoDAO {
 
     public List<Equipo> listarTodas();
 
-    public void registar(String nombre, String laboratorioId);
+    public  void registrar(String nombre, String laboratorioId) ;
 
     public List<Equipo> equiposActivos();
 

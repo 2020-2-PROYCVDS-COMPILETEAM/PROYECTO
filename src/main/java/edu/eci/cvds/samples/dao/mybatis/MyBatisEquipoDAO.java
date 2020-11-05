@@ -1,13 +1,12 @@
 package edu.eci.cvds.samples.dao.mybatis;
 
-import java.util.List;
-
 import com.google.inject.Inject;
-
-import edu.eci.cvds.samples.entities.Elemento;
-import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.dao.EquipoDAO;
 import edu.eci.cvds.samples.dao.mybatis.mappers.EquipoMapper;
+import edu.eci.cvds.samples.entities.Elemento;
+import edu.eci.cvds.samples.entities.Equipo;
+
+import java.util.List;
 
 public class MyBatisEquipoDAO implements EquipoDAO {
 
@@ -20,7 +19,7 @@ public class MyBatisEquipoDAO implements EquipoDAO {
     }
 
     @Override
-    public void registar(String nombre,String laboratorioId) {
+    public void registrar(String nombre,String laboratorioId) {
         equipoMapper.registrarEquipo(nombre,laboratorioId);
     }
 
