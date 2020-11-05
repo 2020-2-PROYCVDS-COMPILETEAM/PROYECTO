@@ -3,7 +3,6 @@ package edu.eci.cvds.managedBeans;
 import com.google.inject.Inject;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -40,7 +39,7 @@ public class EquipoBean extends BasePageBean {
         catch(Exception e) {
 
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage("registrarEquipo.xhtml", new FacesMessage("Error", "No fue posible el registro"));
+            //context.addMessage("registrarEquipo.xhtml", new FacesMessage("Error", "No fue posible el registro"));
         }
 
     }
