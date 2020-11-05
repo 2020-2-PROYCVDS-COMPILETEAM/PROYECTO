@@ -1,7 +1,0 @@
-0:0:0:0:0:0:0:1 - - [04/Nov/2020:22:15:07 -0500] "GET / HTTP/1.1" 200 2107 http-bio-8080-exec-1 1252
-0:0:0:0:0:0:0:1 - - [04/Nov/2020:22:15:08 -0500] "GET /faces/javax.faces.resource/core.js?ln=primefaces&v=7.0 HTTP/1.1" 200 37704 http-bio-8080-exec-4 23
-0:0:0:0:0:0:0:1 - - [04/Nov/2020:22:15:08 -0500] "GET /faces/javax.faces.resource/jquery/jquery.js?ln=primefaces&v=7.0 HTTP/1.1" 200 87020 http-bio-8080-exec-3 26
-0:0:0:0:0:0:0:1 - - [04/Nov/2020:22:15:08 -0500] "GET /iniciosesion.css HTTP/1.1" 200 5592 http-bio-8080-exec-7 28
-0:0:0:0:0:0:0:1 - - [04/Nov/2020:22:15:08 -0500] "GET /faces/javax.faces.resource/components.js?ln=primefaces&v=7.0 HTTP/1.1" 200 422192 http-bio-8080-exec-5 78
-0:0:0:0:0:0:0:1 - - [04/Nov/2020:22:15:08 -0500] "GET /faces/javax.faces.resource/jquery/jquery-plugins.js?ln=primefaces&v=7.0 HTTP/1.1" 200 267442 http-bio-8080-exec-6 65
-0:0:0:0:0:0:0:1 - - [04/Nov/2020:22:15:08 -0500] "GET /faces/javax.faces.resource/components.css?ln=primefaces&v=7.0 HTTP/1.1" 200 93130 http-bio-8080-exec-2 139

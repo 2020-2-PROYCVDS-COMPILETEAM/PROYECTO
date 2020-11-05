@@ -9,4 +9,9 @@
         insert into Elemento(tipo,equipo,activo,marca,nombre) values ( #{tipo}, NULL, true, #{marca}, #{nombre})
     </insert>
 
+    <resultMap type='Usuario' id='UsuarioResult'>
+        <id property='id' column='id'/>
+        <result property='nombre' column='nombre'/>
+    </resultMap>
+
 </mapper>

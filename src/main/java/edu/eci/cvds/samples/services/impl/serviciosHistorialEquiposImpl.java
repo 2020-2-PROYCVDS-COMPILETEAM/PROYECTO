@@ -3,6 +3,7 @@ package edu.eci.cvds.samples.services.impl;
 import com.google.inject.Inject;
 import edu.eci.cvds.samples.dao.ElementoDAO;
 import edu.eci.cvds.samples.dao.EquipoDAO;
+import edu.eci.cvds.samples.dao.UsuarioDAO;
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
@@ -14,6 +15,9 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
 
     @Inject
     private ElementoDAO elementoDAO;
+
+    @Inject
+    private UsuarioDAO usuarioDAO;
 
 
     @Override
