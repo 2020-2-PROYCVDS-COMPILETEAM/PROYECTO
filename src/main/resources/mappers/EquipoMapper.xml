@@ -4,6 +4,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.eci.cvds.samples.dao.mybatis.mappers.EquipoMapper">
+    
+    <resultMap id="EquipoResult" type="Equipo">
+        <id property='id' column='id'/>
+        <result property='nombre' column='nombre'/>
+        <result property='descripcion' column='descripcion'/>
+        <result property='laboratorioID' column='laboratorioID'/>
+        <result property='activo' column='activo'/>
+    </resultMap>
 
 
 </mapper>
