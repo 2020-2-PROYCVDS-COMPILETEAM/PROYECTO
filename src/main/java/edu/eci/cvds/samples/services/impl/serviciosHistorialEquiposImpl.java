@@ -1,6 +1,7 @@
 package edu.eci.cvds.samples.services.impl;
 
 import com.google.inject.Inject;
+import edu.eci.cvds.samples.dao.ElementoDAO;
 import edu.eci.cvds.samples.dao.EquipoDAO;
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
@@ -10,6 +11,9 @@ import java.util.List;
 public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos {
     @Inject
     private EquipoDAO equipoDAO;
+
+    @Inject
+    private ElementoDAO elementoDAO;
 
 
     @Override
@@ -45,5 +49,10 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     @Override
     public List<Equipo> listarEquiposDisponibles() {
         return null;
+    }
+
+    @Override
+    public void registrarElemento(String tipo, String marca, String nombre, int id) {
+
     }
 }

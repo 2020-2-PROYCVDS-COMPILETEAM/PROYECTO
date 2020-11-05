@@ -1,6 +1,8 @@
 package edu.eci.cvds.samples.services;
 
 import com.google.inject.Injector;
+import edu.eci.cvds.samples.dao.ElementoDAO;
+import edu.eci.cvds.samples.dao.mybatis.MyBATISElementoDAO;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 
@@ -17,6 +19,7 @@ public class serviciosHistorialEquiposFactory {
             protected void initialize(){
                 install(JdbcHelper.PostgreSQL);
                 setClassPathResource("mybatis-config.xml");
+                bind(ElementoDAO.class).to(MyBATISElementoDAO.class);
             }
         });
 
