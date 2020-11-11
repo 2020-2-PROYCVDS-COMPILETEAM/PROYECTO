@@ -8,9 +8,6 @@
 <h:head>
     <title>Registrar Equipo</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-
 </h:head>
 <h:body>
     <h1>Registrar Equipo</h1>
@@ -18,31 +15,26 @@
         <h:panelGrid columns="2" cellpadding="10">
 
             <h:outputText value="Nombre: " />
-            <h:inputText value="#{HistorialEquiposBean.nombre}"/>
+            <h:inputText value="#{equipoBean.nombre}"/>
 
             <h:outputText value="Laboratorio: " />
-            <h:inputText value="#{HistorialEquiposBean.laboratorioId}"/>
+            <h:inputText value="#{equipoBean.laboratorioId}"/>
 
             <h:outputText value="Pantalla: " />
-            <h:inputText value="#{HistorialEquiposBean.pantallaID}"/>
+            <h:inputText value="#{equipoBean.pantallaID}"/>
 
             <h:outputText value="Teclado: " />
-            <h:inputText value="#{HistorialEquiposBean.tecladoID}"/>
+            <h:inputText value="#{equipoBean.tecladoID}"/>
 
             <h:outputText value="Mouse: " />
-            <h:inputText value="#{HistorialEquiposBean.mouseID}"/>
+            <h:inputText value="#{equipoBean.mouseID}"/>
 
             <h:outputText value="Torre: " />
-            <h:inputText value="#{HistorialEquiposBean.torreID}"/>
+            <h:inputText value="#{equipoBean.torreID}"/>
 
-            <p:commandButton value="Registrar"   action="#{HistorialEquiposBean.registrar()}" style="margin-right:20px;"  />
-            <p:commandButton type="submit" class="btn btn-primary btn-block btn-large" value="Log In"></p:commandButton>
 
+            <p:commandButton value="Registrar"   action="#{equipoBean.registrar()}" style="margin-right:20px;"  />
         </h:panelGrid>
-
-        <br></br>
     </h:form>
-
-
 </h:body>
 </html>

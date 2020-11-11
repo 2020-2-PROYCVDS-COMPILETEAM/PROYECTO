@@ -1,2 +1,0 @@
-127.0.0.1 - - [10/Nov/2020:15:16:51 -0500] "GET / HTTP/1.1" 200 36717 http-bio-8080-exec-2 137
-127.0.0.1 - - [10/Nov/2020:15:16:52 -0500] "GET /assets/img/favicon.png HTTP/1.1" 200 29697 http-bio-8080-exec-3 5

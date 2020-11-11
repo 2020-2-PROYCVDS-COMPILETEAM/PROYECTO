@@ -10,10 +10,13 @@ import edu.eci.cvds.samples.dao.UsuarioDAO;
 import edu.eci.cvds.samples.dao.mybatis.MyBATISElementoDAO;
 import edu.eci.cvds.samples.dao.mybatis.MyBATISUsuarioDAO;
 import edu.eci.cvds.samples.dao.mybatis.MyBatisEquipoDAO;
+import edu.eci.cvds.samples.services.impl.serviciosHistorialEquiposImpl;
+import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+
 
 public class GuiceContextListener implements ServletContextListener {
 
@@ -34,6 +37,7 @@ public class GuiceContextListener implements ServletContextListener {
                 bind(ElementoDAO.class).to(MyBATISElementoDAO.class);
                 bind(EquipoDAO.class).to(MyBatisEquipoDAO.class);
                 bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+                bind(serviciosHistorialEquipos.class).to(serviciosHistorialEquiposImpl.class);
 
             }
         });

@@ -5,11 +5,8 @@ import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
-import org.junit.Assert;
 
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
-import edu.eci.cvds.samples.services.excepcionServiciosHistorialEquipos;
-import edu.eci.cvds.samples.services.serviciosHistorialEquiposFactory;
 
 import java.util.ArrayList;
 
@@ -21,10 +18,6 @@ public class serviciosHistorialEquiposTest {
     serviciosHistorialEquipos serviciosHistorialEquipos;
     private boolean True;
 
-
-    public serviciosHistorialEquiposTest() {
-        serviciosHistorialEquipos = serviciosHistorialEquiposFactory.getInstance().getServiciosHistorialEquiposTesting();
-    }
 
     @Test
     public void pruebaInsertarEquipo(){

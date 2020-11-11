@@ -51,12 +51,14 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
+    public void registrarElemento(String tipo, String marca,String nombre,int idEqui) {
+        elementoDAO.registrarElemento(tipo,marca,nombre,idEqui);
+
+    }
+
+    @Override
     public List<Equipo> listarEquiposDisponibles() {
         return null;
     }
 
-    @Override
-    public void registrarElemento(String tipo, String marca, String nombre, int id) {
-
-    }
 }
