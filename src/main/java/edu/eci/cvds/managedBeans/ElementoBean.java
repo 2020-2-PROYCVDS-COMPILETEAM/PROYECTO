@@ -23,7 +23,7 @@ public class ElementoBean extends BasePageBean {
     private String tipo;
     private String nombre;
     private int idElem;
-    private int idEqui = -1;
+    private int idEqui;
     private boolean activo;
 
     public int getId() {
@@ -38,12 +38,36 @@ public class ElementoBean extends BasePageBean {
         return marca;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
     public String getTipo() {
         return tipo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getIdEqui() {
+        return idEqui;
+    }
+
+    public int getIdElem() {
+        return idElem;
+    }
+
+    public void setIdElem(int idElem) {
+        this.idElem = idElem;
+    }
+
+    public void setIdEqui(int idEqui) {
+        this.idEqui = idEqui;
     }
 
     public void setTipo(String tipo) {
@@ -53,8 +77,10 @@ public class ElementoBean extends BasePageBean {
     public void registrarElemento() {
         try {
             FacesContext context = FacesContext.getCurrentInstance();
+            System.out.println("entre");
             serviciosHistorialEquipos.registrarElemento(tipo, marca, nombre, idEqui);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Error", "Es posible que este tratando de ingresar una ID ya registrada"));
         }

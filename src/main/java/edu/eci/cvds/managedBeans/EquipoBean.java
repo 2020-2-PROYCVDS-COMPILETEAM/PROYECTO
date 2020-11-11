@@ -1,23 +1,20 @@
 package edu.eci.cvds.managedBeans;
 
-import javax.faces.application.FacesMessage;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
+
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
 @ManagedBean(name = "equipoBean")
-@SessionScoped
+@ApplicationScoped
 public class EquipoBean extends BasePageBean {
 
     @Inject
     private serviciosHistorialEquipos serviciosHistorialEquipos;
 
-
-    /*private Injector injector;*/
     private int id;
     private String nombre;
     private String laboratorioId;
@@ -27,20 +24,13 @@ public class EquipoBean extends BasePageBean {
     private int torreID;
     private int tecladoID;
 
-	/*public EquipoBean() {
-		injector = super.getInjector();
-		laboratorioServices = injector.getInstance(LaboratorioServices.class);
-	}*/
 
     public void registrar() {
         try {
-            FacesContext context = FacesContext.getCurrentInstance();
             serviciosHistorialEquipos.registrarEquipo(nombre, laboratorioId);
 
         } catch (Exception e) {
-
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage("registrarEquipo.xhtml", new FacesMessage("Error", "No fue posible el registro"));
+            System.out.println("error mk gordo");
         }
 
     }

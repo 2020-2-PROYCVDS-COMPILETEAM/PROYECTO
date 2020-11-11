@@ -10,6 +10,7 @@ import edu.eci.cvds.samples.dao.UsuarioDAO;
 import edu.eci.cvds.samples.dao.mybatis.MyBATISElementoDAO;
 import edu.eci.cvds.samples.dao.mybatis.MyBATISUsuarioDAO;
 import edu.eci.cvds.samples.dao.mybatis.MyBatisEquipoDAO;
+import edu.eci.cvds.samples.services.ServiciosHistorialFactory;
 import edu.eci.cvds.samples.services.impl.serviciosHistorialEquiposImpl;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 import org.mybatis.guice.XMLMyBatisModule;

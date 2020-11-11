@@ -7,12 +7,8 @@
 <mapper namespace="edu.eci.cvds.samples.dao.mybatis.mappers.ElementoMapper">
 
     <insert id="registrarElemento" parameterType="edu.eci.cvds.samples.entities.Elemento">
-        insert into Elemento(tipo,equipo,activo,marca,nombre) values ( #{tipo}, NULL, true, #{marca}, #{nombre})
+        insert into elemento(tipo,equipo,activo,marca,nombre) values ( #{tipo}, NULL, true, #{marca}, #{nombre})
     </insert>
 
-    <resultMap type='Usuario' id='UsuarioResult'>
-        <id property='id' column='id'/>
-        <result property='nombre' column='nombre'/>
-    </resultMap>
 
 </mapper>

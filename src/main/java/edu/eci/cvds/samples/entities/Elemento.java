@@ -16,13 +16,10 @@ public class Elemento implements Serializable {
         super();
     }
 
-    public Elemento(int id, String tipo, String equipo, boolean activo, String marca, String nombre){
-        this.id = id;
-        this.tipo = tipo;
-        this.equipo = equipo;
-        this.activo = activo;
-        this.marca = marca;
-        this.nombre = nombre;
+    public Elemento(int id, String tipo, String equipo) {
+        this.setId(id);
+        this.setTipo(tipo);
+        this.setEquipo(equipo);
     }
 
     public int getId() {

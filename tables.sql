@@ -17,13 +17,15 @@ create table Equipo (
 	FOREIGN KEY (laboratorio) REFERENCES Laboratorio(id));
 	
 create table Elemento (
-	id int,
-	nombre varchar,
-	descripcion varchar,
+	id serial primary key,
+	tipo varchar,
+	equipo int,
+	activo boolean,
 	marca varchar,
-	Equipo int,
-	PRIMARY KEY (id),
-	FOREIGN KEY (Equipo) REFERENCES Equipo(id));
+	nombre varchar);
+
+insert into elemento(id,tipo,equipo,activo,marca,nombre) values (1,'pantalla',null,true,'dell','mk');
+
 
 create table usuario (
 	correo varchar,
@@ -94,6 +96,22 @@ create table Novedad_Elemento (
 	CONSTRAINT PK_Novedad_Elemento PRIMARY KEY (id_Novedad,id_Elemento),
 	FOREIGN KEY (id_Novedad) REFERENCES novedad(id),
 	FOREIGN KEY (id_Elemento) REFERENCES elemento(id));
+
+drop table Novedad_Elemento;
+drop table Novedad_Equipo;
+drop table Novedad_Laboratorio;
+
+drop table reporte_elemento;
+drop table reporte_equipo;
+drop table reporte_laboratorio;
+
+drop table Novedad;
+drop table reporte;
+drop table usuario;
+drop table elemento;
+drop table equipo;
+drop table laboratorio;
+
 
 
 

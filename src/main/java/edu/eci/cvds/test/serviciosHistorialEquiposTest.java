@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 import org.apache.ibatis.session.SqlSession;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
