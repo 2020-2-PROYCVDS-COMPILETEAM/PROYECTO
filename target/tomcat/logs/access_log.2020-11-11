@@ -1,2 +1,0 @@
-0:0:0:0:0:0:0:1 - - [11/Nov/2020:21:47:24 -0500] "GET / HTTP/1.1" 200 1955 http-bio-8080-exec-1 749
-0:0:0:0:0:0:0:1 - - [11/Nov/2020:21:47:32 -0500] "POST /faces/RegistrarEquipo.xhtml HTTP/1.1" 200 221 http-bio-8080-exec-2 1300
