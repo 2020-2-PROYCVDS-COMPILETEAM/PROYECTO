@@ -30,7 +30,7 @@ public class EquipoBean extends BasePageBean {
             serviciosHistorialEquipos.registrarEquipo(nombre, laboratorioId);
 
         } catch (Exception e) {
-            System.out.println("error mk gordo");
+            System.out.println(e.getMessage());
         }
 
     }

@@ -8,13 +8,14 @@ create table Laboratorio (
 	PRIMARY KEY (id));
 
 create table Equipo (
-	id int,
+	id serial primary key,
 	nombre varchar,
 	descripcion varchar,
 	laboratorio int,
 	activo boolean,
-	PRIMARY KEY (id),
 	FOREIGN KEY (laboratorio) REFERENCES Laboratorio(id));
+
+insert into Equipo(id,nombre,descripcion,laboratorio,activo) values (1,'dell','equipo del lab',null,true);
 	
 create table Elemento (
 	id serial primary key,
@@ -22,7 +23,8 @@ create table Elemento (
 	equipo int,
 	activo boolean,
 	marca varchar,
-	nombre varchar);
+	nombre varchar,
+	Foreign Key (equipo) references Equipo(id));
 
 insert into elemento(id,tipo,equipo,activo,marca,nombre) values (1,'pantalla',null,true,'dell','mk');
 
@@ -96,6 +98,11 @@ create table Novedad_Elemento (
 	CONSTRAINT PK_Novedad_Elemento PRIMARY KEY (id_Novedad,id_Elemento),
 	FOREIGN KEY (id_Novedad) REFERENCES novedad(id),
 	FOREIGN KEY (id_Elemento) REFERENCES elemento(id));
+
+
+
+
+
 
 drop table Novedad_Elemento;
 drop table Novedad_Equipo;
