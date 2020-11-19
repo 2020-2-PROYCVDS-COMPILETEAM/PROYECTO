@@ -1,22 +1,25 @@
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\entities\Equipo.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\entities\Elemento.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\services\serviciosHistorialEquipos.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\UsuarioDAO.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\mappers\ElementoMapper.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\services\impl\serviciosHistorialEquiposImpl.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\test\serviciosHistorialEquiposTest.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\MyBATISUsuarioDAO.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\PersistenceException.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\EquipoBean.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\guice\GuiceContextListener.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\mappers\UsuarioMapper.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\MyBATISElementoDAO.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\ElementoBean.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\ElementoDAO.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\services\ServiciosHistorialFactory.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\BasePageBean.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\entities\Usuario.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\HistorialEquiposBean.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\MyBatisEquipoDAO.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\mappers\EquipoMapper.java
-C:\Users\johan\Desktop\8 semestre\CVDS labs\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\EquipoDAO.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\guice\GuiceContextListener.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\UsuarioDAO.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\LoginBean.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\EquipoDAO.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\MyBatisEquipoDAO.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\mappers\UsuarioMapper.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\authc\SessionLogger.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\BasePageBean.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\EquipoBean.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\mappers\ElementoMapper.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\HistorialEquiposBean.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\authc\ShiroSession.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\services\serviciosHistorialEquipos.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\entities\Equipo.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\MyBATISUsuarioDAO.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\entities\Elemento.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\ElementoBean.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\ElementoDAO.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\entities\Usuario.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\MyBATISElementoDAO.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\services\ServiciosHistorialFactory.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\test\serviciosHistorialEquiposTest.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\Exceptions\PersistenceException.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\services\impl\serviciosHistorialEquiposImpl.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\mappers\EquipoMapper.java

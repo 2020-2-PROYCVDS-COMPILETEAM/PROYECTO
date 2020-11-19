@@ -1,9 +1,11 @@
 package edu.eci.cvds.samples.dao;
 
+import edu.eci.cvds.samples.Exceptions.PersistenceException;
+
 import java.util.List;
 
 public interface UsuarioDAO {
-    public List<UsuarioDAO> consultarUsuarios() throws PersistenceException;
+    public List<UsuarioDAO> consultarUsuarios() throws PersistenceException, PersistenceException;
 
     public UsuarioDAO consultarUsuario(String correo)  throws PersistenceException;
 

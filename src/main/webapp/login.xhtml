@@ -10,10 +10,10 @@
     <h:body>
         <div class="login">
             <h1>Login</h1>
-            <form method="post">
-                <p:inputText class="input" type="text" name="u" placeholder="Correo" required="required" binding="#{correoUsuario}"/>
-                <p:inputText class="input" type="password" name="p" placeholder="Password" required="required" binding="#{contraseñaUsuario}"/>
-                <p:commandButton type="submit" class="btn btn-primary btn-block btn-large" value="Log In"></p:commandButton>
+            <form method="post" action="#">
+                <p:inputText type="text" name="username" placeholder="Correo" required="required" value="#{LoginBean.username}"/>
+                <p:inputText class="input" type="password" name="p" placeholder="Password" required="required" value="#{LoginBean.contraseña}"/>
+                <p:commandButton type="submit" class="btn btn-primary btn-block btn-large" value="Log In" action="#{LoginBean.login()}"></p:commandButton>
             </form>
         </div>
     </h:body>

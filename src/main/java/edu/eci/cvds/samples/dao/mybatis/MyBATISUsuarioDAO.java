@@ -1,7 +1,7 @@
 package edu.eci.cvds.samples.dao.mybatis;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.samples.dao.PersistenceException;
+import edu.eci.cvds.samples.Exceptions.PersistenceException;
 import edu.eci.cvds.samples.dao.UsuarioDAO;
 import edu.eci.cvds.samples.dao.mybatis.mappers.UsuarioMapper;
 

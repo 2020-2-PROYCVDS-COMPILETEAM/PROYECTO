@@ -1,46 +1,69 @@
 package edu.eci.cvds.samples.services;
 
 import com.google.inject.Injector;
+import edu.eci.cvds.authc.SessionLogger;
+import edu.eci.cvds.authc.ShiroSession;
+import edu.eci.cvds.samples.dao.ElementoDAO;
+import edu.eci.cvds.samples.dao.EquipoDAO;
+import edu.eci.cvds.samples.dao.UsuarioDAO;
+import edu.eci.cvds.samples.dao.mybatis.MyBATISElementoDAO;
+import edu.eci.cvds.samples.dao.mybatis.MyBATISUsuarioDAO;
+import edu.eci.cvds.samples.dao.mybatis.MyBatisEquipoDAO;
+import edu.eci.cvds.samples.services.impl.serviciosHistorialEquiposImpl;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
+
+import java.util.Optional;
 
 import static com.google.inject.Guice.createInjector;
 
 public class ServiciosHistorialFactory {
 
-    private static final ServiciosHistorialFactory instance= new ServiciosHistorialFactory();
-    private static Injector injector;
-    private static Injector testInjector;
+    private static ServiciosHistorialFactory instance= new ServiciosHistorialFactory();
 
-    public ServiciosHistorialFactory(){
-        injector = createInjector(new XMLMyBatisModule() {
+    private static Optional<Injector> optInjector;
+
+    private Injector myBatisInjector(String env, String pathResource) {
+        return createInjector(new XMLMyBatisModule() {
             @Override
             protected void initialize() {
-                install(JdbcHelper.PostgreSQL);
-                setClassPathResource("mybatis-config.xml");
+                setEnvironmentId(env);
+                setClassPathResource(pathResource);
+
+                bind(ElementoDAO.class).to(MyBATISElementoDAO.class);
+                bind(EquipoDAO.class).to(MyBatisEquipoDAO.class);
+                bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+                bind(serviciosHistorialEquipos.class).to(serviciosHistorialEquiposImpl.class);
+                bind(SessionLogger.class).to(ShiroSession.class);
+
             }
         });
-
-        testInjector = createInjector(new XMLMyBatisModule() {
-            @Override
-            protected void initialize() {
-                install(JdbcHelper.PostgreSQL);
-                setClassPathResource("mybatis-config-h2.xml");
-            }
-        });
-
     }
 
     public ServiciosHistorialFactory getServiciosHistorialEquipos(){
-        return injector.getInstance(ServiciosHistorialFactory.class);
+        if (!optInjector.isPresent()) {
+            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+        }
+        return optInjector.get().getInstance(ServiciosHistorialFactory.class);
+
     }
 
     public ServiciosHistorialFactory getServiciosHistorialEquiposTesting(){
-        return testInjector.getInstance(ServiciosHistorialFactory.class);
+        if (!optInjector.isPresent()) {
+            optInjector = Optional.of(myBatisInjector("development","mybatis-config-h2.xml"));
+        }
+        return optInjector.get().getInstance(ServiciosHistorialFactory.class);
     }
 
-    public ServiciosHistorialFactory getInstance(){
+    public static ServiciosHistorialFactory getInstance(){
         return instance;
+    }
+
+    public SessionLogger getLogServices(){
+        if (!optInjector.isPresent()) {
+            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+        }
+        return optInjector.get().getInstance(SessionLogger.class);
     }
 
 }

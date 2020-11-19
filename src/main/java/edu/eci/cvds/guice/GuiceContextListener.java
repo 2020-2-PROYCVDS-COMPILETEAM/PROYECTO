@@ -4,6 +4,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import edu.eci.cvds.authc.SessionLogger;
+import edu.eci.cvds.authc.ShiroSession;
 import edu.eci.cvds.samples.dao.ElementoDAO;
 import edu.eci.cvds.samples.dao.EquipoDAO;
 import edu.eci.cvds.samples.dao.UsuarioDAO;
@@ -39,7 +41,7 @@ public class GuiceContextListener implements ServletContextListener {
                 bind(EquipoDAO.class).to(MyBatisEquipoDAO.class);
                 bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
                 bind(serviciosHistorialEquipos.class).to(serviciosHistorialEquiposImpl.class);
-
+                bind(SessionLogger.class).to(ShiroSession.class);
             }
         });
 
