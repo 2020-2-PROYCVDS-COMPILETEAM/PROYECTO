@@ -1,5 +1,3 @@
-
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -10,16 +8,13 @@ body {
   background-size: cover;
   position: relative;
 }
+[0:04] RUEDA RODRIGUEZ JOHAN DAVID
 
-body::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(49, 71, 89, 0.6);
-}
+/* 600px / 16 = 37.5em */
+@media only screen and (min-width: 37.5em) {
+body:before {
+	content: "We're in the 600px/37.5em -> 768px/48em range";
+	}
 
 @media (min-width: 1024px) {
   body {
