@@ -64,7 +64,39 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+
+            <h:form>
+                <h:panelGrid columns="2" cellpadding="10">
+
+
+                    <p:outputLabel value="Tipo:" />
+                    <p:selectOneMenu id="console" value="#{elementoBean.tipo}" style="width:125px">
+                        <f:selectItem itemLabel="Pantalla" itemValue="Pantalla" />
+                        <f:selectItem itemLabel="Torre" itemValue="Torre" />
+                        <f:selectItem itemLabel="Mouse" itemValue="Mouse" />
+                        <f:selectItem itemLabel="Teclado" itemValue="Teclado" />
+                    </p:selectOneMenu>
+
+
+
+                    <h:outputText value="Equipo(Opcional): " />
+                    <h:inputText value="#{elementoBean.idEqui}"/>
+
+
+
+                    <h:outputText value="Marca: " />
+                    <h:inputText value="#{elementoBean.marca}"/>
+
+
+
+                    <h:outputText value="Nombre: " />
+                    <h:inputText value="#{elementoBean.nombre}"/>
+
+
+
+                    <p:commandButton value="Registrar Elemento" action="#{elementoBean.registrarElemento()}" style="margin-right:20px;" />
+                </h:panelGrid>
+            </h:form>
         </div>
 
         <div id="pie">

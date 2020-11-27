@@ -10,6 +10,9 @@ import edu.eci.cvds.samples.entities.Elemento;
 import com.google.inject.Inject;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 @ManagedBean(name = "elementoBean")
 @ApplicationScoped
 public class ElementoBean extends BasePageBean {
@@ -84,6 +87,36 @@ public class ElementoBean extends BasePageBean {
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Error", "Es posible que este tratando de ingresar una ID ya registrada"));
         }
+    }
+
+    public ArrayList<Elemento> getElementos(){
+        FacesContext context = FacesContext.getCurrentInstance();
+        return serviciosHistorialEquipos.reporteElementos();
+    }
+
+    public void asociarElemento() {
+        try {
+            FacesContext context = FacesContext.getCurrentInstance();
+            serviciosHistorialEquipos.asociarElemento(idElem, idEqui);
+            java.util.Date fecha = new Date();
+            //serviciosHistorialEquipos.registrarNovedadElemento(idElem, idEqui, fecha, "Cambio de asociación", laboratorioServices.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getUserName(), "Se asocio el elemento registrado con la ID:"+idElem+" al equipo registrado con la ID:"+idEqui);
+        }
+        catch(Exception e) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Error", "Es posible que este tratando de ingresar una ID ya registrada"));
+        }
+    }
+
+    public void darDeBaja(int elemento) {
+        try {
+            FacesContext context = FacesContext.getCurrentInstance();
+            serviciosHistorialEquipos.darDeBajaElemento(elemento);
+        }
+        catch(Exception e) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage("registrarEquipo.xhtml", new FacesMessage("Error", "No fue posible Desasociar"));
+        }
+
     }
 
 }

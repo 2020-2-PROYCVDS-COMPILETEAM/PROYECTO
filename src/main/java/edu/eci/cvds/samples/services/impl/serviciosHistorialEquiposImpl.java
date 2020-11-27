@@ -4,9 +4,11 @@ import com.google.inject.Inject;
 import edu.eci.cvds.samples.dao.ElementoDAO;
 import edu.eci.cvds.samples.dao.EquipoDAO;
 import edu.eci.cvds.samples.dao.UsuarioDAO;
+import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos {
@@ -37,7 +39,7 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
 
     @Override
     public int mayorEquipo() {
-        return 0;
+        return equipoDAO.mayor();
     }
 
     @Override
@@ -54,6 +56,21 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     public void registrarElemento(String tipo, String marca,String nombre,int idEqui) {
         elementoDAO.registrarElemento(tipo,marca,nombre,idEqui);
 
+    }
+
+    @Override
+    public void asociarElemento(int elementoID, int equipoID) {
+        elementoDAO.asociarElemento(elementoID, equipoID);
+    }
+
+    @Override
+    public void darDeBajaElemento(int elemento) {
+        elementoDAO.darDeBajaElemento(elemento);
+    }
+
+    @Override
+    public ArrayList<Elemento> reporteElementos() {
+        return elementoDAO.reporteElementos();
     }
 
     @Override

@@ -6,9 +6,39 @@
 
 <mapper namespace="edu.eci.cvds.samples.dao.mybatis.mappers.ElementoMapper">
 
+    <resultMap type='Elemento' id='reporteElementoResult'>
+        <id property='id' column='id' />
+        <result property='tipo' column='tipo'/>
+        <result property='equipo' column='equipo'/>
+        <result property='activo' column='activo'/>
+        <result property='nombre' column='nombre' />
+        <result property='marca' column='marca'/>
+    </resultMap>
+
+    <select id="reporteElementos" resultMap="reporteElementoResult" parameterType="int">
+        SELECT e.id,e.tipo,e.equipo,e.activo,e.nombre,e.marca
+        FROM Elemento as e
+
+    </select>
+
+
+
     <insert id="registrarElemento" parameterType="edu.eci.cvds.samples.entities.Elemento">
         insert into elemento(tipo,equipo,activo,marca,nombre) values ( #{tipo}, NULL, true, #{marca}, #{nombre})
     </insert>
+
+    <update id="desasociarElemento" parameterType="map">
+		UPDATE elemento set equipo=NULL where equipo=#{idEqui} and tipo=(select tipo from elemento where id=#{idElem})
+	</update>
+
+    <update id="asociarElemento" parameterType="map">
+		UPDATE elemento set equipo=#{idEqui} where id=#{idElem} and activo is true
+	</update>
+
+    <update id="darDeBajaElemento" parameterType="map">
+		UPDATE elemento set activo=False where id=#{elementoId} and equipoid is NULL
+	</update>
+
 
 
 </mapper>

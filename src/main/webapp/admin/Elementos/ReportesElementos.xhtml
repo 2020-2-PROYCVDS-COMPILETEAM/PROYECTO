@@ -64,7 +64,33 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+
+            <h1>Reporte de Elementos</h1>
+            <h:form>
+
+            <p:dataTable id="elemento_table" var="elemento" value="#{elementoBean.elementos}" rows="10"
+                         paginator="true">
+                <p:column var="elem" filterBy="#{elemento.id}" headerText="Elementos Existentes-ID">
+                    <h:outputText value="#{elemento.id}" />
+                </p:column>
+                <p:column filterBy="#{elemento.tipo}" headerText="Tipo">
+                    <h:outputText value="#{elemento.tipo}" />
+                </p:column>
+                <p:column filterBy="#{elemento.equipo}" headerText="Equipo al que pertenece">
+                    <h:outputText value="#{elemento.equipo}" />
+                </p:column>
+                <p:column filterBy="#{elemento.activo}" headerText="Activo">
+                    <h:outputText value="#{elemento.activo}" />
+                </p:column>
+                <p:column filterBy="#{elemento.marca}" headerText="Marca">
+                    <h:outputText value="#{elemento.marca}" />
+                </p:column>
+                <p:column filterBy="#{elemento.nombre}" headerText="Nombre">
+                    <h:outputText value="#{elemento.nombre}" />
+            </p:column>
+            </p:dataTable>
+            </h:form>
+
         </div>
 
         <div id="pie">

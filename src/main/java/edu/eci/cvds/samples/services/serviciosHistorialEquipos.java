@@ -2,6 +2,8 @@ package edu.eci.cvds.samples.services;
 
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.entities.Elemento;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public interface serviciosHistorialEquipos {
@@ -21,5 +23,11 @@ public interface serviciosHistorialEquipos {
     public List<Equipo> listarEquiposDisponibles();
 
     void registrarElemento(String tipo, String marca, String nombre, int id);
+
+    void asociarElemento(int elementoID,int equipoID );
+
+    public void darDeBajaElemento(int elemento);
+
+    ArrayList<Elemento> reporteElementos();
 
 }

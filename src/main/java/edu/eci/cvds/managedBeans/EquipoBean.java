@@ -2,6 +2,7 @@ package edu.eci.cvds.managedBeans;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 
 import com.google.inject.Inject;
@@ -27,12 +28,18 @@ public class EquipoBean extends BasePageBean {
 
     public void registrar() {
         try {
-            serviciosHistorialEquipos.registrarEquipo(nombre, laboratorioId);
+            FacesContext context = FacesContext.getCurrentInstance();
+            serviciosHistorialEquipos.registrarEquipo(nombre,laboratorioId);
+            int ma=serviciosHistorialEquipos.mayorEquipo();
+            System.out.println(ma);
+            serviciosHistorialEquipos.asociarElemento(mouseID, ma);
+            serviciosHistorialEquipos.asociarElemento(pantallaID, ma);
+            serviciosHistorialEquipos.asociarElemento(torreID, ma);
+            serviciosHistorialEquipos.asociarElemento(tecladoID, ma);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     public String getNombre() {
