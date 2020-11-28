@@ -1,5 +1,6 @@
 edu\eci\cvds\samples\entities\Elemento.class
 edu\eci\cvds\managedBeans\ElementoBean.class
+edu\eci\cvds\managedBeans\NovedadBean.class
 edu\eci\cvds\samples\dao\UsuarioDAO.class
 edu\eci\cvds\samples\Exceptions\PersistenceException.class
 edu\eci\cvds\samples\services\ServiciosHistorialFactory$1.class
@@ -19,6 +20,7 @@ edu\eci\cvds\samples\dao\ElementoDAO.class
 edu\eci\cvds\samples\dao\mybatis\MyBATISElementoDAO.class
 edu\eci\cvds\managedBeans\EquipoBean.class
 edu\eci\cvds\samples\dao\mybatis\mappers\EquipoMapper.class
+edu\eci\cvds\samples\entities\Novedad.class
 edu\eci\cvds\samples\dao\EquipoDAO.class
 edu\eci\cvds\managedBeans\HistorialEquiposBean.class
 edu\eci\cvds\samples\services\impl\serviciosHistorialEquiposImpl.class
