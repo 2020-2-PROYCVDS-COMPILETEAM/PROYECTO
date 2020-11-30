@@ -2,6 +2,7 @@ package edu.eci.cvds.samples.services;
 
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.entities.Elemento;
+import edu.eci.cvds.samples.entities.Laboratorio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,4 +31,11 @@ public interface serviciosHistorialEquipos {
 
     ArrayList<Elemento> reporteElementos();
 
+    void crearLaboratorio(String id, String nombre, String descripcion, int capacidadDeEquipos);
+
+    void asociarLaboratorio(String laboratorioid, int equipoid);
+
+    List<Laboratorio> listarLaboratorios();
+
+    void desasociarLaboratorio(int id);
 }

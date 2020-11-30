@@ -4,8 +4,10 @@ import com.google.inject.Inject;
 import edu.eci.cvds.samples.dao.ElementoDAO;
 import edu.eci.cvds.samples.dao.EquipoDAO;
 import edu.eci.cvds.samples.dao.UsuarioDAO;
+import edu.eci.cvds.samples.dao.LaboratorioDAO;
 import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
+import edu.eci.cvds.samples.entities.Laboratorio;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
 import java.util.ArrayList;
@@ -20,6 +22,9 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
 
     @Inject
     private UsuarioDAO usuarioDAO;
+
+    @Inject
+    private LaboratorioDAO laboratorioDAO;
 
 
     @Override
@@ -74,8 +79,30 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
+    public void crearLaboratorio(String id, String nombre, String descripcion, int capacidadEquipos) {
+        laboratorioDAO.crear(id,nombre,descripcion,capacidadEquipos);
+    }
+
+    @Override
+    public void asociarLaboratorio(String laboratorioid, int equipoid) {
+        equipoDAO.asociar(laboratorioid,equipoid);
+
+    }
+
+    @Override
+    public List<Laboratorio> listarLaboratorios() {
+        return laboratorioDAO.listar();
+    }
+
+    @Override
+    public void desasociarLaboratorio(int id) {
+        equipoDAO.desasociar(id);
+
+    }
+
+    @Override
     public List<Equipo> listarEquiposDisponibles() {
-        return null;
+        return equipoDAO.listarTodas();
     }
 
 }

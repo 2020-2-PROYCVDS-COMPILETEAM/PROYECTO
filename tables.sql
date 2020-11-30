@@ -4,6 +4,7 @@ create table Laboratorio (
 	id int,
 	nombre varchar,
 	descripcion varchar,
+	capacidadEquipos int,
 	activo boolean,
 	PRIMARY KEY (id));
 

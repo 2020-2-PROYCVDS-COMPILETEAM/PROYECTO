@@ -62,7 +62,24 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+            <h1>Crear Laboratorio</h1>
+            <h:form>
+                <h:panelGrid columns="2" cellpadding="10">
+
+                    <h:outputText value="Mnemónico: " />
+                    <h:inputText value="#{laboratorioBean.id}"/>
+
+                    <h:outputText value="Nombre: " />
+                    <h:inputText value="#{laboratorioBean.nombre}"/>
+
+                    <h:outputText value="Capacidad de Equipos: " />
+                    <h:inputText value="#{laboratorioBean.capacidadDeEquipos}"/>
+
+                    <h:outputText value="Descripcion: " />
+                    <h:inputText value="#{laboratorioBean.descripcion}"/>
+
+                </h:panelGrid>
+            </h:form>
         </div>
 
         <div id="pie">
