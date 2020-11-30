@@ -5,6 +5,7 @@ import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Laboratorio;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public interface serviciosHistorialEquipos {
@@ -36,6 +37,10 @@ public interface serviciosHistorialEquipos {
     void asociarLaboratorio(String laboratorioid, int equipoid);
 
     List<Laboratorio> listarLaboratorios();
+
+    void registrarNovedadElemento(int id_elemento, int id_equipo, Date fecha, String nombre, String usuario, String detalle);
+
+    void registrarNovedadEquipo(int id_Equipo,Date fecha,String nombre,String usuario,String detalle);
 
     void desasociarLaboratorio(int id);
 }

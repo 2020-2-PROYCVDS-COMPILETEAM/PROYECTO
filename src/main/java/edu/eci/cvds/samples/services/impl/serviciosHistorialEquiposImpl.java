@@ -1,16 +1,15 @@
 package edu.eci.cvds.samples.services.impl;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.samples.dao.ElementoDAO;
-import edu.eci.cvds.samples.dao.EquipoDAO;
-import edu.eci.cvds.samples.dao.UsuarioDAO;
-import edu.eci.cvds.samples.dao.LaboratorioDAO;
+import edu.eci.cvds.samples.dao.*;
 import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.entities.Laboratorio;
+import edu.eci.cvds.samples.entities.Novedad;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos {
@@ -25,6 +24,9 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
 
     @Inject
     private LaboratorioDAO laboratorioDAO;
+
+    @Inject
+    private NovedadDAO novedadDAO;
 
 
     @Override
@@ -92,6 +94,16 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     @Override
     public List<Laboratorio> listarLaboratorios() {
         return laboratorioDAO.listar();
+    }
+
+    @Override
+    public void registrarNovedadElemento(int id_elemento, int id_equipo, Date fecha, String nombre, String usuario, String detalle) {
+        novedadDAO.registrarNovedadElemento(id_elemento,id_equipo,fecha,nombre,usuario,detalle);
+    }
+
+    @Override
+    public void registrarNovedadEquipo(int id_equipo, Date fecha, String nombre, String usuario, String detalle) {
+        novedadDAO.registrarNovedadEquipo(id_equipo,fecha,nombre,usuario,detalle);
     }
 
     @Override

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.cvds.persistence.mybatisimpl.mappers.NovedadMapper">
+
+
+
+
+    <insert id="registrarNovedadEquipo" parameterType="edu.cvds.entities.Novedad">
+        insert into Novedad( id_elemento, id_equipo, fecha, nombre,usuario,detalle) values (null, #{id_equipo}, #{fecha},#{nombre}, #{usuario}, #{detalle})
+    </insert>
+
+    <insert id="registrarNovedadElemento" parameterType="edu.cvds.entities.Novedad">
+        insert into Novedad( id_elemento, id_equipo, fecha, nombre,usuario,detalle) values ( #{id_elemento}, #{id_equipo}, #{fecha},#{nombre}, #{usuario}, #{detalle})
+    </insert>
+
+
+
+
+</mapper>

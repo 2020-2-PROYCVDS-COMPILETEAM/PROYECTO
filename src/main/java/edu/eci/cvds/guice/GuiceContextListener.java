@@ -6,14 +6,8 @@ import javax.servlet.ServletContextListener;
 
 import edu.eci.cvds.authc.SessionLogger;
 import edu.eci.cvds.authc.ShiroSession;
-import edu.eci.cvds.samples.dao.ElementoDAO;
-import edu.eci.cvds.samples.dao.EquipoDAO;
-import edu.eci.cvds.samples.dao.LaboratorioDAO;
-import edu.eci.cvds.samples.dao.UsuarioDAO;
-import edu.eci.cvds.samples.dao.mybatis.MyBATISElementoDAO;
-import edu.eci.cvds.samples.dao.mybatis.MyBATISUsuarioDAO;
-import edu.eci.cvds.samples.dao.mybatis.MyBatisEquipoDAO;
-import edu.eci.cvds.samples.dao.mybatis.MyBatisLaboratorioDAO;
+import edu.eci.cvds.samples.dao.*;
+import edu.eci.cvds.samples.dao.mybatis.*;
 import edu.eci.cvds.samples.services.ServiciosHistorialFactory;
 import edu.eci.cvds.samples.services.impl.serviciosHistorialEquiposImpl;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
@@ -42,6 +36,7 @@ public class GuiceContextListener implements ServletContextListener {
                 bind(ElementoDAO.class).to(MyBATISElementoDAO.class);
                 bind(EquipoDAO.class).to(MyBatisEquipoDAO.class);
                 bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+                bind(NovedadDAO.class).to(MyBATISNovedadDAO.class);
                 bind(serviciosHistorialEquipos.class).to(serviciosHistorialEquiposImpl.class);
                 bind(SessionLogger.class).to(ShiroSession.class);
                 bind(LaboratorioDAO.class).to(MyBatisLaboratorioDAO.class);

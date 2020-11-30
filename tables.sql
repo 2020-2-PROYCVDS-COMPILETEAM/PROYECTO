@@ -35,23 +35,18 @@ create table usuario (
 
 /* tablas "novedad*/
 
-create table Novedad_Equipo (
+create table Novedad(
 	id int,
+	id_elemento int,
 	id_Equipo int,
-	descripcion varchar,
 	usuario varchar,
+	fecha DATE ,
+	detalles VARCHAR ,
+	nombre varchar ,
 	PRIMARY KEY (id),
 	FOREIGN KEY (usuario) REFERENCES usuario(correo),
-	FOREIGN KEY (id_Equipo) REFERENCES Equipo(id));
-
-create table Novedad_Elemento (
-	id int,
-	id_Elemento int,
-	descripcion varchar,
-	usuario varchar,
-	PRIMARY KEY (id),
-	FOREIGN KEY (usuario) REFERENCES usuario(correo),
-	FOREIGN KEY (id_Elemento) REFERENCES elemento(id));
+	FOREIGN KEY (id_Equipo) REFERENCES Equipo(id),
+	FOREIGN KEY (id_elemento) REFERENCES Elemento(id));
 
 --laboratorio
 INSERT INTO laboratorio
@@ -75,22 +70,14 @@ INSERT INTO usuario
 (correo, contraseña, username, nombre)
 VALUES('prueba', 'prueba', 'prueba', 'prueba');
 
---novedad elemento
-INSERT INTO novedad_elemento
-(id, id_elemento, descripcion, usuario)
-VALUES(0, 0, 'una novedad de prueba', 'prueba');
+insert into novedad(id, id_elemento, id_Equipo, usuario, fecha, detalles, nombre)
+values (1,null,null,null,TO_DATE('04/01/2020','DD/MM/YYYY'),'se cago el teclado', 'teclado roto');
 
---novedad equipo
-INSERT INTO novedad_equipo
-(id, id_equipo, descripcion, usuario)
-VALUES(0, 0, 'una novedad de prueba', 'prueba');
 
 
 drop  table elemento  ;
 drop  table equipo ;
 drop  table laboratorio ;
-drop table novedad_elemento ;
-drop table novedad_equipo ;
 drop table usuario ;
 
 

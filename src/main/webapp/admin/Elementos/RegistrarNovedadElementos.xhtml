@@ -64,7 +64,70 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+            <h1>Registrar Novedad </h1>
+            <h:form>
+                <h:panelGrid columns="2" cellpadding="10">
+
+                    <p:outputLabel value="Tipo:" />
+                    <p:selectOneMenu id="console2" value="#{novedadBean.tipo}" style="width:125px">
+                        <f:selectItem itemLabel="Equipo" itemValue="Equipo" />
+                        <f:selectItem itemLabel="Elemento" itemValue="Elemento" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Id: " />
+                    <h:inputText value="#{novedadBean.id_elemento}"/>
+
+                    <p:outputLabel value="TituloCorto: " />
+                    <h:inputText value="#{novedadBean.nombre}"/>
+
+                    <p:outputLabel for="popup" value="Fecha:" />
+                    <p:calendar id="popup" value="#{novedadBean.fecha}" />
+
+                    <p:outputLabel value="Detalle: " />
+                    <p:inputTextarea rows="5" cols="30"  maxlength="500" counterTemplate="{0} caracteres restantes." autoResize="false" value="#{novedadBean.detalle}"/>
+
+
+                    <p:commandButton value="Registrar Novedad"   action="#{novedadBean.registrar()}" style="margin-right:20px;"  />
+
+
+
+                </h:panelGrid>
+
+                <p:dataTable id="novedad_table" var="novedad" value="#{novedadBean.novedades}" rows="10"
+                             paginator="true">
+                    <p:column headerText="EquipoID">
+                        <h:outputText value="#{novedad.id_equipo}" />
+                    </p:column>
+                    <p:column headerText="">
+                        <h:outputText value="#{novedad.id_elemento}" />
+                    </p:column>
+                    <p:column headerText="tituloCorto">
+                        <h:outputText value="#{novedad.nombre}" />
+                    </p:column>
+                    <p:column headerText="fecha">
+                        <h:outputText value="#{novedad.fecha}" />
+
+                    </p:column>
+
+                    <p:column headerText="detalle">
+                        <h:outputText value="#{novedad.detalle}" />
+
+                    </p:column>
+
+
+                </p:dataTable>
+
+                <h3>Exportar A Excel</h3>
+                <h:commandLink>
+                    <p:graphicImage url="Resources/excel.png" width="50"/>
+                    <p:dataExporter type="csv" target="novedad_table" fileName="ReporteDeEquipos"/>
+                </h:commandLink>
+                <br></br>
+
+                <br></br>
+                <p:commandButton value="Regresar" id="Regresar"  action="#{usuarioBean.regresar()}" style="margin-right:20px;"  />
+                <p:commandButton value="Logout" id="Logout"  action="#{usuarioBean.logout()}" style="margin-right:20px;"  />
+            </h:form>
         </div>
 
         <div id="pie">
