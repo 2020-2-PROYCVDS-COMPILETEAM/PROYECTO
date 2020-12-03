@@ -1,7 +1,7 @@
 /* tablas "elementos*/
 
 create table Laboratorio (
-	id int,
+	id serial,
 	nombre varchar,
 	descripcion varchar,
 	capacidadEquipos int,
@@ -9,7 +9,7 @@ create table Laboratorio (
 	PRIMARY KEY (id));
 
 create table Equipo (
-	id int,
+	id serial,
 	nombre varchar,
 	descripcion varchar,
 	laboratorio int,
@@ -18,9 +18,10 @@ create table Equipo (
 	FOREIGN KEY (laboratorio) REFERENCES Laboratorio(id));
 
 create table Elemento (
-	id int,
+	id serial,
+	tipo varchar ,
 	nombre varchar,
-	descripcion varchar,
+    activo boolean,
 	marca varchar,
 	Equipo int,
 	PRIMARY KEY (id),
@@ -36,7 +37,7 @@ create table usuario (
 /* tablas "novedad*/
 
 create table Novedad(
-	id int,
+	id serial,
 	id_elemento int,
 	id_Equipo int,
 	usuario varchar,
@@ -79,5 +80,5 @@ drop  table elemento  ;
 drop  table equipo ;
 drop  table laboratorio ;
 drop table usuario ;
-
+drop table Novedad;
 

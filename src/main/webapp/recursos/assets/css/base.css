@@ -26,6 +26,7 @@
 
 /* MENU */
         #menu {
+            overflow: auto;
             margin: 0;
             padding: 0;
             background: hsla(205,55%,52%,0.3);
@@ -36,6 +37,7 @@
             box-shadow:
                 0 5px 15px 1px rgba(0, 0, 0, 0.6),
                 0 0 200px 1px rgba(255, 255, 255, 0.5);
+
         }
         #menu ul{
             padding: 0px;

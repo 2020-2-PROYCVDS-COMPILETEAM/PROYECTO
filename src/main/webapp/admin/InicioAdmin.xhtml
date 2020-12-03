@@ -21,7 +21,7 @@
                     <ul>
                         <li><a href="../admin/Laboratorios/ReportesLaboratorios.xhtml">Reportes</a></li>
                         <li><a href="../admin/Laboratorios/AsociarEquipoLaboratorio.xhtml">Asociar Equipo</a></li>
-                        <li>
+                        <li class="submenu">
                             <h2>Novedades</h2>
                             <ul>
                                 <li id="novedades"><a href="../admin/Laboratorios/RegistrarNovedadLaboratorios.xhtml">Registrar Novedad</a></li>
@@ -67,18 +67,24 @@
             aqui el contenido
         </div>
 
-        <div id="pie">
-            <footer id="footer">
 
-                <div class="container">
-
-                    <div class="copyright">
-                        © Copyright <strong><span>JJD Company</span></strong>. All Rights Reserved
-                    </div>
-                </div>
-            </footer>
-        </div>
     </div>
+    <script src="http://code.jquery.com/jquery-1.12.0min.js"></script>
+        <script type="text/javascript">
+            window.onload = init;
+            function init(){
+                document.querySelectorAll(".more")[0].addEventListener("click",submenu);
+                document.querySelector(".submenu > ul").style.display = "none";
+            }
+            function submenu(){
+                var estado = document.querySelector(".submenu > ul").style.display;
+                if (estado == "none"){
+                    document.querySelector(".submenu > ul").style.display = "block";
+                }else{
+                    document.querySelector(".submenu > ul").style.display = "none";
+                };}
+    </script>
+
 
 </h:body>
 </html>

@@ -12,5 +12,7 @@ public interface ElementoDAO {
 
     void darDeBajaElemento(int elemento);
 
+    int getElementoID(int elementoID);
+
     ArrayList<Elemento> reporteElementos();
 }

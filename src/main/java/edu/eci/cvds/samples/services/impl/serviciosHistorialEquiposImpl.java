@@ -51,7 +51,7 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
 
     @Override
     public int getEquipoID(int elementoId) {
-        return 0;
+        return elementoDAO.getElementoID(elementoId);
     }
 
     @Override

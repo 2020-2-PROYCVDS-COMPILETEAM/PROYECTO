@@ -36,6 +36,11 @@ public class MyBATISElementoDAO implements ElementoDAO {
     }
 
     @Override
+    public int getElementoID(int elementoID) {
+        return Integer.parseInt(elementoMapper.getEquipoID(elementoID).getEquipo());
+    }
+
+    @Override
     public ArrayList<Elemento> reporteElementos() {
         return elementoMapper.reporteElementos();
     }

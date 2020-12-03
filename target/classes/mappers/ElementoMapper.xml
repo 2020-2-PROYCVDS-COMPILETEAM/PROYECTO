@@ -24,7 +24,7 @@
 
 
     <insert id="registrarElemento" parameterType="edu.eci.cvds.samples.entities.Elemento">
-        insert into elemento(tipo,equipo,activo,marca,nombre) values ( #{tipo}, NULL, true, #{marca}, #{nombre})
+        insert into elemento(tipo,equipo,activo,marca,nombre) values (#{tipo}, NULL, true, #{marca}, #{nombre})
     </insert>
 
     <update id="desasociarElemento" parameterType="map">
@@ -39,6 +39,15 @@
 		UPDATE elemento set activo=False where id=#{elementoId} and equipoid is NULL
 	</update>
 
+    <select id="getEquipoID" resultMap="reporteElementoResult"
+            parameterType="int">
+		SELECT
+			e.equipoid
+		FROM
+			ELEMENTO as e
+		WHERE e.id=#{elementoId}
+		ORDER BY e.id ASC
 
+	</select>
 
 </mapper>
