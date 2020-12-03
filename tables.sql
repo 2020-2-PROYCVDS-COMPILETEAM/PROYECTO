@@ -61,10 +61,7 @@ INSERT INTO equipo
 VALUES(0, 'equipo de prueba', 'este es un equipo de prueba', 0, true);
 
 
--- elemento
-INSERT INTO elemento
-(id, nombre, descripcion, marca, equipo)
-VALUES(0, 'elemento prueba', 'este es un elemento de prueba', 'prueba', 0);
+
 
 -- usuario
 INSERT INTO usuario
