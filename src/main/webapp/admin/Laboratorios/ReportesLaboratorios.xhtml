@@ -19,15 +19,9 @@
                 <li>
                     <h3>Laboratorios</h3>
                     <ul>
+                        <li><a href="../Laboratorios/CrearLaboratorio.xhtml">Crear Laboratorio</a></li>
                         <li><a href="../Laboratorios/ReportesLaboratorios.xhtml">Reportes</a></li>
                         <li><a href="../Laboratorios/AsociarEquipoLaboratorio.xhtml">Asociar Equipo</a></li>
-                        <li>
-                            <h2>Novedades</h2>
-                            <ul>
-                                <li id="novedades"><a href="../Laboratorios/RegistrarNovedadLaboratorios.xhtml">Registrar Novedad</a></li>
-                                <li id="novedades"><a href="../Laboratorios/ReporteNovedadesLaboratorios.xhtml">Reporte historico Novedades</a></li>
-                            </ul>
-                        </li>
                         <li><a href="../Laboratorios/CerrarLaboratorio.xhtml">Cerrar Laboratorio</a></li>
                     </ul>
                 </li>
@@ -64,7 +58,34 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+            <h:form>
+
+                <p:dataTable id="id"  var="laboratorio" value="#{laboratorioBean.reporteLaboratorios()}" paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                             rows="15" selectionMode="single"   selection="#{laboratorioBean.laboratorios}" rowKey="#{Laboratorio.getId()}">
+                    <f:facet name="header">REPORTE LABORATORIOS</f:facet>
+                    <p:column filterBy="#{laboratorio.getId()}" headerText="ID">
+                        <h:outputText value="#{laboratorio.getId()}"/>
+                    </p:column>
+                    <p:column filterBy="#{laboratorio.getNombre()}" headerText="NOMBRE">
+                        <h:outputText value="#{laboratorio.getNombre()}"/>
+                    </p:column>
+                    <p:column filterBy="#{laboratorio.getDescripcion()}" headerText="DESCRIPCION">
+                        <h:outputText value="#{laboratorio.getDescripcion()}"/>
+                    </p:column>
+                    <p:column filterBy="#{laboratorio.getCapacidadequipos()}" headerText="CAPACIDAD DE EQUIPOS">
+                        <h:outputText value="#{laboratorio.getCapacidadequipos()}"/>
+                    </p:column>
+                    <p:column filterBy="#{laboratorio.getActivo()}" headerText="ACTIVO">
+                        <h:outputText value="#{laboratorio.getActivo()}"/>
+                    </p:column>
+                    <p:column filterBy="#{laboratorio.getFechadecreacion()}" headerText="FECHA DE CREACION">
+                        <h:outputText value="#{laboratorio.getFechadecreacion()}"/>
+                    </p:column>
+                    <p:column filterBy="#{laboratorio.getFecahdecierre()}" headerText="FECHA DE CIERRE">
+                        <h:outputText value="#{laboratorio.getFecahdecierre()}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
         </div>
 
         <div id="pie">

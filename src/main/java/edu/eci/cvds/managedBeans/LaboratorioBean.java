@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.entities.Laboratorio;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
@@ -24,15 +25,16 @@ public class LaboratorioBean extends BasePageBean {
     private String id;
     private String nombre;
     private String descripcion;
-    private int capacidadEquipos;
+    private int capacidadequipos;
     private boolean activo;
     private List <Equipo> equipos = new ArrayList<Equipo>();
+    private Laboratorio laboratorio;
 
 
     public void registrar() {
         try {
             FacesContext context = FacesContext.getCurrentInstance();
-            serviciosHistorialEquipos.crearLaboratorio(id,nombre,descripcion,capacidadEquipos);
+            serviciosHistorialEquipos.crearLaboratorio(id,nombre,descripcion,capacidadequipos);
             for (Equipo e:equipos) {
                 serviciosHistorialEquipos.asociarLaboratorio(id,e.getId());
             }
@@ -44,6 +46,19 @@ public class LaboratorioBean extends BasePageBean {
 
 
     }
+    public void reporteLaboratorios() {
+        try {
+            //FacesContext context = FacesContext.getCurrentInstance();
+            serviciosHistorialEquipos.reporteLaboratorios();
+        }
+        catch(Exception e) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Error", "No fue posible el reporte"));
+        }
+
+
+    }
+
 
     public List<Equipo> getEquipos(){
         return equipos;
@@ -53,8 +68,9 @@ public class LaboratorioBean extends BasePageBean {
         return serviciosHistorialEquipos.listarEquiposDisponibles();
     }
 
-    public List<Laboratorio> getLaboratorios() {
-        return serviciosHistorialEquipos.listarLaboratorios();
+    public ArrayList<Laboratorio> getLaboratorios() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        return serviciosHistorialEquipos.reporteLaboratorios();
     }
 
 
@@ -78,10 +94,10 @@ public class LaboratorioBean extends BasePageBean {
         this.descripcion = descripcion;
     }
     public int getCapacidadEquipos() {
-        return capacidadEquipos;
+        return capacidadequipos;
     }
     public void setCapacidadEquipos(int capacidadEquipos) {
-        this.capacidadEquipos = capacidadEquipos;
+        this.capacidadequipos = capacidadEquipos;
     }
     public boolean isActivo() {
         return activo;

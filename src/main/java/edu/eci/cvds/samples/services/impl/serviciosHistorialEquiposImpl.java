@@ -113,6 +113,11 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
+    public  ArrayList<Laboratorio> reporteLaboratorios() {
+        return laboratorioDAO.reporteLaboratorios();
+    }
+
+    @Override
     public List<Equipo> listarEquiposDisponibles() {
         return equipoDAO.listarTodas();
     }

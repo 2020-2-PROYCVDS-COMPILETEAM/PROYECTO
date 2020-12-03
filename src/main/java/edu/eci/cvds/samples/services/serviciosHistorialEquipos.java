@@ -43,4 +43,6 @@ public interface serviciosHistorialEquipos {
     void registrarNovedadEquipo(int id_Equipo,Date fecha,String nombre,String usuario,String detalle);
 
     void desasociarLaboratorio(int id);
+
+    ArrayList<Laboratorio> reporteLaboratorios();
 }
