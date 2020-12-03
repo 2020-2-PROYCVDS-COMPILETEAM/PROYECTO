@@ -50,26 +50,26 @@ create table Novedad(
 	FOREIGN KEY (id_elemento) REFERENCES Elemento(id));
 
 --laboratorio
-INSERT INTO laboratorio
-(id, nombre, descripcion, activo)
-VALUES(0, 'lab de prueba', 'este es una lab para probar', true);
+--INSERT INTO laboratorio
+--(id, nombre, descripcion, activo)
+--VALUES(0, 'lab de prueba', 'este es una lab para probar', true);
 
 
 -- equipo
-INSERT INTO equipo
-(id, nombre, descripcion, laboratorio, activo)
-VALUES(0, 'equipo de prueba', 'este es un equipo de prueba', 0, true);
+--INSERT INTO equipo
+--(id, nombre, descripcion, laboratorio, activo)
+--VALUES(0, 'equipo de prueba', 'este es un equipo de prueba', 0, true);
 
 
 
 
 -- usuario
-INSERT INTO usuario
-(correo, contraseña, username, nombre)
-VALUES('prueba', 'prueba', 'prueba', 'prueba');
+--INSERT INTO usuario
+--(correo, contraseña, username, nombre)
+--VALUES('prueba', 'prueba', 'prueba', 'prueba');
 
-insert into novedad(id, id_elemento, id_Equipo, usuario, fecha, detalles, nombre)
-values (1,null,null,null,TO_DATE('04/01/2020','DD/MM/YYYY'),'se cago el teclado', 'teclado roto');
+--insert into novedad(id, id_elemento, id_Equipo, usuario, fecha, detalles, nombre)
+--values (1,null,null,null,TO_DATE('04/01/2020','DD/MM/YYYY'),'se cago el teclado', 'teclado roto');
 
 
 
