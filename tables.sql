@@ -50,9 +50,9 @@ create table Novedad(
 	FOREIGN KEY (id_elemento) REFERENCES Elemento(id));
 
 --laboratorio
---INSERT INTO laboratorio
---(id, nombre, descripcion, activo)
---VALUES(0, 'lab de prueba', 'este es una lab para probar', true);
+INSERT INTO laboratorio
+(id, nombre, descripcion, activo)
+VALUES(0, 'lab de prueba', 'este es una lab para probar', true);
 
 
 -- equipo

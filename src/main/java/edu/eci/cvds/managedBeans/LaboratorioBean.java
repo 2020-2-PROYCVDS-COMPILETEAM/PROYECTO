@@ -28,7 +28,6 @@ public class LaboratorioBean extends BasePageBean {
     private int capacidadequipos;
     private boolean activo;
     private List <Equipo> equipos = new ArrayList<Equipo>();
-    private Laboratorio laboratorio;
 
 
     public void registrar() {

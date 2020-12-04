@@ -61,28 +61,22 @@
             <h:form>
 
                 <p:dataTable id="id"  var="laboratorio" value="#{laboratorioBean.reporteLaboratorios()}" paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                             rows="15" selectionMode="single"   selection="#{laboratorioBean.laboratorios}" rowKey="#{Laboratorio.getId()}">
+                             rows="15" selectionMode="single"   selection="#{laboratorioBean.laboratorios}" rowKey="#{laboratorioBean.id()}">
                     <f:facet name="header">REPORTE LABORATORIOS</f:facet>
-                    <p:column filterBy="#{laboratorio.getId()}" headerText="ID">
-                        <h:outputText value="#{laboratorio.getId()}"/>
+                    <p:column filterBy="#{laboratorio.id()}" headerText="ID">
+                        <h:outputText value="#{laboratorio.id()}"/>
                     </p:column>
-                    <p:column filterBy="#{laboratorio.getNombre()}" headerText="NOMBRE">
-                        <h:outputText value="#{laboratorio.getNombre()}"/>
+                    <p:column filterBy="#{laboratorio.nombre()}" headerText="NOMBRE">
+                        <h:outputText value="#{laboratorio.nombre()}"/>
                     </p:column>
-                    <p:column filterBy="#{laboratorio.getDescripcion()}" headerText="DESCRIPCION">
-                        <h:outputText value="#{laboratorio.getDescripcion()}"/>
+                    <p:column filterBy="#{laboratorio.descripcion()}" headerText="DESCRIPCION">
+                        <h:outputText value="#{laboratorio.descripcion()}"/>
                     </p:column>
-                    <p:column filterBy="#{laboratorio.getCapacidadequipos()}" headerText="CAPACIDAD DE EQUIPOS">
-                        <h:outputText value="#{laboratorio.getCapacidadequipos()}"/>
+                    <p:column filterBy="#{laboratorio.capacidadequipos()}" headerText="CAPACIDAD DE EQUIPOS">
+                        <h:outputText value="#{laboratorio.capacidadequipos()}"/>
                     </p:column>
-                    <p:column filterBy="#{laboratorio.getActivo()}" headerText="ACTIVO">
-                        <h:outputText value="#{laboratorio.getActivo()}"/>
-                    </p:column>
-                    <p:column filterBy="#{laboratorio.getFechadecreacion()}" headerText="FECHA DE CREACION">
-                        <h:outputText value="#{laboratorio.getFechadecreacion()}"/>
-                    </p:column>
-                    <p:column filterBy="#{laboratorio.getFecahdecierre()}" headerText="FECHA DE CIERRE">
-                        <h:outputText value="#{laboratorio.getFecahdecierre()}"/>
+                    <p:column filterBy="#{laboratorio.activo()}" headerText="ACTIVO">
+                        <h:outputText value="#{laboratorio.activo()}"/>
                     </p:column>
                 </p:dataTable>
             </h:form>

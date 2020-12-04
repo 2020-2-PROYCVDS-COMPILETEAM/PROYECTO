@@ -27,8 +27,13 @@
     </select>
 
     <insert id="crear" parameterType="edu.eci.cvds.samples.entities.Laboratorio">
-        insert into Laboratorio(id,nombre,descripcion,capacidadequipos,activo) values (#{id},#{nombre},#{descripcion},#{capacidadequipos},true)
+        insert into laboratorio(id,nombre,descripcion,capacidadEquipos,activo) values (#{id},#{nombre},#{descripcion},#{capacidadEquipos},true)
     </insert>
+
+    <select id="reporteLaboratorios" resultMap="LaboratorioResult" parameterType="int">
+        SELECT l.id, l.nombre ,l.descripcion, l.capacidadEquipos ,l.activo
+        FROM laboratorio as l
+    </select>
 
 
 </mapper>
