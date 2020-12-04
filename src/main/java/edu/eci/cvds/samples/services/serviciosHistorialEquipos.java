@@ -32,9 +32,9 @@ public interface serviciosHistorialEquipos {
 
     ArrayList<Elemento> reporteElementos();
 
-    void crearLaboratorio(String id, String nombre, String descripcion, int capacidadDeEquipos);
+    void crearLaboratorio(int id, String nombre, String descripcion, int capacidadDeEquipos);
 
-    void asociarLaboratorio(String laboratorioid, int equipoid);
+    void asociarLaboratorio(int laboratorioid, int equipoid);
 
     List<Laboratorio> listarLaboratorios();
 

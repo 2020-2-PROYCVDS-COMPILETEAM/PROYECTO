@@ -104,6 +104,7 @@
         }
 /* CONTENIDO */
         #contenido {
+        overflow: auto;
         float: left;
         width: 85%;
         height: 80%;

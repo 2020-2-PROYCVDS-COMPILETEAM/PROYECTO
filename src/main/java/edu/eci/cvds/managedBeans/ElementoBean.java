@@ -28,6 +28,15 @@ public class ElementoBean extends BasePageBean {
     private int idElem;
     private int idEqui;
     private boolean activo;
+    private Elemento selectedElemento;
+
+    public Elemento getSelectedElemento() {
+        return selectedElemento;
+    }
+
+    public void setSelectedElemento(Elemento selectedElemento) {
+        this.selectedElemento = selectedElemento;
+    }
 
     public int getId() {
         return id;

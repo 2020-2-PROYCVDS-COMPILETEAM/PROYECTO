@@ -10,13 +10,9 @@ import edu.eci.cvds.samples.entities.Laboratorio;
 
 public interface LaboratorioMapper {
 
-    public List<Laboratorio> buscarLaboratorios();
+    List<Laboratorio> buscarLaboratorios();
 
-    public void crear(@Param("id") String id,@Param("nombre") String nombre,@Param("descripcion") String descripcion,@Param("capacidadequipos") int capacidadEquipos);
+    void crear(@Param("id") int id, @Param("nombre") String nombre, @Param("descripcion") String descripcion, @Param("capacidadEquipos") int capacidadEquipos);
 
-    public ArrayList<Laboratorio> reporteLaboratorios();
-
-
-
-
+    ArrayList<Laboratorio> reporteLaboratorios();
 }

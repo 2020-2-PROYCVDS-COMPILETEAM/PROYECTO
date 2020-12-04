@@ -81,8 +81,25 @@
                 <p:column filterBy="#{elemento.nombre}" headerText="Nombre">
                     <h:outputText value="#{elemento.nombre}" />
             </p:column>
+                <p:column headerText="Administrar">
+                    <p:commandButton  oncomplete="PF('elementoDialog').show()" value="Administrar Elemento">
+                        <f:setPropertyActionListener value="#{elemento}" target="#{elementoBean.selectedElemento}" />
+                    </p:commandButton>
+                </p:column>
             </p:dataTable>
             </h:form>
+
+            <p:dialog header="elemento Info" widgetVar="elementoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:outputPanel id="elementoDetail" >
+                    <h:outputText value="Id: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.id}"/><br/>
+                    <h:outputText value="Tipo: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.tipo}"/><br/>
+                    <h:outputText value="Marca: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.marca}"/><br/>
+                    <h:form>
+                        <h:outputText value="nombre: " /><h:inputText  value="#{elementoBean.selectedElemento.nombre}"/>
+
+                    </h:form>
+                </p:outputPanel>
+            </p:dialog>
 
         </div>
 

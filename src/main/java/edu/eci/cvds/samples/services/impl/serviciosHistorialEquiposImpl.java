@@ -81,12 +81,12 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
-    public void crearLaboratorio(String id, String nombre, String descripcion, int capacidadEquipos) {
+    public void crearLaboratorio(int id, String nombre, String descripcion, int capacidadEquipos) {
         laboratorioDAO.crear(id,nombre,descripcion,capacidadEquipos);
     }
 
     @Override
-    public void asociarLaboratorio(String laboratorioid, int equipoid) {
+    public void asociarLaboratorio(int laboratorioid, int equipoid) {
         equipoDAO.asociar(laboratorioid,equipoid);
 
     }

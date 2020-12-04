@@ -22,14 +22,18 @@ public class LaboratorioBean extends BasePageBean {
     @Inject
     private serviciosHistorialEquipos serviciosHistorialEquipos;
 
-    private String id;
+    private int id;
     private String nombre;
     private String descripcion;
     private int capacidadequipos;
     private boolean activo;
     private List <Equipo> equipos = new ArrayList<Equipo>();
+    private ArrayList<Laboratorio> laboratorios = new ArrayList<Laboratorio>();
     private Laboratorio laboratorio;
 
+    public void setLaboratorios(ArrayList<Laboratorio> laboratorios) {
+        this.laboratorios = laboratorios;
+    }
 
     public void registrar() {
         try {
@@ -73,12 +77,11 @@ public class LaboratorioBean extends BasePageBean {
         return serviciosHistorialEquipos.reporteLaboratorios();
     }
 
-
-
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+
+    public void setId(int id) {
         this.id = id;
     }
     public String getNombre() {
@@ -107,7 +110,6 @@ public class LaboratorioBean extends BasePageBean {
     }
 
     public void asociar(Equipo eq) {
-        serviciosHistorialEquipos.asociarLaboratorio("",eq.getId());
         equipos.add(eq);
 
     }
