@@ -9,11 +9,10 @@
         <id property="id" column="id" />
         <result property="nombre" column="nombre" />
         <result property="descripcion" column="descripcion" />
-        <result property="capacidadequipos" column="capacidadequipos" />
+        <result property="capacidadEquipos" column="capacidadEquipos" />
         <result property="activo" column="activo" />
-        <result property="fechadecreacion" column="fechadecreacion" />
-        <result property="fecahdecierre" column="fechadecierre" />
         <collection property="equipos" ofType="equipo"></collection>
+
     </resultMap>
 
     <select id="buscarLaboratorios" resultMap="LaboratorioResult" parameterType="int">
@@ -27,13 +26,8 @@
         ORDER BY l.id ASC
     </select>
 
-    <select id="reporteLaboratorios" resultMap="LaboratorioResult" parameterType="int">
-        SELECT l.nombre ,l.capacidadequipos ,l.activo ,l.fechadecreacion ,l.fechadecierre
-        FROM laboratorio as l;
-    </select>
-
     <insert id="crear" parameterType="edu.eci.cvds.samples.entities.Laboratorio">
-        insert into laboratorio(id,nombre,descripcion,capacidadequipos,activo) values (#{id},#{nombre},#{descripcion},#{capacidadequipos},True)
+        insert into Laboratorio(id,nombre,descripcion,capacidadequipos,activo) values (#{id},#{nombre},#{descripcion},#{capacidadequipos},true)
     </insert>
 
 

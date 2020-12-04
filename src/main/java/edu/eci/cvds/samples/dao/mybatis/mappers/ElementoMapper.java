@@ -15,7 +15,7 @@ public interface ElementoMapper {
 
     void darDeBajaElemento(@Param("elementoId")int elemento);
 
-    Elemento getEquipoID(@Param("elementoId") int elementoId);
+    Elemento getEquipoID(@Param("id") int id);
 
     ArrayList<Elemento> reporteElementos();
 

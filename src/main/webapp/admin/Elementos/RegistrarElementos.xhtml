@@ -2,9 +2,29 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+
+
 <h:head>
     <title>Registrar Elementos</title>
     <link href="/recursos/assets/css/base.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+    function ConfirmInscription() {
+        var respuesta = confirm("Estas seguro de registrar el equipo?");
+
+        if (respuesta) {
+            return true;
+
+        } else {
+
+            return false;
+        }
+    }
+
+
+</script>
+
+
 </h:head>
 
 
@@ -59,7 +79,7 @@
 
         <div id="contenido">
 
-            <h:form>
+            <h:form id="elemento">
                 <h:panelGrid columns="2" cellpadding="10">
 
 
@@ -88,7 +108,7 @@
 
 
 
-                    <p:commandButton value="Registrar Elemento" action="#{elementoBean.registrarElemento()}" style="margin-right:20px;" />
+                    <p:commandButton value="Registrar Elemento" actionListener="#{elementoBean.registrarElemento()}" style="margin-right:20px;" onclick="return ConfirmInscription()" update="elemento" />
                 </h:panelGrid>
             </h:form>
         </div>

@@ -6,17 +6,12 @@
 <mapper namespace="edu.eci.cvds.samples.dao.mybatis.mappers.NovedadMapper">
 
 
-
-
     <insert id="registrarNovedadEquipo" parameterType="edu.eci.cvds.samples.entities.Novedad">
-        insert into Novedad( id_elemento, id_equipo, fecha, nombre,usuario,detalle) values (null, #{id_equipo}, #{fecha},#{nombre}, #{usuario}, #{detalle})
+        insert into Novedad(id_elemento, id_equipo,usuario, fecha,detalles, nombre) values (null, #{id_equipo}, null, #{fecha}, #{detalle},#{nombre})
     </insert>
 
     <insert id="registrarNovedadElemento" parameterType="edu.eci.cvds.samples.entities.Novedad">
-        insert into Novedad( id_elemento, id_equipo, fecha, nombre,usuario,detalle) values ( #{id_elemento}, #{id_equipo}, #{fecha},#{nombre}, #{usuario}, #{detalle})
+        insert into Novedad (id_elemento, id_equipo,usuario, fecha,detalles,nombre) values (#{id_elemento}, #{id_equipo},null, #{fecha}, #{detalle}, #{nombre})
     </insert>
-
-
-
 
 </mapper>

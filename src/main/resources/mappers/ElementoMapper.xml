@@ -42,11 +42,11 @@
     <select id="getEquipoID" resultMap="reporteElementoResult"
             parameterType="int">
 		SELECT
-			e.equipoid
+			e.equipo
 		FROM
-			ELEMENTO as e
-		WHERE e.id=#{elementoId}
-		ORDER BY e.id ASC
+			elemento as e
+		WHERE e.id = 1
+		ORDER BY e.id asc;
 
 	</select>
 

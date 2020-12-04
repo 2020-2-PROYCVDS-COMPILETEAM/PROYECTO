@@ -1,7 +1,7 @@
 /* tablas "elementos*/
 
 create table Laboratorio (
-	id serial,
+	id int,
 	nombre varchar,
 	descripcion varchar,
 	capacidadEquipos int,
@@ -45,7 +45,7 @@ create table Novedad(
 	detalles VARCHAR ,
 	nombre varchar ,
 	PRIMARY KEY (id),
-	FOREIGN KEY (usuario) REFERENCES usuario(correo),
+	--FOREIGN KEY (usuario) REFERENCES usuario(correo),
 	FOREIGN KEY (id_Equipo) REFERENCES Equipo(id),
 	FOREIGN KEY (id_elemento) REFERENCES Elemento(id));
 
@@ -68,8 +68,8 @@ create table Novedad(
 --(correo, contraseña, username, nombre)
 --VALUES('prueba', 'prueba', 'prueba', 'prueba');
 
---insert into novedad(id, id_elemento, id_Equipo, usuario, fecha, detalles, nombre)
---values (1,null,null,null,TO_DATE('04/01/2020','DD/MM/YYYY'),'se cago el teclado', 'teclado roto');
+insert into novedad(id, id_elemento, id_Equipo, usuario, fecha, detalles, nombre)
+values (1,1,1,null,TO_DATE('04/01/2020','DD/MM/YYYY'),'se cago el teclado', 'teclado roto');
 
 
 

@@ -33,7 +33,7 @@
     </select>
 
     <insert id="crear" parameterType="edu.eci.cvds.samples.entities.Laboratorio">
-        insert into laboratorio(id,nombre,descripcion,capacidadEquipos,activo) values (#{id},#{nombre},#{descripcion},#{capacidadEquipos},True)
+        insert into Laboratorio(id,nombre,descripcion,capacidadEquipos,activo) values (#{id},#{nombre},#{descripcion},#{capacidadEquipos},true)
     </insert>
 
 

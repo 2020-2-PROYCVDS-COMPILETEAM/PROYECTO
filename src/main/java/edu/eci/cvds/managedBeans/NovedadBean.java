@@ -1,26 +1,26 @@
 package edu.eci.cvds.managedBeans;
 
 
+import com.google.inject.Inject;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import java.util.Date;
 
 @ManagedBean(name = "novedadBean")
 @ApplicationScoped
-public class NovedadBean {
+public class NovedadBean extends BasePageBean{
 
     @Inject
     private serviciosHistorialEquipos serviciosHistorialEquipos;
 
     /*private Injector injector;*/
     private int id;
-    private int id_elemento;
-    private int id_equipo;
+    private int id_elemento = 0;
+    private int id_equipo = 0;
     private String usuario;
     private Date fecha;
     private String detalle;
@@ -31,26 +31,23 @@ public class NovedadBean {
     public void registrar() {
         try {
             FacesContext context = FacesContext.getCurrentInstance();
-            //usuarioId = serviciosHistorialEquipos.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getUserName();
-            if (tipo.equals("Equipo")) {
-                System.out.println("entre equipo");
-                serviciosHistorialEquipos.registrarNovedadEquipo(id_elemento, fecha, nombre, usuario, detalle);
+            fecha = new Date();
+            if (id_equipo != 0){
+                System.out.println("Equipo");
+                serviciosHistorialEquipos.registrarNovedadEquipo(id_equipo,fecha,usuario,detalle,nombre);
+            }else{
+                System.out.println("Elemento");
+                this.id_equipo = serviciosHistorialEquipos.getEquipoID(this.id_elemento);
+                serviciosHistorialEquipos.registrarNovedadElemento(id_elemento,id_equipo,usuario,fecha,detalle,nombre);
             }
-            else{
-                System.out.println("entre elemento");
-                id_equipo = serviciosHistorialEquipos.getEquipoID(id_elemento);
-                if (id_equipo != 0){
-                    System.out.println("si");
-                }
-                serviciosHistorialEquipos.registrarNovedadElemento(id_elemento, id_equipo, fecha, nombre, usuario, detalle);
-            }
-        }
-        catch(Exception e) {
+            id_equipo = 0;
+            id_elemento = 0;
 
+        }catch (Exception e){
+            System.out.println(e.getMessage());
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage("Error", "Imposible registrar"));
+            context.addMessage(null, new FacesMessage("Error", "Es posible que este "));
         }
-
 
     }
 

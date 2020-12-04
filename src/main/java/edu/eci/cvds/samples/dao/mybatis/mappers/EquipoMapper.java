@@ -18,7 +18,7 @@ public interface EquipoMapper {
 
     public List<Equipo> equiposLibres();
 
-    public void asociar(@Param("laboratorioid") String laboratorioid, @Param("equipoid") int equipoid);
+    public void asociar(@Param("laboratorioID") int laboratorioID, @Param("id_equipo") int id_equipo);
 
     public void desasociar( @Param("id") int id);
 

@@ -26,19 +26,19 @@ public interface serviciosHistorialEquipos {
 
     void registrarElemento(String tipo, String marca, String nombre, int id);
 
-    void asociarElemento(int elementoID,int equipoID );
+    void asociarElemento(int elementoID,int equipoID, String elemento);
 
     public void darDeBajaElemento(int elemento);
 
     ArrayList<Elemento> reporteElementos();
 
-    void crearLaboratorio(String id, String nombre, String descripcion, int capacidadDeEquipos);
+    void crearLaboratorio(int id, String nombre, String descripcion, int capacidadDeEquipos);
 
-    void asociarLaboratorio(String laboratorioid, int equipoid);
+    void asociarLaboratorio(int laboratorioid, int equipoid);
 
     List<Laboratorio> listarLaboratorios();
 
-    void registrarNovedadElemento(int id_elemento, int id_equipo, Date fecha, String nombre, String usuario, String detalle);
+    void registrarNovedadElemento(int id_elemento, int id_equipo, String usuario,Date fecha, String detalle, String nombre);
 
     void registrarNovedadEquipo(int id_Equipo,Date fecha,String nombre,String usuario,String detalle);
 

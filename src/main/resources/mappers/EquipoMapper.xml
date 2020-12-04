@@ -17,7 +17,7 @@
         SELECT
             e.id,
             e.nombre,
-            e.laboratorioID,
+            e.laboratorio,
             e.descripcion
         FROM
             equipo as e
@@ -49,6 +49,10 @@
             equipo as e
         WHERE e.id=#{id}
     </select>
+
+    <update id="asociar" parameterType="map">
+        UPDATE Equipo set laboratorio = #{laboratorioID} where id= #{id_equipo}
+    </update>
 
 
 </mapper>

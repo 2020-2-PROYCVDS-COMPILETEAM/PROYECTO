@@ -8,9 +8,9 @@ import edu.eci.cvds.samples.entities.Laboratorio;
 
 public interface LaboratorioDAO {
 
-    public List<Laboratorio> listar();
+    List<Laboratorio> listar();
 
-    public void crear(String id, String nombre, String descripcion, int capacidadEquipos);
+    void crear(int id,String nombre, String descripcion, int capacidadEquipos);
 
     public ArrayList<Laboratorio> reporteLaboratorios();
 

@@ -5,7 +5,6 @@ import edu.eci.cvds.samples.dao.*;
 import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.entities.Laboratorio;
-import edu.eci.cvds.samples.entities.Novedad;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
 import java.util.ArrayList;
@@ -27,7 +26,6 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
 
     @Inject
     private NovedadDAO novedadDAO;
-
 
     @Override
     public List<Equipo> listarEquipos() {
@@ -66,8 +64,10 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
-    public void asociarElemento(int elementoID, int equipoID) {
+    public void asociarElemento(int elementoID, int equipoID, String elemento) {
+        Date fecha = new Date();
         elementoDAO.asociarElemento(elementoID, equipoID);
+        novedadDAO.registrarNovedadElemento(elementoID,equipoID,null,fecha,elemento+"Asociado al equipo"+equipoID,elemento);
     }
 
     @Override
@@ -81,12 +81,12 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
-    public void crearLaboratorio(String id, String nombre, String descripcion, int capacidadEquipos) {
+    public void crearLaboratorio(int id, String nombre, String descripcion, int capacidadEquipos) {
         laboratorioDAO.crear(id,nombre,descripcion,capacidadEquipos);
     }
 
     @Override
-    public void asociarLaboratorio(String laboratorioid, int equipoid) {
+    public void asociarLaboratorio(int laboratorioid, int equipoid) {
         equipoDAO.asociar(laboratorioid,equipoid);
 
     }
@@ -97,8 +97,9 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
-    public void registrarNovedadElemento(int id_elemento, int id_equipo, Date fecha, String nombre, String usuario, String detalle) {
-        novedadDAO.registrarNovedadElemento(id_elemento,id_equipo,fecha,nombre,usuario,detalle);
+    public void registrarNovedadElemento(int id_elemento, int id_equipo, String usuario,Date fecha, String detalle,String nombre) {
+        System.out.println("entre servicios elemento");
+        novedadDAO.registrarNovedadElemento(id_elemento,id_equipo,usuario,fecha,detalle,nombre);
     }
 
     @Override

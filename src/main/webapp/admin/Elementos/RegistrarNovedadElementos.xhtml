@@ -62,20 +62,11 @@
             <h:form>
                 <h:panelGrid columns="2" cellpadding="10">
 
-                    <p:outputLabel value="Tipo:" />
-                    <p:selectOneMenu id="console2" value="#{novedadBean.tipo}" style="width:125px">
-                        <f:selectItem itemLabel="Equipo" itemValue="Equipo" />
-                        <f:selectItem itemLabel="Elemento" itemValue="Elemento" />
-                    </p:selectOneMenu>
-
                     <p:outputLabel value="Id: " />
                     <h:inputText value="#{novedadBean.id_elemento}"/>
 
                     <p:outputLabel value="TituloCorto: " />
                     <h:inputText value="#{novedadBean.nombre}"/>
-
-                    <p:outputLabel for="popup" value="Fecha:" />
-                    <p:calendar id="popup" value="#{novedadBean.fecha}" />
 
                     <p:outputLabel value="Detalle: " />
                     <p:inputTextarea rows="5" cols="30"  maxlength="500" counterTemplate="{0} caracteres restantes." autoResize="false" value="#{novedadBean.detalle}"/>
@@ -84,8 +75,7 @@
                     <p:commandButton value="Registrar Novedad"   action="#{novedadBean.registrar()}" style="margin-right:20px;"  />
                 </h:panelGrid>
                 <br></br>
-                <p:commandButton value="Regresar" id="Regresar"  action="#{usuarioBean.regresar()}" style="margin-right:20px;"  />
-                <p:commandButton value="Logout" id="Logout"  action="#{usuarioBean.logout()}" style="margin-right:20px;"  />
+
             </h:form>
         </div>
 

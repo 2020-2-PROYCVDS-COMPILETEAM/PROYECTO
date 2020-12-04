@@ -22,7 +22,7 @@ public class LaboratorioBean extends BasePageBean {
     @Inject
     private serviciosHistorialEquipos serviciosHistorialEquipos;
 
-    private String id;
+    private int id;
     private String nombre;
     private String descripcion;
     private int capacidadequipos;
@@ -43,8 +43,6 @@ public class LaboratorioBean extends BasePageBean {
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Error", "No fue posible el registro"));
         }
-
-
     }
     public void reporteLaboratorios() {
         try {
@@ -73,41 +71,47 @@ public class LaboratorioBean extends BasePageBean {
         return serviciosHistorialEquipos.reporteLaboratorios();
     }
 
-
-
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+
+    public void setId(int id) {
         this.id = id;
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public String getDescripcion() {
         return descripcion;
     }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
     public int getCapacidadEquipos() {
         return capacidadequipos;
     }
+
     public void setCapacidadEquipos(int capacidadEquipos) {
         this.capacidadequipos = capacidadEquipos;
     }
+
     public boolean isActivo() {
         return activo;
     }
+
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
     public void asociar(Equipo eq) {
-        serviciosHistorialEquipos.asociarLaboratorio("",eq.getId());
         equipos.add(eq);
 
     }

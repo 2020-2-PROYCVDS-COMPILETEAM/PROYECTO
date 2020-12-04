@@ -73,19 +73,19 @@
     <h:form  >
       <h:panelGrid columns="2" cellpadding="10"  >
 
-        <h:outputText value="Nombre: " />
+        <h:outputText value="Nombre del equipo: " />
         <h:inputText value="#{equipoBean.nombre}" />
 
-        <h:outputText value="Pantalla: " />
+        <h:outputText value="Pantalla del equipo: " />
         <h:inputText value="#{equipoBean.pantallaID}"/>
 
-        <h:outputText value="Teclado: " />
+        <h:outputText value="Teclado del equipo: " />
         <h:inputText value="#{equipoBean.tecladoID}"/>
 
-        <h:outputText value="Mouse: " />
+        <h:outputText value="Mouse del equipo: " />
         <h:inputText value="#{equipoBean.mouseID}"/>
 
-        <h:outputText value="Torre: " />
+        <h:outputText value="Torre del equipo: " />
         <h:inputText value="#{equipoBean.torreID}"/>
 
         <p:commandButton value="Registrar"   action="#{equipoBean.registrar()}" style="margin-right:20px;"   />

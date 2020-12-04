@@ -1,0 +1,4 @@
+127.0.0.1 - - [04/Dec/2020:00:35:45 -0500] "GET /faces/admin/Laboratorios/ReportesLaboratorios.xhtml HTTP/1.1" 200 3645 http-bio-8080-exec-1 937
+127.0.0.1 - - [04/Dec/2020:00:35:49 -0500] "GET /faces/admin/Laboratorios/AsociarEquipoLaboratorio.xhtml HTTP/1.1" 200 13566 http-bio-8080-exec-2 1920
+127.0.0.1 - - [04/Dec/2020:00:36:02 -0500] "POST /faces/admin/Laboratorios/AsociarEquipoLaboratorio.xhtml HTTP/1.1" 200 14096 http-bio-8080-exec-3 1944
+127.0.0.1 - - [04/Dec/2020:00:36:06 -0500] "POST /faces/admin/Laboratorios/AsociarEquipoLaboratorio.xhtml HTTP/1.1" 200 220 http-bio-8080-exec-4 1320

@@ -1,6 +1,6 @@
 package edu.eci.cvds.managedBeans;
 
-import org.apache.*;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -97,9 +97,10 @@ public class ElementoBean extends BasePageBean {
     public void asociarElemento() {
         try {
             FacesContext context = FacesContext.getCurrentInstance();
-            serviciosHistorialEquipos.asociarElemento(idElem, idEqui);
+            serviciosHistorialEquipos.asociarElemento(idElem, idEqui,tipo);
             java.util.Date fecha = new Date();
             //serviciosHistorialEquipos.registrarNovedadElemento(idElem, idEqui, fecha, "Cambio de asociación", laboratorioServices.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getUserName(), "Se asocio el elemento registrado con la ID:"+idElem+" al equipo registrado con la ID:"+idEqui);
+
         }
         catch(Exception e) {
             FacesContext context = FacesContext.getCurrentInstance();

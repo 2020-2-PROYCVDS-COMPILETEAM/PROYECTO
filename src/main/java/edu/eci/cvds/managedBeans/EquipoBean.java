@@ -1,6 +1,7 @@
 package edu.eci.cvds.managedBeans;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
@@ -9,8 +10,10 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
+import java.util.Date;
+
 @ManagedBean(name = "equipoBean")
-@ApplicationScoped
+@SessionScoped
 public class EquipoBean extends BasePageBean {
 
     @Inject
@@ -21,9 +24,9 @@ public class EquipoBean extends BasePageBean {
     private String laboratorioId;
     private boolean activo;
     private int pantallaID;
-    private int mouseID;
-    private int torreID;
-    private int tecladoID;
+    private int mouseID = 0;
+    private int torreID = 0;
+    private int tecladoID = 0;
 
 
     public void registrar() {
@@ -31,12 +34,15 @@ public class EquipoBean extends BasePageBean {
             FacesContext context = FacesContext.getCurrentInstance();
             serviciosHistorialEquipos.registrarEquipo(nombre,laboratorioId);
             int ma=serviciosHistorialEquipos.mayorEquipo();
-            System.out.println(ma);
-            serviciosHistorialEquipos.asociarElemento(mouseID, ma);
-            serviciosHistorialEquipos.asociarElemento(pantallaID, ma);
-            serviciosHistorialEquipos.asociarElemento(torreID, ma);
-            serviciosHistorialEquipos.asociarElemento(tecladoID, ma);
-
+            if(mouseID !=0){
+                serviciosHistorialEquipos.asociarElemento(mouseID, ma,"Mouse");
+            }if(pantallaID !=0){
+                serviciosHistorialEquipos.asociarElemento(pantallaID, ma,"Pantalla");
+            }if(torreID !=0){
+                serviciosHistorialEquipos.asociarElemento(torreID, ma,"Torre");
+            }if(tecladoID !=0){
+                serviciosHistorialEquipos.asociarElemento(tecladoID, ma, "Teclado");
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -2,6 +2,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+
 <h:head>
     <title>Asociar Equipos</title>
     <link href="/recursos/assets/css/base.css" rel="stylesheet" />
@@ -56,6 +57,7 @@
         </div>
 
         <div id="contenido">
+            <h:form>
             <h1>Crear Laboratorio</h1>
             <h:form>
                 <h:panelGrid columns="2" cellpadding="10">
@@ -73,19 +75,40 @@
                     <h:inputText value="#{laboratorioBean.descripcion}"/>
 
                 </h:panelGrid>
+
+                <h3>Equipos asociados en el Laboratorio</h3>
+                <p:dataTable value="#{laboratorioBean.getEquipos()}" var="equipo" paginator="true" rows="10">
+                    <p:column headerText="Equipos Disponibles">
+                        <h:outputText value="#{equipo.id}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{equipo.nombre}" />
+                    </p:column>
+                    <p:column headerText="Desasociar"><h:commandLink value="Desasociar" actionListener="#{laboratorioBean.desasociar(equipo)}" update="@form"></h:commandLink></p:column>
+                </p:dataTable>
+
+
+                <h3>Equipos Disponibles para Asociar</h3>
+                <p:dataTable value="#{laboratorioBean.getEquiposDisponibles()}" var="equipo" paginator="true" rows="10">
+                    <p:column headerText="Equipos Disponibles">
+                        <h:outputText value="#{equipo.id}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{equipo.nombre}" />
+                    </p:column>
+                    <p:column headerText="Asociar">
+                        <h:commandButton value="asociar" actionListener="#{laboratorioBean.asociar(equipo)}" update="@form"></h:commandButton>
+                    </p:column>
+                </p:dataTable>
+
+                <p:commandButton value="Registrar" id="Registrar"  action="#{laboratorioBean.registrar()}" style="margin-right:20px;"  />
+            </h:form>
+
             </h:form>
         </div>
 
         <div id="pie">
-            <footer id="footer">
 
-                <div class="container">
-
-                    <div class="copyright">
-                        © Copyright <strong><span>JJD Company</span></strong>. All Rights Reserved
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 

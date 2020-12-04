@@ -1,8 +1,9 @@
 package edu.eci.cvds.samples.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Novedad {
+public class Novedad implements Serializable{
 
     private int id;
     private int elementoId;

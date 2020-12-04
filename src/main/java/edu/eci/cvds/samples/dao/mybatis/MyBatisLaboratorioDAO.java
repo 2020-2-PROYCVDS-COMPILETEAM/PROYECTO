@@ -22,9 +22,8 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO {
     }
 
     @Override
-    public void crear(String id, String nombre, String descripcion, int capacidadEquipos) {
+    public void crear(int id,String nombre, String descripcion, int capacidadEquipos) {
         laboratorioMapper.crear(id,nombre,descripcion,capacidadEquipos);
-
     }
     @Override
     public ArrayList<Laboratorio> reporteLaboratorios() {
