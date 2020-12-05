@@ -64,7 +64,7 @@ Los servicios con los que cuenta el administrador son:
 ## __Arquitectura y Diseño__ 
 
 ### __Modelo E-R__
-![](https://github.com/2020-2-PROYCVDS-COMPILETEAM/PROYECTO/blob/main/img/diagrama%20de%20diagrama.PNG)
+![](https://github.com/2020-2-PROYCVDS-COMPILETEAM/PROYECTO/blob/main/img/diagrama.PNG)
 
 ### __Tecnologías utilizadas__
 
