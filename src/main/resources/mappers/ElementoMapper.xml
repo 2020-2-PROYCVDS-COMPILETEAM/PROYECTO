@@ -15,11 +15,15 @@
         <result property='marca' column='marca'/>
     </resultMap>
 
+    <select id="getNombrePorTipo" resultMap="reporteElementoResult" parameterType="int">
+        select nombre from elemento where tipo=#{tipo}
+    </select>
+
     <select id="reporteElementos" resultMap="reporteElementoResult" parameterType="int">
         SELECT e.id,e.tipo,e.equipo,e.activo,e.nombre,e.marca
         FROM Elemento as e
-
     </select>
+
     
     <update id="modificarElemento" parameterType="edu.eci.cvds.samples.entities.Elemento">
         UPDATE elemento set activo=#{activo}, nombre=#{nombre}, equipo=(select e.id from equipo as e where e.nombre=#{equipo}) where id=#{id}

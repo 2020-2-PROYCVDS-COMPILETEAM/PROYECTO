@@ -106,7 +106,6 @@ margin: 50px;
     </style>
 </h:head>
 <h:body>
-    <a class="btn btn-primary btn-large btn-block" href="../admin/InicioAdmin.xhtml">login</a>
     <div class="login">
         <div class="login-screen">
             <div class="app-title">
@@ -115,17 +114,12 @@ margin: 50px;
             <h:form>
             <div class="login-form">
                 <div class="control-group">
-                    <p:inputText type="text" id="login-name" class="login-field" name="username" placeholder="Correo"  value="#{LoginBean.username}"/>
+                    <p:inputText name="email" id="login-name" placeholder="Email Address" value="#{userBean.username}"/><br/>
                 </div>
                 <div class="control-group">
-                    <p:inputText type="password" class="login-field" name="p" placeholder="Password"  value="#{LoginBean.contraseña}"/>
+                    <p:inputText type="password" name="password" id="password" placeholder="Password"  value="#{userBean.password}"/>
                 </div>
-                <div style="margin:10px;">
-                    <form>
-                        <input type="checkbox" value="lsRememberMe" id="rememberMe"/> <label for="rememberMe"  >Recordarme</label>
-                    </form>
-                </div>
-                <p:commandButton type="submit" class="btn btn-primary btn-block btn-large" value="Log In" action="#{LoginBean.login()}"></p:commandButton>
+                <p:commandButton type="submit" value="Entrar" styleClass="customStyleButton" action="#{userBean.logIn()}"/>
             </div>
             </h:form>
         </div>

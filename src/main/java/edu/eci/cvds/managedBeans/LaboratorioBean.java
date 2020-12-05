@@ -50,17 +50,16 @@ public class LaboratorioBean extends BasePageBean {
 
 
     }
-    public void reporteLaboratorios() {
-        try {
-            //FacesContext context = FacesContext.getCurrentInstance();
-            serviciosHistorialEquipos.reporteLaboratorios();
-        }
-        catch(Exception e) {
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage("Error", "No fue posible el reporte"));
-        }
+    public ArrayList<Laboratorio> reporteLaboratorios() {
+        return serviciosHistorialEquipos.reporteLaboratorios();
+    }
 
-
+    public List<String> getNombreLaboratorios(){
+        ArrayList<String> nombres = new ArrayList<String>();
+        for(Laboratorio l: reporteLaboratorios()){
+            nombres.add(l.getNombre());
+        }
+        return nombres;
     }
 
 

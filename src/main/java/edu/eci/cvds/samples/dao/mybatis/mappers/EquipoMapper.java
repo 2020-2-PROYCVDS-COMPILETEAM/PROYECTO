@@ -4,13 +4,14 @@ import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface EquipoMapper {
 
     public List<Equipo> buscarEquipos();
 
-    public  void registrarEquipo(@Param("nombre") String nombre, @Param("laboratorioId") String laboratorioId);
+    public  void registrarEquipo(@Param("nombre") String nombre, @Param("laboratorioId") int laboratorioId,@Param("descripcion") String descripcion);
 
     public List<Equipo> equiposActivos();
 
@@ -26,4 +27,7 @@ public interface EquipoMapper {
 
     public List<Elemento> equipo(@Param("id")int id);
 
+    ArrayList<Equipo> reporteEquipos();
+
+    void modificarEquipo(@Param("nombre") String modificarNombre,@Param("laboratorio") int modificaLaboratorio,@Param("activo") Boolean modificarActivo,@Param("id") int equipoId );
 }

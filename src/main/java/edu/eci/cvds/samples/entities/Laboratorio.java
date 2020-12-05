@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Laboratorio implements Serializable{
     private String fechadecierre;
     private  String fechadecreacion;
-    private String id;
+    private int id;
     private String nombre;
     private String descripcion;
     private int capacidadequipos;
@@ -17,7 +17,7 @@ public class Laboratorio implements Serializable{
         super();
     }
 
-    public Laboratorio(String id, String nombre, String descripcion, int capacidadequipos,boolean activo,String fechadecreacion,String fechadecierre,ArrayList<Equipo> equipo) {
+    public Laboratorio(int id, String nombre, String descripcion, int capacidadequipos,boolean activo,String fechadecreacion,String fechadecierre,ArrayList<Equipo> equipo) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -28,10 +28,10 @@ public class Laboratorio implements Serializable{
         this.setEquipos(equipo);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

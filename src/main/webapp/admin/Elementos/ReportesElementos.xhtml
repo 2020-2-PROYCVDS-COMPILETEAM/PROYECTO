@@ -104,7 +104,7 @@
             <p:dialog header="elemento Info" widgetVar="elementoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                 <p:outputPanel id="elementoDetail" >
                     <h:form>
-                    <h:outputText value="Id: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.id}"/><br/>¿
+                    <h:outputText value="Id: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.id}"/><br/>
                     <h:outputText value="Tipo: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.tipo}"/><br/>
                     <h:outputText value="Marca: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.marca}"/><br/>
                     <h:outputText value="nombre: " /><h:inputText  value="#{elementoBean.modificarNombre}"/><br/>
@@ -115,8 +115,20 @@
                     </h:form>
                     <p:dataTable id="selectedElemento_table" var="novedad" value="#{elementoBean.selectedElemento.novedades}" rows="10"
                                  paginator="true">
-                        <p:column  headerText="Elementos Existentes-ID">
-                            <h:outputText value="#{novedad.id}" />
+                        <p:column  headerText="id_elemento">
+                            <h:outputText value="#{novedad.elementoId}" />
+                        </p:column>
+                        <p:column  headerText="id_equipo">
+                            <h:outputText value="#{novedad.equipoId}" />
+                        </p:column>
+                        <p:column  headerText="usuario">
+                            <h:outputText value="#{novedad.usuarioId}" />
+                        </p:column>
+                        <p:column  headerText="fecha">
+                            <h:outputText value="#{novedad.fecha}" />
+                        </p:column>
+                        <p:column  headerText="detalles">
+                            <h:outputText value="#{novedad.detalle}" />
                         </p:column>
                     </p:dataTable>
 

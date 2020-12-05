@@ -104,7 +104,6 @@
         }
 /* CONTENIDO */
         #contenido {
-        overflow: auto;
         float: left;
         width: 85%;
         height: 80%;
@@ -114,7 +113,7 @@
         }
 /* PIE */
         #pie {
-        height: 5%;
+        height: 2%;
         clear: both;
         }
 

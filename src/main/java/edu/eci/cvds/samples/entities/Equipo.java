@@ -5,18 +5,17 @@ import java.util.ArrayList;
 
 public class Equipo implements Serializable{
     private int id;
-    private String laboratorioId;
+    private int laboratorioId;
     private boolean activo;
     private String nombre;
-    private String descripcion;
     private ArrayList<Elemento> elementos;
-
+    private String descripcion;
 
     public Equipo() {
         super();
     }
 
-    public Equipo(int id, String laboratorioId,boolean activo, ArrayList<Elemento> elementos, String descripcion) {
+    public Equipo(int id, int laboratorioId,boolean activo, ArrayList<Elemento> elementos, String descripcion) {
         this.setId(id);
         this.setLaboratorioId(laboratorioId);
         this.setActivo(activo);
@@ -25,12 +24,12 @@ public class Equipo implements Serializable{
 
     }
 
-    private void setDescripcion(String descripcion) {
-        this.descripcion=descripcion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    private String getDescripcion(){
-        return descripcion;
+    private void setDescripcion(String descripcion) {
+        this.descripcion=descripcion;
     }
 
     public int getId() {
@@ -41,11 +40,11 @@ public class Equipo implements Serializable{
         this.id = id;
     }
 
-    public String getLaboratorioId() {
+    public int getLaboratorioId() {
         return laboratorioId;
     }
 
-    public void setLaboratorioId(String laboratorioId) {
+    public void setLaboratorioId(int laboratorioId) {
         this.laboratorioId = laboratorioId;
     }
 

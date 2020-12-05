@@ -14,8 +14,4 @@ public interface LaboratorioDAO {
 
     public ArrayList<Laboratorio> reporteLaboratorios();
 
-
-
-
-
 }

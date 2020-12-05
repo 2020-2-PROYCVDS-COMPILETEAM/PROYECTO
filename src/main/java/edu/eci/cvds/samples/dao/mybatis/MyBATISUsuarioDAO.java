@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import edu.eci.cvds.samples.Exceptions.PersistenceException;
 import edu.eci.cvds.samples.dao.UsuarioDAO;
 import edu.eci.cvds.samples.dao.mybatis.mappers.UsuarioMapper;
+import edu.eci.cvds.samples.entities.Usuario;
 
 import java.util.List;
 
@@ -49,4 +50,19 @@ public class MyBATISUsuarioDAO implements UsuarioDAO {
         }
 
     }
+
+    @Override
+    public Usuario getUserName(String userName) {
+        return usuarioMapper.getUserName(userName);
+    }
+
+    public boolean validateLogin(String correo, String contraseña) throws PersistenceException {
+		try{
+			System.out.println("LLEGOOOO AL LOGIN");
+            return usuarioMapper.iniciarUsuario(correo, contraseña);
+        }catch (org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("error al logear usuario", e);
+        }
+		
+	}
 }

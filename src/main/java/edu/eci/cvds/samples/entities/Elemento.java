@@ -1,10 +1,17 @@
 package edu.eci.cvds.samples.entities;
 
+import com.google.inject.Inject;
+import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Elemento implements Serializable {
+
+    @Inject
+    private edu.eci.cvds.samples.services.serviciosHistorialEquipos serviciosHistorialEquipos;
 
     private int id;
     private String tipo;
@@ -13,16 +20,11 @@ public class Elemento implements Serializable {
     private String marca;
     private String nombre;
 
-    //Novedades
-    private List<Novedad> novedades;
-
     public List<Novedad> getNovedades() {
-        return novedades;
+       return  serviciosHistorialEquipos.getNovedadesElemento(id);
+
     }
 
-    public void setNovedades(List<Novedad> novedades) {
-        this.novedades = novedades;
-    }
 
     public Elemento(){
         super();

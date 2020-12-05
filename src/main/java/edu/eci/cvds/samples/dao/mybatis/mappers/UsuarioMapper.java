@@ -42,6 +42,8 @@ public interface UsuarioMapper {
      * @param contraseña
      * @return
      */
-    boolean iniciarUsuario(@Param("correoUsuario") String correo,
-                           @Param("contraseñaUsuario") String contraseña);
+    boolean iniciarUsuario(@Param("correo") String correo,
+                           @Param("contraseña") String contraseña);
+
+    Usuario getUserName(@Param("UserName") String userName);
 }

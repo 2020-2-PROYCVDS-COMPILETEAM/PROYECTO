@@ -35,7 +35,7 @@
 
 
     <insert id="registrarEquipo" parameterType="edu.eci.cvds.samples.entities.Equipo">
-        insert into equipo(activo,nombre,laboratorio) values (True,#{nombre},Null)
+        INSERT INTO equipo (nombre, descripcion, laboratorio, activo) VALUES(#{nombre}, #{descripcion}, #{laboratorioId}, false)
     </insert>
 
     <select id="equipo" resultMap="EquipoResult" parameterType="int">
@@ -49,6 +49,19 @@
             equipo as e
         WHERE e.id=#{id}
     </select>
+
+    <select id="reporteEquipos" resultMap="EquipoResult" parameterType="int">
+        SELECT id, nombre, descripcion, laboratorio, activo FROM equipo
+    </select>
+
+    <update id="modificarEquipo" parameterType="edu.eci.cvds.samples.entities.Equipo">
+        UPDATE equipo SET nombre=#{nombre},  laboratorio=#{laboratorio}, activo=#{activo} WHERE id=#{id}
+    </update>
+
+    <update id="darDeBajaEquipo" parameterType="edu.eci.cvds.samples.entities.Equipo">
+        UPDATE equipo SET activo=false WHERE id=#{equipo}
+    </update>
+
 
 
 </mapper>

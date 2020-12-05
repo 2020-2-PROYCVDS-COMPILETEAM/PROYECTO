@@ -1,9 +1,6 @@
 package edu.eci.cvds.samples.services;
 
-import edu.eci.cvds.samples.entities.Equipo;
-import edu.eci.cvds.samples.entities.Elemento;
-import edu.eci.cvds.samples.entities.Laboratorio;
-import edu.eci.cvds.samples.entities.Novedad;
+import edu.eci.cvds.samples.entities.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +10,7 @@ public interface serviciosHistorialEquipos {
 
     public List<Equipo> listarEquipos();
 
-    public void registrarEquipo(String nombre, String laboratorioId);
+    public void registrarEquipo(String nombre,int laboratorioId,String descripcion);
 
     public List<Equipo> equiposActivos();
 
@@ -53,4 +50,15 @@ public interface serviciosHistorialEquipos {
 
     ArrayList<Novedad> reporteNovedades();
 
+    List<String> getNombreElemento(String tipo);
+
+    ArrayList<Equipo> reporteEquipos();
+
+    void modificarEquipo(String modificarNombre,int modificaLaboratorio, Boolean modificarActivo, int equipoId);
+
+    Usuario getUsuario(String userName);
+
+    List<Novedad> getNovedadesElemento(int idelemento);
+
+    void darDeBajaEquipos(List<Equipo> selectedEquipos);
 }

@@ -11,7 +11,7 @@
 <h:body>
     <div id="contenedor">
         <div id="cabecera">
-            Aqui cabecera
+
         </div>
 
         <div id="menu">
@@ -62,7 +62,60 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+            <h:form id="formequipo">
+
+                <p:dataTable id="equipo_table" var="equipo" value="#{equipoBean.equipos}" rows="10"
+                             paginator="true" paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {exporter}" >
+
+                    <p:column  filterBy="#{equipo.id}" headerText="Equipo ID">
+                        <h:outputText value="#{equipo.id}" />
+                    </p:column>
+                    <p:column filterBy="#{equipo.nombre}" headerText="NOMBRE">
+                        <h:outputText value="#{equipo.nombre}" />
+                    </p:column>
+                    <p:column filterBy="#{equipo.descripcion}" headerText="DESCRIPCION">
+                        <h:outputText value="#{equipo.descripcion}" />
+                    </p:column>
+                    <p:column filterBy="#{equipo.activo}" headerText="ACTIVO">
+                        <h:outputText value="#{equipo.activo}" />
+                    </p:column>
+                    <p:column filterBy="#{equipo.laboratorioId}" headerText="LABORATORIO ID">
+                        <h:outputText value="#{equipo.laboratorioId}" />
+                    </p:column>
+                    <p:column headerText="Administrar">
+                        <p:commandButton update="equipoDetail" oncomplete="PF('equipoDialog').show()" value="Administrar Equipo">
+                            <f:setPropertyActionListener value="#{equipo}" target="#{equipoBean.selectedEquipo}" />
+                        </p:commandButton>
+                    </p:column>
+                    <f:facet name="{exporter}">
+                        <h:commandLink>
+                            <p:graphicImage url="recursos/img/excel.png" width="30"/>
+                            <p:dataExporter type="csv" target="elemento_table" fileName="ReporteDeEquipos"/>
+                        </h:commandLink>
+                    </f:facet>
+
+                </p:dataTable>
+            </h:form>
+
+            <p:dialog header="Equipo Info" widgetVar="equipoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:outputPanel id="equipoDetail" >
+                    <h:form>
+                        <h:outputText value="nombre: "/><h:inputText  value="#{equipoBean.modificarNombre}"/><br/>
+                        <h:outputText value="Id: "/><h:outputText style="text-align: right" value="#{equipoBean.selectedEquipo.id}"/><br/>
+                        <h:outputText value="laboratorio: "/><p:autoComplete placeholder="Laboratorio" dropdown="true" value="#{equipoBean.modificaLaboratorio}" completeMethod="#{laboratorioBean.getNombreLaboratorios()}"/>
+                        <h:outputText value="Activo: " /><p:selectBooleanButton id="value1" value="#{equipoBean.modificarActivo}" onLabel="Yes" offLabel="No" style="width:60px" /><br/>
+                        <p:commandButton value="Modificar Equipo" action="#{equipoBean.modificarEquipo()}" style="margin-right:20px;" />
+                    </h:form>
+
+                    <p:dataTable id="selectedElemento_table" var="novedad" value="#{elementoBean.selectedElemento.novedades}" rows="10"
+                                 paginator="true">
+                        <p:column  headerText="Elementos Existentes-ID">
+                            <h:outputText value="#{novedad.id}" />
+                        </p:column>
+                    </p:dataTable>
+
+                </p:outputPanel>
+            </p:dialog>
         </div>
 
         <div id="pie">

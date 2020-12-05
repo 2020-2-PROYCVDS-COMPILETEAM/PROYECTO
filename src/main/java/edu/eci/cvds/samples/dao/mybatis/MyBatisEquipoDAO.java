@@ -6,6 +6,7 @@ import edu.eci.cvds.samples.dao.mybatis.mappers.EquipoMapper;
 import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyBatisEquipoDAO implements EquipoDAO {
@@ -19,8 +20,8 @@ public class MyBatisEquipoDAO implements EquipoDAO {
     }
 
     @Override
-    public void registrar(String nombre,String laboratorioId) {
-        equipoMapper.registrarEquipo(nombre,laboratorioId);
+    public void registrar(String nombre,int laboratorioId,String descripcion) {
+        equipoMapper.registrarEquipo( nombre, laboratorioId, descripcion);
     }
 
     @Override
@@ -61,6 +62,16 @@ public class MyBatisEquipoDAO implements EquipoDAO {
     @Override
     public List<Elemento> equipo(int id) {
         return equipoMapper.equipo(id);
+    }
+
+    @Override
+    public ArrayList<Equipo> reporteEquipos() {
+        return equipoMapper.reporteEquipos();
+    }
+
+    @Override
+    public void modificarEquipo(String modificarNombre, int modificaLaboratorio, Boolean modificarActivo,int equipoId) {
+        equipoMapper.modificarEquipo(modificarNombre,modificaLaboratorio,modificarActivo,equipoId);
     }
 
 

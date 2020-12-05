@@ -4,6 +4,7 @@ import edu.eci.cvds.samples.entities.Elemento;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ElementoMapper {
 
@@ -21,4 +22,5 @@ public interface ElementoMapper {
 
     void modificarElemento(@Param("id") int id,@Param("nombre") String nombre,@Param("activo") boolean activo,@Param("equipo") String equipo);
 
+    ArrayList<Elemento> getNombrePorTipo(@Param("tipo") String tipo);
 }

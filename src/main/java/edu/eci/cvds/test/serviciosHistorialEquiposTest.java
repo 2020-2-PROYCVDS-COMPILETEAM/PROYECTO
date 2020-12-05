@@ -22,7 +22,7 @@ public class serviciosHistorialEquiposTest {
     @Test
     public void pruebaInsertarEquipo(){
         ArrayList<Elemento> lista = new ArrayList<Elemento>();
-        Equipo equipo = new Equipo(5, "como fua",True, lista, "como fua");
+        Equipo equipo = new Equipo(5, 3,True, lista, "como fua");
        // Assert.assertEquals(equipo,serviciosHistorialEquipos.registrarEquipo("como fua","como fua"));
 
     }

@@ -15,4 +15,5 @@ public interface LaboratorioMapper {
     void crear(@Param("id") int id, @Param("nombre") String nombre, @Param("descripcion") String descripcion, @Param("capacidadEquipos") int capacidadEquipos);
 
     ArrayList<Laboratorio> reporteLaboratorios();
+
 }

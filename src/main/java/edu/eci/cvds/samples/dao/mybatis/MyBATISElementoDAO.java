@@ -57,4 +57,14 @@ public class MyBATISElementoDAO implements ElementoDAO {
             elementoMapper.darDeBajaElemento(e.getId());
         }
     }
+
+    @Override
+    public List<String> getNombreElemento(String tipo) {
+        List<String> nombres = new ArrayList<String>();
+        ArrayList<Elemento> elementosTipo = elementoMapper.getNombrePorTipo(tipo);
+        for(Elemento e: elementosTipo){
+            nombres.add(e.getNombre());
+        }
+        return nombres;
+    }
 }

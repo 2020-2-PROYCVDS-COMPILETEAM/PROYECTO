@@ -3,22 +3,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-
   <title>Registrar Equipo</title>
-
-
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
-  <meta content="" name="descriptison" />
-  <meta content="" name="keywords" />
-  <link href="../assets/img/favicon.png" rel="icon" /><link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet" />
-  <link href="/recursos/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="/recursos/assets/vendor/icofont/icofont.min.css" rel="stylesheet" />
-  <link href="/recursos/assets/css/style.css" rel="stylesheet" />
   <link href="/recursos/assets/css/base.css" rel="stylesheet" />
-
 </h:head>
 
 <h:body>
@@ -72,31 +58,35 @@
     </ul>
   </div>
 
-
   <div id="contenido">
-    <h:form  >
+    <h:form>
       <h:panelGrid columns="2" cellpadding="10"  >
 
         <h:outputText value="Nombre: " />
         <h:inputText value="#{equipoBean.nombre}" />
 
+        <p:outputLabel value="Descripcion: " />
+        <p:inputTextarea rows="5" cols="30"  maxlength="500" counterTemplate="{0} caracteres restantes." autoResize="false" value="#{equipoBean.descripcion}"/>
+
+        <h:outputText value="Laboratorio: " />
+        <p:autoComplete placeholder="Laboratorio" dropdown="true" value="#{equipoBean.rLaboratorio}" completeMethod="#{laboratorioBean.getNombreLaboratorios()}"/>
+
         <h:outputText value="Pantalla: " />
-        <h:inputText value="#{equipoBean.pantallaID}"/>
+        <p:autoComplete placeholder="Pantalla" dropdown="true" value="#{equipoBean.rPantalla}" completeMethod="#{elementoBean.getNombrePantalla()}"/>
 
         <h:outputText value="Teclado: " />
-        <h:inputText value="#{equipoBean.tecladoID}"/>
+        <p:autoComplete placeholder="Teclado" dropdown="true" value="#{equipoBean.rTeclado}" completeMethod="#{elementoBean.getNombreTeclado()}"/>
 
         <h:outputText value="Mouse: " />
-        <h:inputText value="#{equipoBean.mouseID}"/>
+        <p:autoComplete placeholder="Mouse" dropdown="true" value="#{equipoBean.rMouse}" completeMethod="#{elementoBean.getNombreMouse()}"/>
 
         <h:outputText value="Torre: " />
-        <h:inputText value="#{equipoBean.torreID}"/>
+        <p:autoComplete placeholder="Torre" dropdown="true" value="#{equipoBean.rTorre}" completeMethod="#{elementoBean.getNombreTorre()}"/>
 
         <p:commandButton value="Registrar"   action="#{equipoBean.registrar()}" style="margin-right:20px;"   />
       </h:panelGrid>
     </h:form>
   </div>
-
 
   <div id="pie">
     <!-- ======= Footer ======= -->

@@ -1,6 +1,7 @@
 package edu.eci.cvds.managedBeans;
 
 import edu.eci.cvds.samples.entities.Equipo;
+import edu.eci.cvds.samples.entities.Novedad;
 import org.apache.*;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
@@ -24,9 +25,6 @@ public class ElementoBean extends BasePageBean {
     @Inject
     private serviciosHistorialEquipos serviciosHistorialEquipos;
 
-    //exportar
-    private Exporter textExporter;
-
     //private Injector injector;
     private int id;
     private String marca;
@@ -46,6 +44,46 @@ public class ElementoBean extends BasePageBean {
     //borrar
     private List<Elemento> selectedElementos;
 
+    public ArrayList<Novedad> getNovedadesElemento() {
+        return (ArrayList<Novedad>) serviciosHistorialEquipos.getNovedadesElemento(selectedElemento.getId());
+    }
+
+    public List<String> getNombreTeclado(){
+        List<String> nombres= new ArrayList<String>();
+        for(Elemento e:serviciosHistorialEquipos.reporteElementos()){
+            if(e.getTipo().equals("teclado")){
+                nombres.add(e.getNombre());
+            }
+        }
+        return nombres;
+    }
+    public List<String> getNombreMouse(){
+        List<String> nombres= new ArrayList<String>();
+        for(Elemento e:serviciosHistorialEquipos.reporteElementos()){
+            if(e.getTipo().equals("mouse")){
+                nombres.add(e.getNombre());
+            }
+        }
+        return nombres;
+    }
+    public List<String> getNombrePantalla(){
+        List<String> nombres= new ArrayList<String>();
+        for(Elemento e:serviciosHistorialEquipos.reporteElementos()){
+            if(e.getTipo().equals("pantalla")){
+                nombres.add(e.getNombre());
+            }
+        }
+        return nombres;
+    }
+    public List<String> getNombreTorre(){
+        List<String> nombres= new ArrayList<String>();
+        for(Elemento e:serviciosHistorialEquipos.reporteElementos()){
+            if(e.getTipo().equals("torre")){
+                nombres.add(e.getNombre());
+            }
+        }
+        return nombres;
+    }
 
     public void darDeBaja(){
         serviciosHistorialEquipos.darDeBaja(selectedElementos);
@@ -171,7 +209,6 @@ public class ElementoBean extends BasePageBean {
     public void registrarElemento() {
         try {
             FacesContext context = FacesContext.getCurrentInstance();
-            System.out.println("entre");
             serviciosHistorialEquipos.registrarElemento(tipo, marca, nombre, idEqui);
         } catch (Exception e) {
             System.out.println(e.getMessage());

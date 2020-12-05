@@ -7,7 +7,9 @@ import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
+import edu.eci.cvds.samples.entities.Laboratorio;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
 import java.util.ArrayList;
@@ -20,22 +22,174 @@ public class EquipoBean extends BasePageBean {
     @Inject
     private serviciosHistorialEquipos serviciosHistorialEquipos;
 
+    //registro
+    private String rPantalla;
+    private String rTeclado;
+    private String rMouse;
+    private String rTorre;
+    private String rLaboratorio = null;
+
     private int id;
     private String nombre;
-    private String laboratorioId;
+    private int laboratorioId;
     private boolean activo;
     private int pantallaID;
     private int mouseID;
     private int torreID;
     private int tecladoID;
+    private String descripcion;
 
+    private Equipo  selectedEquipo;
+    private Equipo equipo;
+
+    //modificar
+    private String modificarNombre;
+    private String modificaLaboratorio;
+    private Boolean modificarActivo;
+
+
+    //borrar
+    private List<Equipo> selectedEquipos;
+
+
+    public void darDeBaja(){
+        serviciosHistorialEquipos.darDeBajaEquipos(selectedEquipos);
+        selectedEquipos.clear();
+    }
+
+    public void modificarEquipo(){
+        for(Laboratorio l: serviciosHistorialEquipos.reporteLaboratorios()){
+            if (l.getNombre().equals(modificaLaboratorio)){
+                laboratorioId = l.getId();
+            }
+        }
+        serviciosHistorialEquipos.modificarEquipo(modificarNombre,laboratorioId,modificarActivo,selectedEquipo.getId());
+    }
+
+    public String getModificarNombre() {
+        return modificarNombre;
+    }
+
+    public void setModificarNombre(String modificarNombre) {
+        this.modificarNombre = modificarNombre;
+    }
+
+    public String getModificaLaboratorio() {
+        return modificaLaboratorio;
+    }
+
+    public void setModificaLaboratorio(String modificaLaboratorio) {
+        this.modificaLaboratorio = modificaLaboratorio;
+    }
+
+    public Boolean getModificarActivo() {
+        return modificarActivo;
+    }
+
+    public void setModificarActivo(Boolean modificarActivo) {
+        this.modificarActivo = modificarActivo;
+    }
+
+    public Equipo getSelectedEquipo() {
+        return selectedEquipo;
+    }
+
+    public void setSelectedEquipo(Equipo selectedEquipo) {
+        this.selectedEquipo = selectedEquipo;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
+
+    public List<Equipo> getSelectedEquipos() {
+        return selectedEquipos;
+    }
+
+    public void setSelectedEquipos(List<Equipo> selectedEquipos) {
+        this.selectedEquipos = selectedEquipos;
+    }
+
+    public ArrayList<Equipo> getEquipos(){
+        FacesContext context = FacesContext.getCurrentInstance();
+        return serviciosHistorialEquipos.reporteEquipos();
+    }
+
+    public String getrLaboratorio() {
+        return rLaboratorio;
+    }
+
+    public void setrLaboratorio(String rLaboratorio) {
+        this.rLaboratorio = rLaboratorio;
+    }
+
+    public String getrPantalla() {
+        return rPantalla;
+    }
+
+    public void setrPantalla(String rPantalla) {
+        this.rPantalla = rPantalla;
+    }
+
+    public String getrTeclado() {
+        return rTeclado;
+    }
+
+    public void setrTeclado(String rTeclado) {
+        this.rTeclado = rTeclado;
+    }
+
+    public String getrMouse() {
+        return rMouse;
+    }
+
+    public void setrMouse(String rMouse) {
+        this.rMouse = rMouse;
+    }
+
+    public String getrTorre() {
+        return rTorre;
+    }
+
+    public void setrTorre(String rTorre) {
+        this.rTorre = rTorre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
     public void registrar() {
         try {
             FacesContext context = FacesContext.getCurrentInstance();
-            serviciosHistorialEquipos.registrarEquipo(nombre,laboratorioId);
+            for(Laboratorio l: serviciosHistorialEquipos.reporteLaboratorios()){
+                if (l.getNombre().equals(rLaboratorio)){
+                    laboratorioId = l.getId();
+                }
+            }
+            serviciosHistorialEquipos.registrarEquipo(nombre,laboratorioId,descripcion);
+
             int ma=serviciosHistorialEquipos.mayorEquipo();
             System.out.println(ma);
+            for(Elemento e: serviciosHistorialEquipos.reporteElementos()){
+                if (e.getNombre().equals(rPantalla) && e.getTipo().equals("pantalla")){
+                    pantallaID = e.getId();
+                }else if (e.getNombre().equals(rMouse) && e.getTipo().equals("mouse")){
+                    mouseID = e.getId();
+                }else if (e.getNombre().equals(rTeclado) && e.getTipo().equals("teclado")){
+                    tecladoID = e.getId();
+                }else if (e.getNombre().equals(rTorre) && e.getTipo().equals("torre")){
+                    torreID = e.getId();
+                }
+            }
             serviciosHistorialEquipos.asociarElemento(mouseID, ma);
             serviciosHistorialEquipos.asociarElemento(pantallaID, ma);
             serviciosHistorialEquipos.asociarElemento(torreID, ma);
@@ -46,10 +200,18 @@ public class EquipoBean extends BasePageBean {
         }
     }
 
+
+
     public List<String> getNombreEquipos(){
         List<String> nombres= new ArrayList<String>();
-        nombres.add("equipoasus");
+        for(Equipo e:reporteEquipos()){
+            nombres.add(e.getNombre());
+        }
         return nombres;
+    }
+
+    public ArrayList<Equipo> reporteEquipos(){
+        return serviciosHistorialEquipos.reporteEquipos();
     }
 
     public String getNombre() {
@@ -107,11 +269,11 @@ public class EquipoBean extends BasePageBean {
         return torreID;
     }
 
-    public String getLaboratorioId() {
+    public int getLaboratorioId() {
         return laboratorioId;
     }
 
-    public void setLaboratorioId(String laboratorioId) {
+    public void setLaboratorioId(int laboratorioId) {
         this.laboratorioId = laboratorioId;
     }
 

@@ -6,11 +6,11 @@ D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\MyB
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\mappers\UsuarioMapper.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\NovedadBean.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\authc\SessionLogger.java
+D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\UserBean.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\entities\Novedad.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\BasePageBean.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\EquipoBean.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\dao\mybatis\mappers\ElementoMapper.java
-D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\HistorialEquiposBean.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\authc\ShiroSession.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\samples\services\serviciosHistorialEquipos.java
 D:\ECI\CVDS\proyecto\PROYECTO\src\main\java\edu\eci\cvds\managedBeans\LaboratorioBean.java

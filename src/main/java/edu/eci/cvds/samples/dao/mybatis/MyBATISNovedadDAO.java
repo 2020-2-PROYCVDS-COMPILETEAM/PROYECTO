@@ -7,6 +7,7 @@ import edu.eci.cvds.samples.entities.Novedad;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class MyBATISNovedadDAO implements NovedadDAO {
 
@@ -29,6 +30,11 @@ public class MyBATISNovedadDAO implements NovedadDAO {
     @Override
     public ArrayList<Novedad> reporteNovedades() {
         return novedadMapper.reporteNovedades();
+    }
+
+    @Override
+    public List<Novedad> getNovedadesElemento(int idelemento) {
+        return novedadMapper.getNovedadesElemento(idelemento);
     }
 
 }

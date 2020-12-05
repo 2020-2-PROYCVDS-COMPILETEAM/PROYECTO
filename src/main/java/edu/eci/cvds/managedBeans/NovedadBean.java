@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Novedad;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
+import org.apache.shiro.SecurityUtils;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;

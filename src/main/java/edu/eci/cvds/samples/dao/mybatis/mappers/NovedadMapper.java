@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public interface NovedadMapper {
 
@@ -14,4 +15,5 @@ public interface NovedadMapper {
 
     ArrayList<Novedad> reporteNovedades();
 
+    ArrayList<Novedad> getNovedadesElemento(@Param("idelemento") int idelemento);
 }

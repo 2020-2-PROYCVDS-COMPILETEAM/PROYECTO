@@ -27,11 +27,11 @@ edu\eci\cvds\managedBeans\EquipoBean.class
 edu\eci\cvds\samples\dao\mybatis\mappers\EquipoMapper.class
 edu\eci\cvds\samples\entities\Novedad.class
 edu\eci\cvds\samples\dao\EquipoDAO.class
-edu\eci\cvds\managedBeans\HistorialEquiposBean.class
 edu\eci\cvds\samples\dao\mybatis\MyBatisLaboratorioDAO.class
 edu\eci\cvds\managedBeans\LaboratorioBean.class
 edu\eci\cvds\samples\services\impl\serviciosHistorialEquiposImpl.class
 edu\eci\cvds\test\serviciosHistorialEquiposTest.class
+edu\eci\cvds\managedBeans\UserBean.class
 edu\eci\cvds\samples\dao\mybatis\mappers\ElementoMapper.class
 edu\eci\cvds\managedBeans\LoginBean.class
 edu\eci\cvds\samples\dao\mybatis\mappers\LaboratorioMapper.class

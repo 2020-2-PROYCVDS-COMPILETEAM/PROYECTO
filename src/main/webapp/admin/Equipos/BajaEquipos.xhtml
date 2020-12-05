@@ -62,7 +62,42 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+
+            <h:form id="formelemento">
+
+                <p:dataTable id="equipo_table" var="equipo" value="#{equipoBean.equipos}" rows="15"
+                             paginator="true" rowKey="#{equipo.id}" selection="#{equipoBean.selectedEquipos}">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column  filterBy="#{equipo.id}" headerText="Equipo ID">
+                        <h:outputText value="#{equipo.id}" />
+                    </p:column>
+                    <p:column filterBy="#{equipo.nombre}" headerText="NOMBRE">
+                        <h:outputText value="#{equipo.nombre}" />
+                    </p:column>
+                    <p:column filterBy="#{equipo.descripcion}" headerText="DESCRIPCION">
+                        <h:outputText value="#{equipo.descripcion}" />
+                    </p:column>
+                    <p:column filterBy="#{equipo.activo}" headerText="ACTIVO">
+                        <h:outputText value="#{equipo.activo}" />
+                    </p:column>
+                    <p:column filterBy="#{equipo.laboratorioId}" headerText="LABORATORIO ID">
+                        <h:outputText value="#{equipo.laboratorioId}" />
+                    </p:column>
+                    <f:facet name="footer">
+                        <p:commandButton  update="multiEquiposDetail"  value="Dar de baja" oncomplete="PF('multiEquipos').show()" />
+                    </f:facet>
+                </p:dataTable>
+            </h:form>
+
+            <p:dialog header="Dar de baja" widgetVar="multiEquipos" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="220">
+                <p:outputPanel id="multiEquiposDetail" style="text-align:center;">
+                    <p:repeat value="#{equipoBean.selectedEquipos}" var="equipo">
+                        <h:outputText value="#{equipo.id} - #{equipo.nombre}" style="display:block"/>
+                    </p:repeat>
+                    <p:commandButton value="dar de baja" action="#{equipoBean.darDeBaja()}" style="margin-right:20px;" />
+                </p:outputPanel>
+            </p:dialog>
+
         </div>
 
         <div id="pie">

@@ -3,19 +3,20 @@ package edu.eci.cvds.samples.entities;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
+
     private String correo;
-    private String contraseña;
+    private String contrasena;
     private String username;
     private String nombre;
     private String rol;
 
     public Usuario(){
-
+        super();
     }
 
-    public Usuario(String correo, String contraseña,String username, String nombre, String rol){
+    public Usuario(String correo, String contrasena,String username, String nombre, String rol){
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.username = username;
         this.nombre = nombre;
         this.rol = rol;
@@ -23,7 +24,7 @@ public class Usuario implements Serializable {
 
     public String getCorreo() {return correo;  }
 
-    public String getContraseña() { return contraseña;    }
+    public String getContraseña() { return contrasena;    }
 
     public String getNombre() {        return nombre;    }
 
@@ -33,7 +34,7 @@ public class Usuario implements Serializable {
 
     public void setCorreo(String correo) {        this.correo = correo;    }
 
-    public void setContraseña(String contraseña) {        this.contraseña = contraseña;    }
+    public void setContraseña(String contrasena) {        this.contrasena = contrasena;    }
 
     public void setNombre(String nombre) {        this.nombre = nombre;    }
 

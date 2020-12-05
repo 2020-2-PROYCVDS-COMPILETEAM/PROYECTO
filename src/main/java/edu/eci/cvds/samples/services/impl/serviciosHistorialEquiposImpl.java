@@ -2,10 +2,7 @@ package edu.eci.cvds.samples.services.impl;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.samples.dao.*;
-import edu.eci.cvds.samples.entities.Elemento;
-import edu.eci.cvds.samples.entities.Equipo;
-import edu.eci.cvds.samples.entities.Laboratorio;
-import edu.eci.cvds.samples.entities.Novedad;
+import edu.eci.cvds.samples.entities.*;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
 
 import java.util.ArrayList;
@@ -35,8 +32,8 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
-    public void registrarEquipo(String nombre, String laboratorioId) {
-        equipoDAO.registrar(nombre,laboratorioId);
+    public void registrarEquipo(String nombre,int laboratorioId,String descripcion) {
+        equipoDAO.registrar( nombre, laboratorioId, descripcion);
     }
 
     @Override
@@ -133,8 +130,41 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
+    public List<String> getNombreElemento(String tipo) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Equipo> reporteEquipos() {
+        return equipoDAO.reporteEquipos();
+    }
+
+    @Override
+    public void modificarEquipo(String modificarNombre, int modificaLaboratorio, Boolean modificarActivo,int equipoId) {
+        equipoDAO.modificarEquipo(modificarNombre,modificaLaboratorio,modificarActivo,equipoId);
+    }
+
+    @Override
     public List<Equipo> listarEquiposDisponibles() {
         return equipoDAO.listarTodas();
+    }
+
+    @Override
+    public Usuario getUsuario(String userName) {
+        return usuarioDAO.getUserName(userName);
+    }
+
+    @Override
+    public List<Novedad> getNovedadesElemento(int idelemento) {
+        return novedadDAO.getNovedadesElemento(idelemento);
+    }
+
+    @Override
+    public void darDeBajaEquipos(List<Equipo> selectedEquipos) {
+        for(Equipo e: selectedEquipos){
+            equipoDAO.darDeBajaEquipo(e.getId());
+        }
+
     }
 
 }

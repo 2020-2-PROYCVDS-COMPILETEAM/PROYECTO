@@ -21,4 +21,6 @@ public interface ElementoDAO {
 
     void darDeBaja(List<Elemento> selectedElementos);
 
+    List<String> getNombreElemento(String tipo);
+
 }

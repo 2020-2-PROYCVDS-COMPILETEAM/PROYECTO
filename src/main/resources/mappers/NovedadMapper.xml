@@ -25,5 +25,8 @@
     <select id="reporteNovedades" resultMap="NovedadResult" parameterType="int">
         SELECT id, id_elemento, id_equipo, usuario, fecha, detalles, nombre FROM novedad
     </select>
+    <select id="getNovedadesElemento" resultMap="NovedadResult" parameterType="int">
+        SELECT id, id_elemento, id_equipo, usuario, fecha, detalles, nombre FROM novedad where id_elemento=#{idelemento}
+    </select>
 
 </mapper>

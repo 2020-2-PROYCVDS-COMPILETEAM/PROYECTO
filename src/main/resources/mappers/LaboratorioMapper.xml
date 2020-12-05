@@ -28,8 +28,7 @@
     </select>
 
     <select id="reporteLaboratorios" resultMap="LaboratorioResult" parameterType="int">
-        SELECT l.nombre ,l.capacidadequipos ,l.activo ,l.fechadecreacion ,l.fechadecierre
-        FROM laboratorio as l
+        SELECT id, nombre, descripcion, activo, fechadecreacion, fechadecierre FROM laboratorio
     </select>
 
     <insert id="crear" parameterType="edu.eci.cvds.samples.entities.Laboratorio">
