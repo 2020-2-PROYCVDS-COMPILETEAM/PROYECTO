@@ -2,15 +2,16 @@ package edu.eci.cvds.managedBeans;
 
 
 import com.google.inject.Inject;
-import edu.eci.cvds.samples.entities.Elemento;
+
 import edu.eci.cvds.samples.entities.Novedad;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
-import org.apache.shiro.SecurityUtils;
+
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -39,8 +40,12 @@ public class NovedadBean extends BasePageBean{
             if (id_equipo != 0){
                 serviciosHistorialEquipos.registrarNovedadEquipo(id_equipo,fecha,usuario,detalle,nombre);
             }else{
-                this.id_equipo = serviciosHistorialEquipos.getEquipoID(this.id_elemento);
-                serviciosHistorialEquipos.registrarNovedadElemento(id_elemento,id_equipo,usuario,fecha,detalle,nombre);
+                try {
+                    this.id_equipo = serviciosHistorialEquipos.getEquipoID(this.id_elemento);
+                    serviciosHistorialEquipos.registrarNovedadElemento(id_elemento, id_equipo, usuario, fecha, detalle, nombre);
+                }catch (Exception e){
+                    serviciosHistorialEquipos.registrarNovedadElemento2(id_elemento, usuario, fecha, detalle, nombre);
+                }
             }
             id_equipo = 0;
             id_elemento = 0;

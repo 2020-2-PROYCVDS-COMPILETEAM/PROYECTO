@@ -24,7 +24,7 @@
         FROM Elemento as e
     </select>
 
-    
+
     <update id="modificarElemento" parameterType="edu.eci.cvds.samples.entities.Elemento">
         UPDATE elemento set activo=#{activo}, nombre=#{nombre}, equipo=(select e.id from equipo as e where e.nombre=#{equipo}) where id=#{id}
     </update>
@@ -34,29 +34,29 @@
     </insert>
 
     <update id="desasociarElemento" parameterType="map">
-		UPDATE elemento set equipo=NULL where equipo=#{idEqui} and tipo=(select tipo from elemento where id=#{idElem})
-	</update>
+        UPDATE elemento set equipo=NULL where equipo=#{idEqui} and tipo=(select tipo from elemento where id=#{idElem})
+    </update>
 
     <update id="asociarElemento" parameterType="map">
-		UPDATE elemento set equipo=#{idEqui} where id=#{idElem} and activo is true
-	</update>
+        UPDATE elemento set equipo=#{idEqui} where id=#{idElem} and activo is true
+    </update>
 
     <update id="darDeBajaElemento" parameterType="map">
-		UPDATE elemento set activo=False where id=#{elementoId} and equipo is NULL
-	</update>
+        UPDATE elemento set activo=False where id=#{elementoId} and equipo is NULL
+    </update>
 
     <delete id="delete" parameterType="map">
         DELETE FROM elemento WHERE id=#{id}
     </delete>
 
     <select id="getEquipoID" resultMap="reporteElementoResult" parameterType="int">
-		SELECT
-			e.id
-		FROM
-			ELEMENTO as e
-		WHERE e.id=#{id}
-		ORDER BY e.id ASC
+        SELECT
+            e.equipo
+        FROM
+            elemento as e
+        WHERE e.id = #{id}
+        ORDER BY e.id asc;
 
-	</select>
+    </select>
 
 </mapper>

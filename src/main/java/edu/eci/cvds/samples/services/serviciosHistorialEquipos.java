@@ -30,9 +30,9 @@ public interface serviciosHistorialEquipos {
 
     ArrayList<Elemento> reporteElementos();
 
-    void crearLaboratorio(int id, String nombre, String descripcion, int capacidadDeEquipos);
+    void crearLaboratorio( String nombre, String descripcion, Date fechadecreacioon);
 
-    void asociarLaboratorio(int laboratorioid, int equipoid);
+    void asociarLaboratorio(String nombrelab, int equipoid);
 
     List<Laboratorio> listarLaboratorios();
 
@@ -61,4 +61,6 @@ public interface serviciosHistorialEquipos {
     List<Novedad> getNovedadesElemento(int idelemento);
 
     void darDeBajaEquipos(List<Equipo> selectedEquipos);
+
+    void registrarNovedadElemento2(int id_elemento, String usuario, Date fecha, String detalle, String nombre);
 }

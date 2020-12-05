@@ -22,6 +22,10 @@
         insert into Novedad (id_elemento, id_equipo,usuario, fecha,detalles,nombre) values (#{id_elemento}, #{id_equipo},null, #{fecha}, #{detalle}, #{nombre})
     </insert>
 
+    <insert id="registrarNovedadElemento2" parameterType="edu.eci.cvds.samples.entities.Novedad">
+        insert into Novedad (id_elemento, id_equipo,usuario, fecha,detalles,nombre) values (#{id_elemento}, null,null, #{fecha}, #{detalle}, #{nombre})
+    </insert>
+
     <select id="reporteNovedades" resultMap="NovedadResult" parameterType="int">
         SELECT id, id_elemento, id_equipo, usuario, fecha, detalles, nombre FROM novedad
     </select>

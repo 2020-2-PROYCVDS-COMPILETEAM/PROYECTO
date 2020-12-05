@@ -78,13 +78,13 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
-    public void crearLaboratorio(int id, String nombre, String descripcion, int capacidadEquipos) {
-        laboratorioDAO.crear(id,nombre,descripcion,capacidadEquipos);
+    public void crearLaboratorio(String nombre, String descripcion, Date fechadecreacion) {
+        laboratorioDAO.crear(nombre,descripcion,fechadecreacion);
     }
 
     @Override
-    public void asociarLaboratorio(int laboratorioid, int equipoid) {
-        equipoDAO.asociar(laboratorioid,equipoid);
+    public void asociarLaboratorio(String nombrelab, int equipoid) {
+        equipoDAO.asociar(nombrelab,equipoid);
 
     }
 
@@ -165,6 +165,11 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
             equipoDAO.darDeBajaEquipo(e.getId());
         }
 
+    }
+
+    @Override
+    public void registrarNovedadElemento2(int id_elemento, String usuario, Date fecha, String detalle, String nombre) {
+        novedadDAO.registrarNovedadElemento2(id_elemento,usuario,fecha,detalle,nombre);
     }
 
 }

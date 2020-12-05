@@ -19,7 +19,7 @@ public interface EquipoDAO {
 
     public List<Equipo> listarLibres();
 
-    public void asociar(int laboratorioid, int equipoid);
+    public void asociar(String nombrelab, int equipoid);
 
     public void desasociar(int id);
 

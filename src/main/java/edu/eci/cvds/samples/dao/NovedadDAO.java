@@ -15,4 +15,5 @@ public interface NovedadDAO {
 
     List<Novedad> getNovedadesElemento(int idelemento);
 
+    void registrarNovedadElemento2(int id_elemento, String usuario, Date fecha, String detalle, String nombre);
 }

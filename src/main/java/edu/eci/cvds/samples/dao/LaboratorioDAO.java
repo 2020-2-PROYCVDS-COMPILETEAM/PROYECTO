@@ -1,6 +1,7 @@
 package edu.eci.cvds.samples.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import edu.eci.cvds.samples.entities.Elemento;
@@ -10,7 +11,7 @@ public interface LaboratorioDAO {
 
     public List<Laboratorio> listar();
 
-    public void crear(int id, String nombre, String descripcion, int capacidadEquipos);
+    public void crear( String nombre, String descripcion, Date fechadecreacion);
 
     public ArrayList<Laboratorio> reporteLaboratorios();
 

@@ -16,4 +16,7 @@ public interface NovedadMapper {
     ArrayList<Novedad> reporteNovedades();
 
     ArrayList<Novedad> getNovedadesElemento(@Param("idelemento") int idelemento);
+
+    void registrarNovedadElemento2( @Param("id_elemento")int id_elemento,@Param("usuario") String usuario,@Param("fecha") Date fecha,
+                                    @Param("detalle")String detalle,@Param("nombre")String nombre);
 }

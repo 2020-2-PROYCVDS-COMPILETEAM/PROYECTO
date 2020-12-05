@@ -37,4 +37,10 @@ public class MyBATISNovedadDAO implements NovedadDAO {
         return novedadMapper.getNovedadesElemento(idelemento);
     }
 
+    @Override
+    public void registrarNovedadElemento2(int id_elemento, String usuario, Date fecha, String detalle, String nombre) {
+        java.sql.Date fecha2 = new java.sql.Date(fecha.getTime());
+        novedadMapper.registrarNovedadElemento2( id_elemento, usuario, fecha2, detalle, nombre);
+    }
+
 }

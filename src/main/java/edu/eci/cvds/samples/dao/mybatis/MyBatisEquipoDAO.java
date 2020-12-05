@@ -42,9 +42,9 @@ public class MyBatisEquipoDAO implements EquipoDAO {
 
 
     @Override
-    public void asociar(int laboratorioid, int equipoid) {
-        System.out.println(laboratorioid+" "+equipoid);
-        equipoMapper.asociar(laboratorioid, equipoid);
+    public void asociar(String nombrelab, int equipoid) {
+        System.out.println(nombrelab+" "+equipoid);
+        equipoMapper.asociar(nombrelab, equipoid);
 
     }
 

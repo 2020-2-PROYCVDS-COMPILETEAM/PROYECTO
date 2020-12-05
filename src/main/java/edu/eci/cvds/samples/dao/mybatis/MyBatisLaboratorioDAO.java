@@ -1,6 +1,7 @@
 package edu.eci.cvds.samples.dao.mybatis;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.google.inject.Inject;
@@ -23,8 +24,9 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO {
 
 
     @Override
-    public void crear(int id, String nombre, String descripcion, int capacidadEquipos) {
-        laboratorioMapper.crear(id,nombre,descripcion,capacidadEquipos);
+    public void crear( String nombre, String descripcion, Date fechadecreacion) {
+        java.sql.Date fecha = new java.sql.Date(fechadecreacion.getTime());
+        laboratorioMapper.crear(nombre,descripcion,fecha);
 
     }
     @Override

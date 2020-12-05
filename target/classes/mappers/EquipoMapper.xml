@@ -9,7 +9,7 @@
         <id property='id' column='id'/>
         <result property='nombre' column='nombre'/>
         <result property='descripcion' column='descripcion'/>
-        <result property='laboratorioID' column='laboratorioId'/>
+        <result property='laboratorio' column='laboratorio'/>
         <result property='activo' column='activo'/>
     </resultMap>
 
@@ -17,7 +17,7 @@
         SELECT
             e.id,
             e.nombre,
-            e.laboratorioID,
+            e.laboratorio,
             e.descripcion
         FROM
             equipo as e
@@ -60,6 +60,14 @@
 
     <update id="darDeBajaEquipo" parameterType="edu.eci.cvds.samples.entities.Equipo">
         UPDATE equipo SET activo=false WHERE id=#{equipo}
+    </update>
+
+    <update id="asociar" parameterType="map">
+        UPDATE Equipo as e set laboratorio = (SELECT l.id from laboratorio as l where l.nombre = #{nombrelab}) where e.id = #{id_equipo}
+    </update>
+
+    <update id="desasociar" parameterType="map">
+        update Equipo set laboratodio = null where id = #{id.equipo}
     </update>
 
 

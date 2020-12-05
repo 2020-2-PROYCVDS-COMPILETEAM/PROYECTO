@@ -9,11 +9,9 @@
         <id property="id" column="id" />
         <result property="nombre" column="nombre" />
         <result property="descripcion" column="descripcion" />
-        <result property="capacidadequipos" column="capacidadequipos" />
         <result property="activo" column="activo" />
         <result property="fechadecreacion" column="fechadecreacion" />
         <result property="fecahdecierre" column="fechadecierre" />
-        <collection property="equipos" ofType="equipo"></collection>
     </resultMap>
 
     <select id="buscarLaboratorios" resultMap="LaboratorioResult" parameterType="int">
@@ -32,7 +30,7 @@
     </select>
 
     <insert id="crear" parameterType="edu.eci.cvds.samples.entities.Laboratorio">
-        insert into laboratorio(id,nombre,descripcion,capacidadequipos,activo) values (#{id},#{nombre},#{descripcion},#{capacidadequipos},True)
+        INSERT INTO laboratorio (nombre,descripcion,activo,fechadecreacion) values (#{nombre},#{descripcion},True,#{fechadecreacion})
     </insert>
 
 

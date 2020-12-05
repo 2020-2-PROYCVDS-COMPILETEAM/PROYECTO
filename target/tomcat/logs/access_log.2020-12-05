@@ -1,6 +1,0 @@
-0:0:0:0:0:0:0:1 - - [05/Dec/2020:10:16:29 -0500] "GET /faces/admin/Equipos/BajaEquipos.xhtml HTTP/1.1" 200 12592 http-bio-8080-exec-1 5993
-0:0:0:0:0:0:0:1 - - [05/Dec/2020:10:17:48 -0500] "GET /faces/admin/Equipos/BajaEquipos.xhtml HTTP/1.1" 200 20297 http-bio-8080-exec-3 3750
-0:0:0:0:0:0:0:1 - - [05/Dec/2020:10:17:58 -0500] "POST /faces/admin/Equipos/BajaEquipos.xhtml HTTP/1.1" 200 808 http-bio-8080-exec-5 1895
-0:0:0:0:0:0:0:1 - - [05/Dec/2020:10:18:03 -0500] "POST /faces/admin/Equipos/BajaEquipos.xhtml HTTP/1.1" 200 221 http-bio-8080-exec-6 1659
-0:0:0:0:0:0:0:1 - - [05/Dec/2020:10:18:08 -0500] "GET /faces/admin/Equipos/BajaEquipos.xhtml HTTP/1.1" 200 20299 http-bio-8080-exec-8 586
-0:0:0:0:0:0:0:1 - - [05/Dec/2020:10:18:16 -0500] "GET /faces/admin/Laboratorios/CrearLaboratorio.xhtml HTTP/1.1" 500 13909 http-bio-8080-exec-10 1073

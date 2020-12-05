@@ -1,6 +1,7 @@
 package edu.eci.cvds.managedBeans;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -22,12 +23,13 @@ public class LaboratorioBean extends BasePageBean {
     @Inject
     private serviciosHistorialEquipos serviciosHistorialEquipos;
 
+
     private int id;
     private String nombre;
     private String descripcion;
-    private int capacidadequipos;
+    private Date fechadecreacion;
     private boolean activo;
-    private List <Equipo> equipos = new ArrayList<Equipo>();
+    private List<Equipo> equipos = new ArrayList<Equipo>();
     private ArrayList<Laboratorio> laboratorios = new ArrayList<Laboratorio>();
     private Laboratorio laboratorio;
 
@@ -37,17 +39,25 @@ public class LaboratorioBean extends BasePageBean {
 
     public void registrar() {
         try {
-            FacesContext context = FacesContext.getCurrentInstance();
-            serviciosHistorialEquipos.crearLaboratorio(id,nombre,descripcion,capacidadequipos);
+            System.out.println(1);
+            fechadecreacion = new Date();
+            System.out.println(2);
+            serviciosHistorialEquipos.crearLaboratorio(nombre,descripcion,fechadecreacion);
+            System.out.println(3);
             for (Equipo e:equipos) {
-                serviciosHistorialEquipos.asociarLaboratorio(id,e.getId());
+                System.out.println(4);
+                serviciosHistorialEquipos.asociarLaboratorio(nombre ,e.getId());
+                System.out.println(5);
             }
+            System.out.println(6);
         }
         catch(Exception e) {
+            System.out.println(e.getMessage());
             FacesContext context = FacesContext.getCurrentInstance();
+            System.out.println(8);
             context.addMessage(null, new FacesMessage("Error", "No fue posible el registro"));
+            System.out.println(9);
         }
-
 
     }
     public ArrayList<Laboratorio> reporteLaboratorios() {
@@ -95,12 +105,6 @@ public class LaboratorioBean extends BasePageBean {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public int getCapacidadEquipos() {
-        return capacidadequipos;
-    }
-    public void setCapacidadEquipos(int capacidadEquipos) {
-        this.capacidadequipos = capacidadEquipos;
-    }
     public boolean isActivo() {
         return activo;
     }
@@ -110,13 +114,11 @@ public class LaboratorioBean extends BasePageBean {
 
     public void asociar(Equipo eq) {
         equipos.add(eq);
-
     }
 
     public void desasociar(Equipo eq) {
         serviciosHistorialEquipos.desasociarLaboratorio(eq.getId());
         equipos.remove(eq);
-
     }
 
 }

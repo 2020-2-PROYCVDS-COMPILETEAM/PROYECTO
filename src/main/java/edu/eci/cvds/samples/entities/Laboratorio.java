@@ -2,10 +2,11 @@ package edu.eci.cvds.samples.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Laboratorio implements Serializable{
-    private String fechadecierre;
-    private  String fechadecreacion;
+    private Date fechadecierre;
+    private Date fechadecreacion;
     private int id;
     private String nombre;
     private String descripcion;
@@ -16,7 +17,7 @@ public class Laboratorio implements Serializable{
         super();
     }
 
-    public Laboratorio(int id, String nombre, String descripcion,boolean activo,String fechadecreacion,String fechadecierre,ArrayList<Equipo> equipo) {
+    public Laboratorio(int id, String nombre, String descripcion,boolean activo,Date fechadecreacion,Date fechadecierre,ArrayList<Equipo> equipo) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -48,11 +49,11 @@ public class Laboratorio implements Serializable{
     }
 
 
-    public String getFechadecreacion() { return fechadecreacion; }
-    public void setFechadecreacion(String fechadecreacion) {        this.fechadecreacion = fechadecreacion;   }
+    public Date getFechadecreacion() { return fechadecreacion; }
+    public void setFechadecreacion(Date fechadecreacion) {        this.fechadecreacion = fechadecreacion;   }
 
-    public String getFechadecierre() { return fechadecierre; }
-    public void setFechadecierre(String fechadecierre) {     this.fechadecierre = fechadecierre;  }
+    public Date getFechadecierre() { return fechadecierre; }
+    public void setFechadecierre(Date fechadecierre) {     this.fechadecierre = fechadecierre;  }
 
     public ArrayList<Equipo> getEquipos() {
         return equipos;
