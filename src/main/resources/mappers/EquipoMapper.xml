@@ -62,6 +62,14 @@
         UPDATE equipo SET activo=false WHERE id=#{equipo}
     </update>
 
+    <update id="asociar" parameterType="map">
+        UPDATE Equipo set laboratorio = #{laboratorioID} where id= #{id_equipo}
+    </update>
+
+    <update id="desasociar" parameterType="map">
+        update Equipo set laboratodio = null where id = #{id.equipo}
+    </update>
+
 
 
 </mapper>

@@ -9,7 +9,6 @@ public class Laboratorio implements Serializable{
     private int id;
     private String nombre;
     private String descripcion;
-    private int capacidadequipos;
     private boolean activo;
     private ArrayList<Equipo> equipos;
 
@@ -17,11 +16,10 @@ public class Laboratorio implements Serializable{
         super();
     }
 
-    public Laboratorio(int id, String nombre, String descripcion, int capacidadequipos,boolean activo,String fechadecreacion,String fechadecierre,ArrayList<Equipo> equipo) {
+    public Laboratorio(int id, String nombre, String descripcion,boolean activo,String fechadecreacion,String fechadecierre,ArrayList<Equipo> equipo) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.capacidadequipos = capacidadequipos;
         this.activo= activo;
         this.fechadecreacion = fechadecreacion;
         this.fechadecierre = fechadecierre;
@@ -49,19 +47,12 @@ public class Laboratorio implements Serializable{
         this.nombre = nombre;
     }
 
-    public int getCapacidadequipos() {        return capacidadequipos;    }
-    public void setCapacidadequipos(int capacidadequipos) {        this.capacidadequipos = capacidadequipos;    }
 
     public String getFechadecreacion() { return fechadecreacion; }
     public void setFechadecreacion(String fechadecreacion) {        this.fechadecreacion = fechadecreacion;   }
 
     public String getFechadecierre() { return fechadecierre; }
     public void setFechadecierre(String fechadecierre) {     this.fechadecierre = fechadecierre;  }
-
-
-
-
-
 
     public ArrayList<Equipo> getEquipos() {
         return equipos;
