@@ -69,7 +69,7 @@ Los servicios con los que cuenta el administrador son:
 ### __Tecnologías utilizadas__
 
 ## _Integración continua_ 
-[![CircleCI](https://circleci.com/gh/2020-2-PROYCVDS-COMPILETEAM/PROYECTO)](https://app.circleci.com/pipelines/github/2020-2-PROYCVDS-COMPILETEAM/PROYECTO)
+[![CircleCI](https://circleci.com/pipelines/github/2020-2-PROYCVDS-COMPILETEAM/PROYECTO)](https://app.circleci.com/pipelines/github/2020-2-PROYCVDS-COMPILETEAM/PROYECTO)
  
 ## _Despliegue en Heroku_
 [![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://proyectocompilateteam.herokuapp.com/)
