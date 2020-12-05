@@ -11,7 +11,7 @@
 <h:body>
     <div id="contenedor">
         <div id="cabecera">
-            Aqui cabecera
+            <h1>Registrar Novedad </h1>
         </div>
 
         <div id="menu">
@@ -62,7 +62,24 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+
+            <h:form id="formId">
+                <h:panelGrid columns="2" cellpadding="10">
+
+                    <p:outputLabel value="Id: " />
+                    <h:inputText value="#{novedadBean.id_equipo}"/>
+
+                    <p:outputLabel value="TituloCorto: " />
+                    <h:inputText value="#{novedadBean.nombre}"/>
+
+                    <p:outputLabel value="Detalle: " />
+                    <p:inputTextarea rows="5" cols="30"  maxlength="500" counterTemplate="{0} caracteres restantes." autoResize="false" value="#{novedadBean.detalle}"/>
+
+                    <p:commandButton value="Registrar Novedad"   action="#{novedadBean.registrar()}" style="margin-right:20px;"  />
+
+                </h:panelGrid>
+
+            </h:form>
         </div>
 
         <div id="pie">

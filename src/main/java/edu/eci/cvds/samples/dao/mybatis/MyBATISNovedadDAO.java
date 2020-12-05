@@ -16,9 +16,9 @@ public class MyBATISNovedadDAO implements NovedadDAO {
 
 
     @Override
-    public void registrarNovedadEquipo(int id_equipo, Date fecha, String nombre, String usuario, String detalle) {
+    public void registrarNovedadEquipo(int id_Equipo, String usuario,Date fecha, String detalle,String nombre) {
         java.sql.Date fecha2 = new java.sql.Date(fecha.getTime());
-        novedadMapper.registrarNovedadEquipo(id_equipo, fecha2, nombre, usuario, detalle);
+        novedadMapper.registrarNovedadEquipo(id_Equipo, usuario, fecha2, detalle, nombre);
     }
 
     @Override

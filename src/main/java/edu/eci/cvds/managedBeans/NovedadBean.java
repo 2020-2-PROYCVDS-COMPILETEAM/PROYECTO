@@ -38,7 +38,7 @@ public class NovedadBean extends BasePageBean{
             FacesContext context = FacesContext.getCurrentInstance();
             fecha = new Date();
             if (id_equipo != 0){
-                serviciosHistorialEquipos.registrarNovedadEquipo(id_equipo,fecha,usuario,detalle,nombre);
+                serviciosHistorialEquipos.registrarNovedadEquipo(id_equipo,usuario,fecha,detalle,nombre);
             }else{
                 try {
                     this.id_equipo = serviciosHistorialEquipos.getEquipoID(this.id_elemento);

@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface NovedadDAO {
-    public void registrarNovedadEquipo(int id_equipo, Date fecha, String nombre, String usuario, String detalle);
+    public void registrarNovedadEquipo(int id_Equipo, String usuario,Date fecha, String detalle,String nombre);
 
     public void registrarNovedadElemento(int id_elemento, int id_equipo,String usuario, Date fecha,  String detalle, String nombre);
 

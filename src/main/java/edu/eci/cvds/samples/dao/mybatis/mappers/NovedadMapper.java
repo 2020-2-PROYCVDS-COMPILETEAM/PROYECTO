@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface NovedadMapper {
 
-    void registrarNovedadEquipo(@Param("id_equipo") int id_equipo, @Param("fecha") Date fecha, @Param("nombre")String nombre, @Param("usuario") String usuario, @Param("detalle")String detalle);
+    void registrarNovedadEquipo(@Param("id_equipo") int id_equipo, @Param("usuario") String usuario, @Param("fecha")Date fecha, @Param("detalle")String detalle,@Param("nombre") String nombre);
     void registrarNovedadElemento( @Param("id_elemento")int id_elemento,@Param("id_equipo") int id_equipo,@Param("usuario") String usuario,@Param("fecha") Date fecha,
                                    @Param("detalle")String detalle,@Param("nombre")String nombre);
 

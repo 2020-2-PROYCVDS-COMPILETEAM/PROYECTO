@@ -62,7 +62,45 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+
+            <h:form id="formlaboratorio">
+            <p:dataTable id="id"  var="laboratorio" value="#{laboratorioBean.laboratorios}" paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                         rows="15" rowKey="#{laboratio.id}" selection="#{laboratorioBean.selectedLaboratorios}">
+                <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                <f:facet name="header">REPORTE LABORATORIOS</f:facet>
+                <p:column filterBy="#{laboratorio.id}" headerText="ID">
+                    <h:outputText value="#{laboratorio.id}"/>
+                </p:column>
+                <p:column filterBy="#{laboratorio.nombre}" headerText="NOMBRE">
+                    <h:outputText value="#{laboratorio.nombre}"/>
+                </p:column>
+                <p:column filterBy="#{laboratorio.descripcion}" headerText="DESCRIPCION">
+                    <h:outputText value="#{laboratorio.descripcion}"/>
+                </p:column>
+                <p:column filterBy="#{laboratorio.activo}" headerText="ACTIVO">
+                    <h:outputText value="#{laboratorio.activo}"/>
+                </p:column>
+                <p:column filterBy="#{laboratorio.fechadecreacion}" headerText="FECHA DE CREACION">
+                    <h:outputText value="#{laboratorio.fechadecreacion}"/>
+                </p:column>
+                <p:column filterBy="#{laboratorio.fechadecierre}" headerText="FECHA DE CIERRE">
+                    <h:outputText value="#{laboratorio.fechadecierre}"/>
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton  update="multiLaboratoriosDetail"  value="Dar de baja" oncomplete="PF('multiLaboratorios').show()" />
+                </f:facet>
+            </p:dataTable>
+        </h:form>
+
+            <p:dialog header="Dar de baja" widgetVar="multiLaboratorios" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="220">
+                <p:outputPanel id="multiLaboratoriosDetail" style="text-align:center;">
+                    <p:repeat value="#{laboratorioBean.selectedLaboratorios}" var="laboratorio">
+                        <h:outputText value="#{laboratorio.id} - #{laboratorio.nombre}" style="display:block"/>
+                    </p:repeat>
+                    <p:commandButton value="dar de baja" action="#{laboratorioBean.cerrar()}" style="margin-right:20px;" />
+                </p:outputPanel>
+            </p:dialog>
+
         </div>
 
         <div id="pie">

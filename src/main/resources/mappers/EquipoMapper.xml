@@ -63,11 +63,11 @@
     </update>
 
     <update id="asociar" parameterType="map">
-        UPDATE Equipo as e set laboratorio = (SELECT l.id from laboratorio as l where l.nombre = #{nombrelab}) where e.id = #{id_equipo}
+        UPDATE Equipo as e set laboratorio = (SELECT l.id from laboratorio as l where l.nombre = #{nombrelab}) where e.id = #{equipoid}
     </update>
 
     <update id="desasociar" parameterType="map">
-        update Equipo set laboratodio = null where id = #{id.equipo}
+        update Equipo set laboratodio = null where id = #{id}
     </update>
 
 

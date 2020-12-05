@@ -38,7 +38,7 @@ public interface serviciosHistorialEquipos {
 
     void registrarNovedadElemento(int id_elemento, int id_equipo, String fecha, Date nombre, String usuario, String detalle);
 
-    void registrarNovedadEquipo(int id_Equipo,Date fecha,String nombre,String usuario,String detalle);
+    void registrarNovedadEquipo(int id_Equipo, String usuario,Date fecha, String detalle,String nombre);
 
     void desasociarLaboratorio(int id);
 

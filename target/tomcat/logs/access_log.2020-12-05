@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [05/Dec/2020:13:41:00 -0500] "GET /faces/admin/Laboratorios/CerrarLaboratorio.xhtml HTTP/1.1" 500 8494 http-bio-8080-exec-1 14133
+0:0:0:0:0:0:0:1 - - [05/Dec/2020:13:41:29 -0500] "GET /faces/admin/InicioAdmin.xhtml HTTP/1.1" 200 4692 http-bio-8080-exec-2 630
+0:0:0:0:0:0:0:1 - - [05/Dec/2020:13:41:30 -0500] "GET /faces/recursos/assets/css/base.css HTTP/1.1" 200 4098 http-bio-8080-exec-3 356
+0:0:0:0:0:0:0:1 - - [05/Dec/2020:13:41:40 -0500] "GET /faces/admin/Equipos/RegistrarNovedadEquipos.xhtml HTTP/1.1" 200 5483 http-bio-8080-exec-5 699
+0:0:0:0:0:0:0:1 - - [05/Dec/2020:13:41:41 -0500] "GET /recursos/assets/css/base.css HTTP/1.1" 304 - http-bio-8080-exec-6 76
+0:0:0:0:0:0:0:1 - - [05/Dec/2020:13:42:17 -0500] "POST /faces/admin/Equipos/RegistrarNovedadEquipos.xhtml HTTP/1.1" 200 220 http-bio-8080-exec-8 332

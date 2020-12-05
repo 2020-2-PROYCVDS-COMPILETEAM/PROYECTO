@@ -99,8 +99,8 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
-    public void registrarNovedadEquipo(int id_equipo, Date fecha, String nombre, String usuario, String detalle) {
-        novedadDAO.registrarNovedadEquipo(id_equipo,fecha,nombre,usuario,detalle);
+    public void registrarNovedadEquipo(int id_Equipo, String usuario,Date fecha, String detalle,String nombre) {
+        novedadDAO.registrarNovedadEquipo(id_Equipo,usuario,fecha,detalle,nombre);
     }
 
     @Override
@@ -171,5 +171,6 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     public void registrarNovedadElemento2(int id_elemento, String usuario, Date fecha, String detalle, String nombre) {
         novedadDAO.registrarNovedadElemento2(id_elemento,usuario,fecha,detalle,nombre);
     }
+
 
 }
