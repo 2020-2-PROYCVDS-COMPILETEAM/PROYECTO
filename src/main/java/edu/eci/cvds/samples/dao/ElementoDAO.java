@@ -23,4 +23,5 @@ public interface ElementoDAO {
 
     List<String> getNombreElemento(String tipo);
 
+    List<Elemento> listarTodas();
 }

@@ -11,7 +11,7 @@
         <result property="descripcion" column="descripcion" />
         <result property="activo" column="activo" />
         <result property="fechadecreacion" column="fechadecreacion" />
-        <result property="fecahdecierre" column="fechadecierre" />
+        <result property="fechadecierre" column="fechadecierre" />
     </resultMap>
 
     <select id="buscarLaboratorios" resultMap="LaboratorioResult" parameterType="int">
@@ -32,6 +32,10 @@
     <insert id="crear" parameterType="edu.eci.cvds.samples.entities.Laboratorio">
         INSERT INTO laboratorio (nombre,descripcion,activo,fechadecreacion) values (#{nombre},#{descripcion},True,#{fechadecreacion})
     </insert>
+
+    <update id="cerrarLaboratorio" parameterType="edu.eci.cvds.samples.entities.Laboratorio">
+        UPDATE laboratorio  SET activo=false , fechadecierre=#{fechacierre} WHERE id=#{id}
+    </update>
 
 
 </mapper>

@@ -9,7 +9,7 @@
 <h:body>
     <div id="contenedor">
         <div id="cabecera">
-            Aqui cabecera
+            <h1><span style="color:blue">Asociar</span>Equipo</h1>
         </div>
 
         <div id="menu">
@@ -53,7 +53,7 @@
                 <li>
                     <h3>Novedades</h3>
                     <ul>
-                        <li><a href="../admin/ReporteHistoricoNovedades.xhtml">Reporte historico Novedades</a></li>
+                        <li><a href="/faces/admin/ReporteHistoricoNovedades.xhtml">Reporte historico Novedades</a></li>
                     </ul>
                 </li>
             </ul>
@@ -62,21 +62,11 @@
 
         <div id="contenido">
             <h:form>
-                <h1>Crear Laboratorio</h1>
                 <h:form>
                     <h:panelGrid columns="2" cellpadding="10">
 
-                        <h:outputText value="id: " />
-                        <h:inputText value="#{laboratorioBean.id}"/>
-
-                        <h:outputText value="Nombre: " />
+                        <h:outputText value="nombre: " />
                         <h:inputText value="#{laboratorioBean.nombre}"/>
-
-                        <h:outputText value="Capacidad de Equipos: " />
-                        <h:inputText value="#{laboratorioBean.capacidadEquipos}"/>
-
-                        <h:outputText value="Descripcion: " />
-                        <h:inputText value="#{laboratorioBean.descripcion}"/>
 
                     </h:panelGrid>
 
@@ -88,9 +78,7 @@
                         <p:column headerText="Nombre">
                             <h:outputText value="#{equipo.nombre}" />
                         </p:column>
-                        <p:column headerText="Desasociar"><h:commandLink value="Desasociar" actionListener="#{laboratorioBean.desasociar(equipo)}" update="@form"></h:commandLink></p:column>
                     </p:dataTable>
-
 
                     <h3>Equipos Disponibles para Asociar</h3>
                     <p:dataTable value="#{laboratorioBean.getEquiposDisponibles()}" var="equipo" paginator="true" rows="10">
@@ -105,7 +93,7 @@
                         </p:column>
                     </p:dataTable>
 
-                    <p:commandButton value="Registrar" id="Registrar"  action="#{laboratorioBean.registrar()}" style="margin-right:20px;"  />
+                    <p:commandButton value="Registrar" id="Registrar"  action="#{laboratorioBean.asociar()}" style="margin-right:20px;"  />
                 </h:form>
 
             </h:form>

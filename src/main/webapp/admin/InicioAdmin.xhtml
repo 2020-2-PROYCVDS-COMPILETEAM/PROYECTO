@@ -43,13 +43,13 @@
                     <h3>Elemento</h3>
                     <ul>
                         <li><a href="../admin/Elementos/ReportesElementos.xhtml">Reportes</a></li>
-                        <li><a href="../admin/Elementos/RegistrarElemento.xhtml">Registrar</a></li>
+                        <li><a href="../admin/Elementos/RegistrarElementos.xhtml">Registrar</a></li>
                         <li><h2>Novedades</h2>
                             <ul>
-                                <li id="novedades"><a href="../admin/Elementos/ReporteNovedadesElemento.xhtml">Reporte historico Novedades</a></li>
+                                <li id="novedades"><a href="../admin/Elementos/RegistrarNovedadElementos.xhtml">Registrar Novedad</a></li>
                             </ul>
                         </li>
-                        <li><a href="BajaElementos.xhtml">Dar de baja Elemento</a></li>
+                        <li><a href="../admin/Elementos/BajaElementos.xhtml">Dar de baja Elemento</a></li>
                     </ul>
                 </li>
                 <li>
@@ -61,10 +61,13 @@
             </ul>
         </div>
 
-        <div id="contenido">
-            <p:commandButton type="submit" value="salir"  styleClass="customStyleButton" action="#{userBean.logout()}"/>
-        </div>
 
+
+        <div id="contenido">
+            <h1 style="text-align: center"> Ha ingresado a Historial equipos plataforma de confianza para el manejo y administracion de los elemento y areas tecnologicas de su empresa</h1><br/><br/>
+            <p:commandButton value="Logout" id="Logout" action="#{usuarioBean.logout()}" style="margin-right:20px;" />
+
+        </div>
 
     </div>
     <script src="http://code.jquery.com/jquery-1.12.0min.js"></script>

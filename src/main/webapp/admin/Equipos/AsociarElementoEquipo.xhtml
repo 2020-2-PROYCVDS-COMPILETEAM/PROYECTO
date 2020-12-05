@@ -55,14 +55,63 @@
                 <li>
                     <h3>Novedades</h3>
                     <ul>
-                        <li><a href="../admin/ReporteHistoricoNovedades.xhtml">Reporte historico Novedades</a></li>
+                        <li><a href="/faces/admin/ReporteHistoricoNovedades.xhtml">Reporte historico Novedades</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
 
         <div id="contenido">
-            aqui el contenido
+            <br></br>
+            <br></br>
+            <h:form>
+                <h:panelGrid columns="2" cellpadding="10">
+
+                    <h:outputText value="ID De Elemento: " />
+                    <h:inputText value="#{elementoBean.idElem}"/>
+
+                    <h:outputText value="ID De Equipos: " />
+                    <h:inputText value="#{elementoBean.idEqui}"/>
+
+                    <p:commandButton value="Asociar Elemento"   action="#{elementoBean.asociarElemento()}" style="margin-right:20px;"  />
+
+                </h:panelGrid>
+
+                <h3> Elementos disponibles para asociar: </h3>
+                <p:dataTable id="elemento_table" var="elemento" value="#{elementoBean.elementos}" rows="1"
+                             paginator="true">
+                    <p:column headerText="Elementos Existentes-ID">
+                        <h:outputText value="#{elemento.id}" />
+                    </p:column>
+                    <p:column headerText="Tipo">
+                        <h:outputText value="#{elemento.tipo}" />
+                    </p:column>
+                    <p:column headerText="Equipo al que pertenece">
+                        <h:outputText value="#{elemento.equipo}" />
+                    </p:column>
+                    <p:column headerText="Marca">
+                        <h:outputText value="#{elemento.marca}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{elemento.nombre}" />
+                    </p:column>
+                </p:dataTable>
+
+                <h3 > Equipos disponibles para asociar: </h3>
+                <p:dataTable id="equi_table" var="equipo" value="#{equipoBean.equipos}" rows="1"
+                             paginator="true">
+                    <p:column headerText="Equipos Disponibles">
+                        <h:outputText value="#{equipo.id}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{equipo.nombre}" />
+                    </p:column>
+                </p:dataTable>
+
+                <br></br>
+
+
+            </h:form>
         </div>
 
         <div id="pie">

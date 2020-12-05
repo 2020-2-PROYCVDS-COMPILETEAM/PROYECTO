@@ -15,6 +15,19 @@
         <result property='marca' column='marca'/>
     </resultMap>
 
+    <select id="listar" resultMap="reporteElementoResult" parameterType="int">
+        SELECT
+            e.id,
+            e.tipo,
+            e.equipo,
+            e.marca
+            e.activo
+            e.nombre
+        FROM
+            elemento as e
+        ORDER BY e.id ASC
+    </select>
+
     <select id="getNombrePorTipo" resultMap="reporteElementoResult" parameterType="int">
         select nombre from elemento where tipo=#{tipo}
     </select>

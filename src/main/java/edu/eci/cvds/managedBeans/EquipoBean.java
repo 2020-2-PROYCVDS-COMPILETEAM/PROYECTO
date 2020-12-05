@@ -1,6 +1,7 @@
 package edu.eci.cvds.managedBeans;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
@@ -11,8 +12,10 @@ import edu.eci.cvds.samples.entities.Elemento;
 import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.entities.Laboratorio;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
+import org.apache.shiro.SecurityUtils;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @ManagedBean(name = "equipoBean")
@@ -36,11 +39,41 @@ public class EquipoBean extends BasePageBean {
     private int pantallaID;
     private int mouseID;
     private int torreID;
+
+    public int getElementoID() {
+        return elementoID;
+    }
+
+
+    public void setElementoID(int elementoID) {
+        this.elementoID = elementoID;
+    }
+
+    public List<Elemento> getElementos() {
+        return serviciosHistorialEquipos.listarElementos();
+    }
+
+    public List<Equipo> getEquiposs() {
+        return serviciosHistorialEquipos.listarEquipos();
+    }
+
+
+    public int getEquipoID() {
+        return equipoID;
+    }
+
+    public void setEquipoID(int equipoID) {
+        this.equipoID = equipoID;
+    }
+
     private int tecladoID;
     private String descripcion;
 
     private Equipo  selectedEquipo;
     private Equipo equipo;
+
+    private int elementoID;
+    private int equipoID;
 
     //modificar
     private String modificarNombre;
@@ -201,6 +234,18 @@ public class EquipoBean extends BasePageBean {
     }
 
 
+    public void asociarElemento() {
+        try {
+            FacesContext context = FacesContext.getCurrentInstance();
+            serviciosHistorialEquipos.asociarElemento(elementoID, equipoID);
+            java.util.Date fecha = new Date();
+            //         serviciosHistorialEquipos.registrarNovedadElemento(elementoID, equipoID, fecha, "Cambio de asociación", serviciosHistorialEquipos.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getUserName(), "Se asocio el elemento registrado con la ID:"+elementoID+" al equipo registrado con la ID:"+equipoID);
+        }
+        catch(Exception e) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Error", "Es posible que este tratando de ingresar una ID ya registrada"));
+        }
+    }
 
     public List<String> getNombreEquipos(){
         List<String> nombres= new ArrayList<String>();

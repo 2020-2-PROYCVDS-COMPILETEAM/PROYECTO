@@ -15,4 +15,5 @@ public interface LaboratorioDAO {
 
     public ArrayList<Laboratorio> reporteLaboratorios();
 
+    void cerrarLaboratorio(int id,Date fechadecierre);
 }

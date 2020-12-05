@@ -23,4 +23,6 @@ public interface ElementoMapper {
     void modificarElemento(@Param("id") int id,@Param("nombre") String nombre,@Param("activo") boolean activo,@Param("equipo") String equipo);
 
     ArrayList<Elemento> getNombrePorTipo(@Param("tipo") String tipo);
+
+    List<Elemento> listar();
 }

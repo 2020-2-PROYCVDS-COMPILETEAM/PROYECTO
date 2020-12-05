@@ -63,4 +63,8 @@ public interface serviciosHistorialEquipos {
     void darDeBajaEquipos(List<Equipo> selectedEquipos);
 
     void registrarNovedadElemento2(int id_elemento, String usuario, Date fecha, String detalle, String nombre);
+
+    void cerrarLaboratorios(List<Laboratorio> selectedLaboratorios, Date fechacierre);
+
+    List<Elemento> listarElementos();
 }

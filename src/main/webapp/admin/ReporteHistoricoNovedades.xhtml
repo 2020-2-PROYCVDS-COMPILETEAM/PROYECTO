@@ -43,13 +43,13 @@
                     <h3>Elemento</h3>
                     <ul>
                         <li><a href="../admin/Elementos/ReportesElementos.xhtml">Reportes</a></li>
-                        <li><a href="../admin/Elementos/RegistrarElemento.xhtml">Registrar</a></li>
+                        <li><a href="../admin/Elementos/RegistrarElementos.xhtml">Registrar</a></li>
                         <li><h2>Novedades</h2>
                             <ul>
-                                <li id="novedades"><a href="../admin/Elementos/ReporteNovedadesElemento.xhtml">Reporte historico Novedades</a></li>
+                                <li id="novedades"><a href="../admin/Elementos/RegistrarNovedadElementos.xhtml">Registrar Novedad</a></li>
                             </ul>
                         </li>
-                        <li><a href="../Elementos/BajaElementos.xhtml">Dar de baja Elemento</a></li>
+                        <li><a href="../admin/Elementos/BajaElementos.xhtml">Dar de baja Elemento</a></li>
                     </ul>
                 </li>
                 <li>
@@ -89,7 +89,7 @@
                 <f:facet name="{exporter}">
                     <h:commandLink>
                         <p:graphicImage url="../recursos/assets/img/excel.png" width="30"/>
-                        <p:dataExporter type="csv" target="elemento_table" fileName="ReporteDeEquipos"/>
+                        <p:dataExporter type="csv" target="novedades_table" fileName="reportedenovedades"/>
                     </h:commandLink>
                 </f:facet>
             </p:dataTable>

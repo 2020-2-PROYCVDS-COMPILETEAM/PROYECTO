@@ -18,4 +18,7 @@ public interface LaboratorioMapper {
 
     ArrayList<Laboratorio> reporteLaboratorios();
 
+    void cerrarLaboratorio(@Param("id") int id,@Param("fechacierre") Date fechacierre);
+
 }
+

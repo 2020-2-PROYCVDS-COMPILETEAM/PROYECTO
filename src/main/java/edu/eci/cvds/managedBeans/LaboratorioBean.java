@@ -28,10 +28,59 @@ public class LaboratorioBean extends BasePageBean {
     private String nombre;
     private String descripcion;
     private Date fechadecreacion;
+    private Date fechadecierre;
     private boolean activo;
     private List<Equipo> equipos = new ArrayList<Equipo>();
-    private ArrayList<Laboratorio> laboratorios = new ArrayList<Laboratorio>();
+    private List<Laboratorio> laboratorios;
     private Laboratorio laboratorio;
+
+    public Date getFechadecierre() {
+        return fechadecierre;
+    }
+
+    public void setFechadecierre(Date fechadecierre) {
+        this.fechadecierre = fechadecierre;
+    }
+
+    public void setLaboratorios(List<Laboratorio> laboratorios) {
+        this.laboratorios = laboratorios;
+    }
+
+    //seleccion
+    private List<Laboratorio> selectedLaboratorios;
+
+    public void cerrar(){
+        fechadecierre = new Date();
+        serviciosHistorialEquipos.cerrarLaboratorios(selectedLaboratorios,fechadecierre);
+    }
+
+    public Date getFechadecreacion() {
+        return fechadecreacion;
+    }
+
+    public void setFechadecreacion(Date fechadecreacion) {
+        this.fechadecreacion = fechadecreacion;
+    }
+
+    public void setEquipos(List<Equipo> equipos) {
+        this.equipos = equipos;
+    }
+
+    public Laboratorio getLaboratorio() {
+        return laboratorio;
+    }
+
+    public void setLaboratorio(Laboratorio laboratorio) {
+        this.laboratorio = laboratorio;
+    }
+
+    public List<Laboratorio> getSelectedLaboratorios() {
+        return selectedLaboratorios;
+    }
+
+    public void setSelectedLaboratorios(List<Laboratorio> selectedLaboratorios) {
+        this.selectedLaboratorios = selectedLaboratorios;
+    }
 
     public void setLaboratorios(ArrayList<Laboratorio> laboratorios) {
         this.laboratorios = laboratorios;
@@ -39,24 +88,15 @@ public class LaboratorioBean extends BasePageBean {
 
     public void registrar() {
         try {
-            System.out.println(1);
             fechadecreacion = new Date();
-            System.out.println(2);
             serviciosHistorialEquipos.crearLaboratorio(nombre,descripcion,fechadecreacion);
-            System.out.println(3);
             for (Equipo e:equipos) {
-                System.out.println(4);
                 serviciosHistorialEquipos.asociarLaboratorio(nombre ,e.getId());
-                System.out.println(5);
             }
-            System.out.println(6);
         }
         catch(Exception e) {
-            System.out.println(e.getMessage());
             FacesContext context = FacesContext.getCurrentInstance();
-            System.out.println(8);
             context.addMessage(null, new FacesMessage("Error", "No fue posible el registro"));
-            System.out.println(9);
         }
 
     }
@@ -81,8 +121,7 @@ public class LaboratorioBean extends BasePageBean {
         return serviciosHistorialEquipos.listarEquiposDisponibles();
     }
 
-    public ArrayList<Laboratorio> getLaboratorios() {
-        FacesContext context = FacesContext.getCurrentInstance();
+    public List<Laboratorio> getLaboratorios() {
         return serviciosHistorialEquipos.reporteLaboratorios();
     }
 
@@ -114,6 +153,16 @@ public class LaboratorioBean extends BasePageBean {
 
     public void asociar(Equipo eq) {
         equipos.add(eq);
+    }
+
+    public void asociar(){
+        for (Equipo e:equipos) {
+            System.out.println(4);
+            serviciosHistorialEquipos.asociarLaboratorio(nombre, e.getId());
+            Date fecha = new Date();
+            serviciosHistorialEquipos.registrarNovedadEquipo(e.getId(),"asociar",fecha,"se realizo una asociacion",nombre);
+            System.out.println(5);
+        }
     }
 
     public void desasociar(Equipo eq) {

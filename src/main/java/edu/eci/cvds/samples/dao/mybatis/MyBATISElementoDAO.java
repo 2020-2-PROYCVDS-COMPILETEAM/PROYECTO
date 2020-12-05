@@ -67,4 +67,9 @@ public class MyBATISElementoDAO implements ElementoDAO {
         }
         return nombres;
     }
+
+    @Override
+    public List<Elemento> listarTodas() {
+        return elementoMapper.listar();
+    }
 }

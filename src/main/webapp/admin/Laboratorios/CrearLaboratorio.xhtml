@@ -56,7 +56,7 @@
                 <li>
                     <h3>Novedades</h3>
                     <ul>
-                        <li><a href="../admin/ReporteHistoricoNovedades.xhtml">Reporte historico Novedades</a></li>
+                        <li><a href="/faces/admin/ReporteHistoricoNovedades.xhtml">Reporte historico Novedades</a></li>
                     </ul>
                 </li>
             </ul>
@@ -66,7 +66,7 @@
             <h:form>
                 <h1 style="text-align: center">Crear Laboratorio</h1>
                 <h:form>
-                    <h:panelGrid columns="2" cellpadding="10">
+                    <h:panelGrid columns="2" cellpadding="5">
                         <h:outputText value="Nombre: " />
                         <h:inputText value="#{laboratorioBean.nombre}"/>
 
@@ -76,7 +76,7 @@
                     </h:panelGrid>
 
                     <h3 style="text-align: center">Equipos asociados en el Laboratorio</h3>
-                    <p:dataTable value="#{laboratorioBean.getEquipos()}" var="equipo" paginator="true" rows="10">
+                    <p:dataTable value="#{laboratorioBean.getEquipos()}" var="equipo" paginator="true" rows="5">
                         <p:column headerText="Equipos Disponibles">
                             <h:outputText value="#{equipo.id}" />
                         </p:column>

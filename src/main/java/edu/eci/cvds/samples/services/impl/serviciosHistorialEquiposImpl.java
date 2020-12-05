@@ -172,5 +172,18 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
         novedadDAO.registrarNovedadElemento2(id_elemento,usuario,fecha,detalle,nombre);
     }
 
+    @Override
+    public void cerrarLaboratorios(List<Laboratorio> selectedLaboratorios, Date fechadecierre) {
+        for(Laboratorio l: selectedLaboratorios){
+            laboratorioDAO.cerrarLaboratorio(l.getId(),fechadecierre);
+        }
+    }
+
+    @Override
+    public List<Elemento> listarElementos() {
+        return elementoDAO.listarTodas();
+    }
+
+
 
 }

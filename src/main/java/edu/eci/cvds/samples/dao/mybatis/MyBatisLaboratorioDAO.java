@@ -34,5 +34,11 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO {
         return laboratorioMapper.reporteLaboratorios();
     }
 
+    @Override
+    public void cerrarLaboratorio(int id,Date fechadecierre) {
+        java.sql.Date fechacierre = new java.sql.Date(fechadecierre.getTime());
+        laboratorioMapper.cerrarLaboratorio(id,fechacierre);
+    }
+
 
 }
