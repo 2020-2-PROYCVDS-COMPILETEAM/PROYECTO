@@ -7,7 +7,11 @@ import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import edu.eci.cvds.samples.entities.Equipo;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean(name = "equipoBean")
 @ApplicationScoped
@@ -40,6 +44,12 @@ public class EquipoBean extends BasePageBean {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public List<String> getNombreEquipos(){
+        List<String> nombres= new ArrayList<String>();
+        nombres.add("equipoasus");
+        return nombres;
     }
 
     public String getNombre() {

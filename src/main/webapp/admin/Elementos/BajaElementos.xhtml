@@ -3,7 +3,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Baja Elementos</title>
+    <title>Reportes Elemetos</title>
     <link href="/recursos/assets/css/base.css" rel="stylesheet" />
 </h:head>
 
@@ -11,7 +11,7 @@
 <h:body>
     <div id="contenedor">
         <div id="cabecera">
-            Aqui cabecera
+            <h1><span style="color:blue">Baja</span>Elementos</h1>
         </div>
 
         <div id="menu">
@@ -34,7 +34,6 @@
                         <li><h2>Novedades</h2>
                             <ul>
                                 <li id="novedades"><a href="../Equipos/RegistrarNovedadEquipos.xhtml">Registrar Novedad</a></li>
-                                <li id="novedades"><a href="../Equipos/ReporteNovedadesEquipo.xhtml">Reporte historico Novedades</a></li>
                             </ul>
                         </li>
                         <li><a href="../Equipos/BajaEquipos.xhtml">Dar de baja Equipo</a></li>
@@ -48,17 +47,60 @@
                         <li><h2>Novedades</h2>
                             <ul>
                                 <li id="novedades"><a href="../Elementos/RegistrarNovedadElementos.xhtml">Registrar Novedad</a></li>
-                                <li id="novedades"><a href="../Elementos/ReporteNovedadesElemento.xhtml">Reporte historico Novedades</a></li>
                             </ul>
                         </li>
-                        <li><a href="BajaElementos.xhtml">Dar de baja Elemento</a></li>
+                        <li><a href="../Elementos/BajaElementos.xhtml">Dar de baja Elemento</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Novedades</h3>
+                    <ul>
+                        <li><a href="../admin/ReporteHistoricoNovedades.xhtml">Reporte historico Novedades</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
 
         <div id="contenido">
-            aqui el contenido
+
+            <h:form id="formelemento">
+
+                <p:dataTable id="elemento_table" var="elemento" value="#{elementoBean.elementos}" rows="15"
+                             paginator="true" rowKey="#{elemento.id}" selection="#{elementoBean.selectedElementos}">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column var="elem" filterBy="#{elemento.id}" headerText="Elementos Existentes-ID">
+                        <h:outputText value="#{elemento.id}" />
+                    </p:column>
+                    <p:column filterBy="#{elemento.tipo}" headerText="Tipo">
+                        <h:outputText value="#{elemento.tipo}" />
+                    </p:column>
+                    <p:column filterBy="#{elemento.equipo}" headerText="Equipo al que pertenece">
+                        <h:outputText value="#{elemento.equipo}" />
+                    </p:column>
+                    <p:column filterBy="#{elemento.activo}" headerText="Activo">
+                        <h:outputText value="#{elemento.activo}" />
+                    </p:column>
+                    <p:column filterBy="#{elemento.marca}" headerText="Marca">
+                        <h:outputText value="#{elemento.marca}" />
+                    </p:column>
+                    <p:column filterBy="#{elemento.nombre}" headerText="Nombre">
+                        <h:outputText value="#{elemento.nombre}" />
+                    </p:column>
+                    <f:facet name="footer">
+                        <p:commandButton  update="multiElementosDetail"  value="Dar de baja" oncomplete="PF('multiElementos').show()" />
+                    </f:facet>
+                </p:dataTable>
+            </h:form>
+
+            <p:dialog header="Dar de baja" widgetVar="multiElementos" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="220">
+                <p:outputPanel id="multiElementosDetail" style="text-align:center;">
+                    <p:repeat value="#{elementoBean.selectedElementos}" var="elemento">
+                        <h:outputText value="#{elemento.id} - #{elemento.nombre}" style="display:block"/>
+                    </p:repeat>
+                    <p:commandButton value="dar de baja" action="#{elementoBean.darDeBaja()}" style="margin-right:20px;" />
+                </p:outputPanel>
+            </p:dialog>
+
         </div>
 
         <div id="pie">

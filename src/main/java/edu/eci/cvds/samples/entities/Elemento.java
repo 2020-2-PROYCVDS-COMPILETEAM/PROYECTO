@@ -2,6 +2,7 @@ package edu.eci.cvds.samples.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Elemento implements Serializable {
 
@@ -11,6 +12,17 @@ public class Elemento implements Serializable {
     private boolean activo;
     private String marca;
     private String nombre;
+
+    //Novedades
+    private List<Novedad> novedades;
+
+    public List<Novedad> getNovedades() {
+        return novedades;
+    }
+
+    public void setNovedades(List<Novedad> novedades) {
+        this.novedades = novedades;
+    }
 
     public Elemento(){
         super();

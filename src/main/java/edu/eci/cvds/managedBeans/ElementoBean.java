@@ -1,5 +1,6 @@
 package edu.eci.cvds.managedBeans;
 
+import edu.eci.cvds.samples.entities.Equipo;
 import org.apache.*;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
@@ -9,9 +10,12 @@ import edu.eci.cvds.samples.entities.Elemento;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.samples.services.serviciosHistorialEquipos;
+import org.primefaces.component.datatable.DataTable;
+import org.primefaces.component.export.Exporter;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @ManagedBean(name = "elementoBean")
 @ApplicationScoped
@@ -19,6 +23,9 @@ public class ElementoBean extends BasePageBean {
 
     @Inject
     private serviciosHistorialEquipos serviciosHistorialEquipos;
+
+    //exportar
+    private Exporter textExporter;
 
     //private Injector injector;
     private int id;
@@ -29,6 +36,81 @@ public class ElementoBean extends BasePageBean {
     private int idEqui;
     private boolean activo;
     private Elemento selectedElemento;
+    private Equipo equipo;
+
+    //modificar
+    private String modificarNombre;
+    private Boolean modificarActivo;
+    private String modificarEquipo;
+
+    //borrar
+    private List<Elemento> selectedElementos;
+
+
+    public void darDeBaja(){
+        serviciosHistorialEquipos.darDeBaja(selectedElementos);
+        selectedElementos.clear();
+    }
+
+    public void modificarElemento(){
+        serviciosHistorialEquipos.modificarElemento(selectedElemento.getId(),modificarNombre,modificarActivo,modificarEquipo);
+    }
+
+    public List<Elemento> getSelectedElementos() {
+        return selectedElementos;
+    }
+
+    public void setSelectedElementos(List<Elemento> selectedElementos) {
+        this.selectedElementos = selectedElementos;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public String getModificarNombre() {
+        return modificarNombre;
+    }
+
+    public void setModificarNombre(String modificarNombre) {
+        this.modificarNombre = modificarNombre;
+    }
+
+    public Boolean getModificarActivo() {
+        return modificarActivo;
+    }
+
+    public void setModificarActivo(Boolean modificarActivo) {
+        this.modificarActivo = modificarActivo;
+    }
+
+    public String getModificarEquipo() {
+        return modificarEquipo;
+    }
+
+    public void setModificarEquipo(String modificarEquipo) {
+        this.modificarEquipo = modificarEquipo;
+    }
+
+    public List<String> nombreElementos(){
+        List<String> nombres = new ArrayList<String>();
+        for(Elemento e: getElementos()){
+            nombres.add(e.getNombre());
+        }
+        return nombres;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
 
     public Elemento getSelectedElemento() {
         return selectedElemento;

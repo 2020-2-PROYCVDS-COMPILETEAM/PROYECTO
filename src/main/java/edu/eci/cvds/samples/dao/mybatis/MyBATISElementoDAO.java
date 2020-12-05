@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import edu.eci.cvds.samples.entities.Elemento;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MyBATISElementoDAO implements ElementoDAO {
@@ -43,5 +44,17 @@ public class MyBATISElementoDAO implements ElementoDAO {
     @Override
     public ArrayList<Elemento> reporteElementos() {
         return elementoMapper.reporteElementos();
+    }
+
+    @Override
+    public void modificarElemento(int id, String nombre, boolean activo, String equipo) {
+        elementoMapper.modificarElemento(id, nombre,activo,equipo);
+    }
+
+    @Override
+    public void darDeBaja(List<Elemento> selectedElementos) {
+        for(Elemento e:selectedElementos){
+            elementoMapper.darDeBajaElemento(e.getId());
+        }
     }
 }

@@ -5,18 +5,25 @@
 
 <mapper namespace="edu.eci.cvds.samples.dao.mybatis.mappers.NovedadMapper">
 
-
-
+    <resultMap id="NovedadResult" type="Novedad">
+        <id property="id" column="id"/>
+        <result property="elementoId" column="id_elemento"/>
+        <result property="equipoId" column="id_equipo"/>
+        <result property="usuarioId" column="usuario"/>
+        <result property='fecha' column='fecha'/>
+        <result property='detalle' column='detalles'/>
+        <result property='nombre' column='nombre'/>
+    </resultMap>
 
     <insert id="registrarNovedadEquipo" parameterType="edu.eci.cvds.samples.entities.Novedad">
-        insert into Novedad( id_elemento, id_equipo, fecha, nombre,usuario,detalle) values (null, #{id_equipo}, #{fecha},#{nombre}, #{usuario}, #{detalle})
+        insert into Novedad(id_elemento, id_equipo,usuario, fecha,detalles, nombre) values (null, #{id_equipo}, null, #{fecha}, #{detalle},#{nombre})
     </insert>
-
     <insert id="registrarNovedadElemento" parameterType="edu.eci.cvds.samples.entities.Novedad">
-        insert into Novedad( id_elemento, id_equipo, fecha, nombre,usuario,detalle) values ( #{id_elemento}, #{id_equipo}, #{fecha},#{nombre}, #{usuario}, #{detalle})
+        insert into Novedad (id_elemento, id_equipo,usuario, fecha,detalles,nombre) values (#{id_elemento}, #{id_equipo},null, #{fecha}, #{detalle}, #{nombre})
     </insert>
 
-
-
+    <select id="reporteNovedades" resultMap="NovedadResult" parameterType="int">
+        SELECT id, id_elemento, id_equipo, usuario, fecha, detalles, nombre FROM novedad
+    </select>
 
 </mapper>

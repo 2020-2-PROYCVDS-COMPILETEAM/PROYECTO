@@ -34,7 +34,6 @@
                         <li><h2>Novedades</h2>
                             <ul>
                                 <li id="novedades"><a href="../Equipos/RegistrarNovedadEquipos.xhtml">Registrar Novedad</a></li>
-                                <li id="novedades"><a href="../Equipos/ReporteNovedadesEquipo.xhtml">Reporte historico Novedades</a></li>
                             </ul>
                         </li>
                         <li><a href="../Equipos/BajaEquipos.xhtml">Dar de baja Equipo</a></li>
@@ -48,10 +47,15 @@
                         <li><h2>Novedades</h2>
                             <ul>
                                 <li id="novedades"><a href="../Elementos/RegistrarNovedadElementos.xhtml">Registrar Novedad</a></li>
-                                <li id="novedades"><a href="../Elementos/ReporteNovedadesElemento.xhtml">Reporte historico Novedades</a></li>
                             </ul>
                         </li>
-                        <li><a href="BajaElementos.xhtml">Dar de baja Elemento</a></li>
+                        <li><a href="../Elementos/BajaElementos.xhtml">Dar de baja Elemento</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Novedades</h3>
+                    <ul>
+                        <li><a href="../admin/ReporteHistoricoNovedades.xhtml">Reporte historico Novedades</a></li>
                     </ul>
                 </li>
             </ul>
@@ -59,10 +63,11 @@
 
         <div id="contenido">
 
-            <h:form>
+            <h:form id="formelemento">
 
             <p:dataTable id="elemento_table" var="elemento" value="#{elementoBean.elementos}" rows="10"
-                         paginator="true">
+                         paginator="true" paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {exporter}" >
+
                 <p:column var="elem" filterBy="#{elemento.id}" headerText="Elementos Existentes-ID">
                     <h:outputText value="#{elemento.id}" />
                 </p:column>
@@ -82,22 +87,39 @@
                     <h:outputText value="#{elemento.nombre}" />
             </p:column>
                 <p:column headerText="Administrar">
-                    <p:commandButton  oncomplete="PF('elementoDialog').show()" value="Administrar Elemento">
+                    <p:commandButton update="elementoDetail" oncomplete="PF('elementoDialog').show()" value="Administrar Elemento">
                         <f:setPropertyActionListener value="#{elemento}" target="#{elementoBean.selectedElemento}" />
                     </p:commandButton>
                 </p:column>
+                <f:facet name="{exporter}">
+                    <h:commandLink>
+                        <p:graphicImage url="recursos/img/excel.png" width="30"/>
+                        <p:dataExporter type="csv" target="elemento_table" fileName="ReporteDeEquipos"/>
+                    </h:commandLink>
+                </f:facet>
+
             </p:dataTable>
             </h:form>
 
             <p:dialog header="elemento Info" widgetVar="elementoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                 <p:outputPanel id="elementoDetail" >
-                    <h:outputText value="Id: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.id}"/><br/>
+                    <h:form>
+                    <h:outputText value="Id: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.id}"/><br/>¿
                     <h:outputText value="Tipo: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.tipo}"/><br/>
                     <h:outputText value="Marca: "/><h:outputText style="text-align: right" value="#{elementoBean.selectedElemento.marca}"/><br/>
-                    <h:form>
-                        <h:outputText value="nombre: " /><h:inputText  value="#{elementoBean.selectedElemento.nombre}"/>
-
+                    <h:outputText value="nombre: " /><h:inputText  value="#{elementoBean.modificarNombre}"/><br/>
+                    <h:outputText value="Activo: " /><p:selectBooleanButton id="value1" value="#{elementoBean.modificarActivo}" onLabel="Yes" offLabel="No" style="width:60px" /><br/>
+                    <h:outputText value="Equipos: " />
+                    <p:autoComplete placeholder="equipos" dropdown="true" value="#{elementoBean.modificarEquipo}" completeMethod="#{equipoBean.getNombreEquipos()}"/><br/><br/>
+                        <p:commandButton value="Modificar Elemento" action="#{elementoBean.modificarElemento()}" style="margin-right:20px;" />
                     </h:form>
+                    <p:dataTable id="selectedElemento_table" var="novedad" value="#{elementoBean.selectedElemento.novedades}" rows="10"
+                                 paginator="true">
+                        <p:column  headerText="Elementos Existentes-ID">
+                            <h:outputText value="#{novedad.id}" />
+                        </p:column>
+                    </p:dataTable>
+
                 </p:outputPanel>
             </p:dialog>
 

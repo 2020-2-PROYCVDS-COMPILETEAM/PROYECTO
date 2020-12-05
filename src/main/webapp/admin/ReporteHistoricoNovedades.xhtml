@@ -3,15 +3,15 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Inicio</title>
-    <link href="../recursos/assets/css/base.css" rel="stylesheet" />
+    <title>Reporte Novedad Elemento</title>
+    <link href="/recursos/assets/css/base.css" rel="stylesheet" />
 </h:head>
 
 
 <h:body>
     <div id="contenedor">
         <div id="cabecera">
-            <h1><span style="color:blue">Aqui</span>cabecera</h1>
+            <h1><span style="color:blue">ReporteHistorico</span>Novedades</h1>
         </div>
 
         <div id="menu">
@@ -62,27 +62,51 @@
         </div>
 
         <div id="contenido">
-            aqui el contenido
+            <p:dataTable id="novedades_table" var="novedad" value="#{novedadBean.novedades}" rows="10"
+                         paginator="true" paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {exporter}" >
+
+                <p:column  filterBy="#{novedad.id}" headerText="ID">
+                    <h:outputText value="#{novedad.id}" />
+                </p:column>
+                <p:column filterBy="#{novedad.elementoId}" headerText="Elemento">
+                    <h:outputText value="#{novedad.elementoId}" />
+                </p:column>
+                <p:column filterBy="#{novedad.equipoId}" headerText="Equipo">
+                    <h:outputText value="#{novedad.equipoId}" />
+                </p:column>
+                <p:column filterBy="#{novedad.usuarioId}" headerText="usuario">
+                    <h:outputText value="#{novedad.usuarioId}" />
+                </p:column>
+                <p:column filterBy="#{novedad.fecha}" headerText="Fecha">
+                    <h:outputText value="#{novedad.fecha}" />
+                </p:column>
+                <p:column filterBy="#{novedad.detalle}" headerText="Detalle">
+                    <h:outputText value="#{novedad.detalle}" />
+                </p:column>
+                <p:column filterBy="#{novedad.nombre}" headerText="Nombre">
+                    <h:outputText value="#{novedad.nombre}" />
+                </p:column>
+                <f:facet name="{exporter}">
+                    <h:commandLink>
+                        <p:graphicImage url="../recursos/assets/img/excel.png" width="30"/>
+                        <p:dataExporter type="csv" target="elemento_table" fileName="ReporteDeEquipos"/>
+                    </h:commandLink>
+                </f:facet>
+            </p:dataTable>
         </div>
 
+        <div id="pie">
+            <footer id="footer">
 
+                <div class="container">
+
+                    <div class="copyright">
+                        © Copyright <strong><span>JJD Company</span></strong>. All Rights Reserved
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
-    <script src="http://code.jquery.com/jquery-1.12.0min.js"></script>
-        <script type="text/javascript">
-            window.onload = init;
-            function init(){
-                document.querySelectorAll(".more")[0].addEventListener("click",submenu);
-                document.querySelector(".submenu > ul").style.display = "none";
-            }
-            function submenu(){
-                var estado = document.querySelector(".submenu > ul").style.display;
-                if (estado == "none"){
-                    document.querySelector(".submenu > ul").style.display = "block";
-                }else{
-                    document.querySelector(".submenu > ul").style.display = "none";
-                };}
-    </script>
-
 
 </h:body>
 </html>

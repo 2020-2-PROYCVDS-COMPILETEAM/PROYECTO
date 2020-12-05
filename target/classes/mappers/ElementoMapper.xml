@@ -20,8 +20,10 @@
         FROM Elemento as e
 
     </select>
-
-
+    
+    <update id="modificarElemento" parameterType="edu.eci.cvds.samples.entities.Elemento">
+        UPDATE elemento set activo=#{activo}, nombre=#{nombre}, equipo=(select e.id from equipo as e where e.nombre=#{equipo}) where id=#{id}
+    </update>
 
     <insert id="registrarElemento" parameterType="edu.eci.cvds.samples.entities.Elemento">
         insert into elemento(tipo,equipo,activo,marca,nombre) values (#{tipo}, NULL, true, #{marca}, #{nombre})
@@ -36,16 +38,19 @@
 	</update>
 
     <update id="darDeBajaElemento" parameterType="map">
-		UPDATE elemento set activo=False where id=#{elementoId} and equipoid is NULL
+		UPDATE elemento set activo=False where id=#{elementoId} and equipo is NULL
 	</update>
 
-    <select id="getEquipoID" resultMap="reporteElementoResult"
-            parameterType="int">
+    <delete id="delete" parameterType="map">
+        DELETE FROM elemento WHERE id=#{id}
+    </delete>
+
+    <select id="getEquipoID" resultMap="reporteElementoResult" parameterType="int">
 		SELECT
-			e.equipoid
+			e.id
 		FROM
 			ELEMENTO as e
-		WHERE e.id=#{elementoId}
+		WHERE e.id=#{id}
 		ORDER BY e.id ASC
 
 	</select>

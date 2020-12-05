@@ -97,7 +97,7 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     }
 
     @Override
-    public void registrarNovedadElemento(int id_elemento, int id_equipo, Date fecha, String nombre, String usuario, String detalle) {
+    public void registrarNovedadElemento(int id_elemento, int id_equipo, String fecha, Date nombre, String usuario, String detalle) {
         novedadDAO.registrarNovedadElemento(id_elemento,id_equipo,fecha,nombre,usuario,detalle);
     }
 
@@ -115,6 +115,21 @@ public class serviciosHistorialEquiposImpl implements serviciosHistorialEquipos 
     @Override
     public  ArrayList<Laboratorio> reporteLaboratorios() {
         return laboratorioDAO.reporteLaboratorios();
+    }
+
+    @Override
+    public void modificarElemento(int id, String nombre, boolean activo, String equipo) {
+        elementoDAO.modificarElemento(id, nombre,activo,equipo);
+    }
+
+    @Override
+    public void darDeBaja(List<Elemento> selectedElementos) {
+        elementoDAO.darDeBaja(selectedElementos);
+    }
+
+    @Override
+    public ArrayList<Novedad> reporteNovedades() {
+        return novedadDAO.reporteNovedades();
     }
 
     @Override

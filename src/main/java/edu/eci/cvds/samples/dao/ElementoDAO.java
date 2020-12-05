@@ -3,6 +3,7 @@ package edu.eci.cvds.samples.dao;
 import edu.eci.cvds.samples.entities.Elemento;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ElementoDAO {
 
@@ -15,4 +16,9 @@ public interface ElementoDAO {
     int getElementoID(int elementoID);
 
     ArrayList<Elemento> reporteElementos();
+
+    void modificarElemento(int id, String nombre, boolean activo, String equipo);
+
+    void darDeBaja(List<Elemento> selectedElementos);
+
 }
